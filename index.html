@@ -1,119 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Preparo de exame</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
     <header class="header">
-      <img src="./logo-hemolabes 1.svg">
+      <img src="./logo-hemolabes 1.svg" />
       <p><strong>Laboratório </strong>clínico</p>
     </header>
 
     <div class="sub-title">
-         <h2 > Marque as opções desejadas abaixo</h2> 
-   </div>  
+      <h2>Marque as opções desejadas abaixo</h2>
+    </div>
 
     <section>
       <i class="fa-solid fa-arrow-down"></i>
       <p class="btnShowSection btnShowJejum">Tempo de jejum</p>
 
-    <div class="sec-jejum">
-       <label for="4h">
-         4 horas <input class="horas-jj" id="4h" name="jj" type="radio" value="4 horas" >
-         </label>
-       <label for="6h">
-         6 horas <input class="horas-jj" id="6h" name="jj"  type="radio" value="6 horas" >
-         </label>
-       <label for="8h">
-         8 horas <input class="horas-jj" id="8h" name="jj"  type="radio" value="8 horas" >
-         </label>
-       <label for="12h">
-         12 horas <input class="horas-jj" id="12h" name="jj"  type="radio"  value="12 horas">
-         </label>
-        </div>
-        <div class="resultadoJejum  res"> </div>
-
+      <div class="sec-jejum">
+        <label for="4h">
+          4 horas
+          <input
+            class="horas-jj"
+            id="4h"
+            name="jj"
+            type="radio"
+            value="4 horas"
+          />
+        </label>
+        <label for="6h">
+          6 horas
+          <input
+            class="horas-jj"
+            id="6h"
+            name="jj"
+            type="radio"
+            value="6 horas"
+          />
+        </label>
+        <label for="8h">
+          8 horas
+          <input
+            class="horas-jj"
+            id="8h"
+            name="jj"
+            type="radio"
+            value="8 horas"
+          />
+        </label>
+        <label for="12h">
+          12 horas
+          <input
+            class="horas-jj"
+            id="12h"
+            name="jj"
+            type="radio"
+            value="12 horas"
+          />
+        </label>
+      </div>
+      <div class="resultadoJejum res"></div>
     </section>
 
-    <div> 
+    <div>
       <i class="fa-solid fa-arrow-down"></i>
       <p class="btnShowSection btnEspecial">Preparos especiais</p>
 
-      <div  class="preparos-adicionais sectionEspeciais">
+      <div class="preparos-adicionais sectionEspeciais">
         <!--<h3>Preparos adicionais:</h3>-->
-        <label for="cort">           
-          Possui cortisol? <input type="checkbox" id="cort" class="cortisol especiais" value="cortisol">
+        <label for="cort">
+          cortisol
+          <input
+            type="checkbox"
+            id="cort"
+            class="cortisol especiais"
+            value="cortisol"
+          />
         </label>
-        <label for="psa">
-           Possui PSA? <input type="checkbox" id="psa" value="psa" class="psa especiais">
-        </label>
-        </div>
 
-        <div class="resultadoCortisol res-02"> </div>
-        <div class="resultadoPsa res-02"> </div>
-       
+        <label for="psa">
+          PSA
+          <input type="checkbox" id="psa" value="psa" class="psa especiais" />
+        </label>
+
+        <label for="glipp">
+          Glicose pós pradial<input
+            type="checkbox"
+            id="glipp"
+            value="glipp"
+            class="glipp especiais"
+          />
+        </label>
+
+        <label for="esp">
+          Espermograma<input
+            type="checkbox"
+            id="esp"
+            value="esp"
+            class="esp especiais"
+          />
+        </label>
+
+        <label for="dna">
+          teste de DNA
+          <input type="checkbox" id="dna" value="dna" class="dna especiais" />
+        </label>
+
+        <label for="toxicologico">
+          Toxicológico<input
+            type="checkbox"
+            id="toxicologico"
+            value="toxicologico"
+            class="toxicologico especiais"
+          />
+        </label>
+      </div>
+
+      <div class="resultadoCortisol res-02"></div>
+      <div class="resultadoPsa res-02"></div>
+      <div class="resultadoEsp res-02"></div>
+      <div class="resultadoDna res-02"></div>
+      <div class="resultadoToxicologico res-02"></div>
+      <div class="resultadoGlipp res-02"></div>
     </div>
 
     <section>
       <i class="fa-solid fa-arrow-down"></i>
       <p class="btnShowSection">Coleta de material</p>
-      
+
       <div class="sec-materiais sectionMateriais">
-         <!-- <h3>Materiais a serem coletados:</h3>-->
-         <label for="eas" >EAS
-         <input type="checkbox" id="eas" class="eas" value="eas">
+        <label for="eas"
+          >EAS
+          <input type="checkbox" id="eas" class="eas" value="eas" />
         </label>
-       <label for="easCultura" >
-        EAS + Cultura <input type="checkbox" id="easCultura" value="easCultura" class="easCultura">
-      </label>
-       <label for="epf" >
-        EPF <input type="checkbox" id="epf" class="epf" value="epf" >
-      </label>
-       <label for="mif" >
-        MIF <input type="checkbox" id="mif" class="mif" value="mif" >
-      </label>
-      <label for="escarro" >
-        Escarro <input type="checkbox" id="escarro" class="escarro" value="escarro" >
-      </label>  
+
+        <label for="easCultura">
+          EAS + Cultura
+          <input
+            type="checkbox"
+            id="easCultura"
+            value="easCultura"
+            class="easCultura"
+          />
+        </label>
+
+        <label for="uri24">
+          Urina 24horas
+          <input type="checkbox" id="uri24" class="uri24" value="uri24" />
+        </label>
+
+        <label for="epf">
+          EPF <input type="checkbox" id="epf" class="epf" value="epf" />
+        </label>
+
+        <label for="mif">
+          MIF <input type="checkbox" id="mif" class="mif" value="mif" />
+        </label>
+
+        <label for="escarro">
+          Escarro
+          <input type="checkbox" id="escarro" class="escarro" value="escarro" />
+        </label>
       </div>
-        
+
       <div class="lista-materiais">
-        <div class="resultadoEas res"> </div>
-        <div class="resultadoEasCultura res"> </div>
-        <div class="resultadoEpf res"> </div>
-        <div class="resultadoMif res"> </div>
-        <div class="resultadoEscarro res"> </div>
-    </div>
-
+        <div class="resultadoEas res"></div>
+        <div class="resultadoEasCultura res"></div>
+        <div class="resultadoEpf res"></div>
+        <div class="resultadoMif res"></div>
+        <div class="resultadoEscarro res"></div>
+        <div class="resultadoUri24 res"> </div>
+      </div>
     </section>
-
 
     <div class="obs">
       <i class="fa-solid fa-arrow-down"></i>
       <p class="btnShowSection btnObs">Observação?</p>
 
-      <div  class="observacao"> 
-        <h3>Observação: </h3>
-         <input type="text" maxlength="50" minlength="4" value="" id="txt" />
-
-        </div>
-        <div class="resultadoObs res"> </div>
+      <div class="observacao">
+        <h3>Observação:</h3>
+        <input type="text" maxlength="50" minlength="4" value="" id="txt" />
+      </div>
+      <div class="resultadoObs res"></div>
     </div>
 
-    <div class="wrapper-btn"> 
-        <button class="btn-imprimir">Imprimir</button>
+    <div class="wrapper-btn">
+      <button class="btn-imprimir">Imprimir</button>
     </div>
-
-
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

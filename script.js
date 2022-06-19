@@ -1,101 +1,144 @@
-const horasJejum = document.getElementsByName('jj')
-const btn = document.querySelector('.btn-imprimir')
-const cort = document.querySelector('.cortisol')
-const psa = document.querySelector('.psa')
-const eas = document.querySelector('.eas')
-const easCultura = document.querySelector('.easCultura')
-const epf = document.querySelector('.epf')
-const mif = document.querySelector('.mif')
-const escarro = document.querySelector('.escarro')
-const btnShowSection = document.querySelectorAll('.btnShowSection')
-const sessaoJejum = document.querySelector('.sec-jejum')
-const sessaoPreparosAdicionais = document.querySelector('.preparos-adicionais')
-const sessaoMateriais = document.querySelector('.sec-materiais')
-const observacao = document.querySelector('.observacao')
-const resultados = document.querySelectorAll('.lista-materiais')
+const horasJejum = document.getElementsByName("jj");
+const btn = document.querySelector(".btn-imprimir");
+const cort = document.querySelector(".cortisol");
+const psa = document.querySelector(".psa");
+const eas = document.querySelector(".eas");
+const easCultura = document.querySelector(".easCultura");
+const epf = document.querySelector(".epf");
+const mif = document.querySelector(".mif");
+const escarro = document.querySelector(".escarro");
+const uri24 = document.querySelector(".uri24");
+const esp = document.querySelector(".esp");
+const dna = document.querySelector(".dna");
+const toxicologico = document.querySelector(".toxicologico");
+const glipp = document.querySelector(".glipp");
+const btnShowSection = document.querySelectorAll(".btnShowSection");
+const sessaoJejum = document.querySelector(".sec-jejum");
+const sessaoPreparosAdicionais = document.querySelector(".preparos-adicionais");
+const sessaoMateriais = document.querySelector(".sec-materiais");
+const observacao = document.querySelector(".observacao");
+const resultados = document.querySelectorAll(".lista-materiais");
 
-function activeModal(btn, index) {    
-    if (index === 0) {
-        sessaoJejum.classList.toggle('SectionOn')
-    } 
-    if (index === 1) {
-        sessaoPreparosAdicionais.classList.toggle('SectionOn')
-    }
-    if (index === 2) {
-        sessaoMateriais.classList.toggle('SectionOn')
-        resultados.forEach((res) => {
-            res.classList.toggle('SectionOn')
-        }) 
-    }
-    if (index === 3) {
-        observacao.classList.toggle('SectionOn')
-    }    
+function activeModal(btn, index) {
+  if (index === 0) {
+    sessaoJejum.classList.toggle("SectionOn");
+  }
+  if (index === 1) {
+    sessaoPreparosAdicionais.classList.toggle("SectionOn");
+  }
+  if (index === 2) {
+    sessaoMateriais.classList.toggle("SectionOn");
+    resultados.forEach((res) => {
+      res.classList.toggle("SectionOn");
+    });
+  }
+  if (index === 3) {
+    observacao.classList.toggle("SectionOn");
+  }
 }
 btnShowSection.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-        activeModal(btn, index)
-    })
-})  
-
+  btn.addEventListener("click", () => {
+    activeModal(btn, index);
+  });
+});
 
 function handleImprimir() {
 
-    const radios = Array.from(document.querySelectorAll('input[type="radio"]:checked'));
-    if (radios.length === 0) {
-       let sectionJejumOff = document.querySelector('.sec-jejum')
-       sectionJejumOff.classList.add('printHide')
+  const radios = Array.from(
+    document.querySelectorAll('input[type="radio"]:checked')
+  );
+  if (radios.length === 0) {
+    let sectionJejumOff = document.querySelector(".sec-jejum");
+    sectionJejumOff.classList.add("printHide");
 
-       let btnShowJejum = document.querySelector('.btnShowJejum')
-       btnShowJejum.classList.add('printHide')
-    }    
+    let btnShowJejum = document.querySelector(".btnShowJejum");
+    btnShowJejum.classList.add("printHide");
+  }
 
   for (let i = 0; i < horasJejum.length; i++) {
-      if (horasJejum[i].checked) {
-          
-          if (i === 0) {
-            const resultadoJejum = document.querySelector('.resultadoJejum')
-            resultadoJejum.innerHTML = `
-            <p><strong>São 4 horas de jejum</strong>, podendo hidratar-se normalmente (apenas com água).</p>` 
-        } 
-        if (i === 1) {
-            const resultadoJejum = document.querySelector('.resultadoJejum')
-            resultadoJejum.innerHTML = `<p><strong>São 6 horas de jejum</strong>, podendo hidratar-se normalmente (apenas com água).</p` 
-        }
-        if (i === 2) {
-            const resultadoJejum = document.querySelector('.resultadoJejum')
-            resultadoJejum.innerHTML = `<p><strong>São 8 horas de jejum</strong>, podendo hidratar-se normalmente (apenas com água).</p>` 
-        }
-        if (i === 3) {
-            const resultadoJejum = document.querySelector('.resultadoJejum')
-            resultadoJejum.innerHTML = `<p><strong>São 12 horas de jejum</strong>, podendo hidratar-se normalmente (apenas com água).</p` 
-        }
+    if (horasJejum[i].checked) {
+      if (i === 0) {
+        const resultadoJejum = document.querySelector(".resultadoJejum");
+        resultadoJejum.innerHTML = `
+            <p><strong>São 4 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>`;
+      }
+      if (i === 1) {
+        const resultadoJejum = document.querySelector(".resultadoJejum");
+        resultadoJejum.innerHTML = `<p><strong>São 6 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p`;
+      }
+      if (i === 2) {
+        const resultadoJejum = document.querySelector(".resultadoJejum");
+        resultadoJejum.innerHTML = `<p><strong>São 8 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>`;
+      }
+      if (i === 3) {
+        const resultadoJejum = document.querySelector(".resultadoJejum");
+        resultadoJejum.innerHTML = `<p><strong>São 12 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p`;
+      }
     }
-}
- if ( cort.checked) {
-    const resultadoCortisol = document.querySelector('.resultadoCortisol')
+  }
+  //--------- PREPAROS ESPECIAIS --------
+  if (cort.checked) {
+    const resultadoCortisol = document.querySelector(".resultadoCortisol");
     resultadoCortisol.innerHTML = `<p><strong>CORTISOL</strong>- Chegar ao laboratório no máximo
      <strong>até às 7:20 horas</strong>,para realização do repouso
-     pré cortisol e coletar às 8:00 horas.</p>` 
- } 
+     pré cortisol e realizar a coleta às 8:00 horas.</p>`;
+  }
 
- if (psa.checked) {
-    const resultadoPsa = document.querySelector('.resultadoPsa')
+  if (psa.checked) {
+    const resultadoPsa = document.querySelector(".resultadoPsa");
     resultadoPsa.innerHTML = `<p><strong>PSA</strong> - Após toque retal, aguardar 2 dias</p>
     <p>- Após ultrassom transretal, 1 dia.</p>
     <p>- Após exercícios pesados, andar de bicicleta, andar de moto
     e à cavalo, aguardar 1 dia.<p/>
     <p>- Após biópsia ou massagem de próstata,
     aguardar 4 semanas.</p>
-    <p>- Após ejaculção (relação sexual), aguardar 2 dias.</p><br></br>
-    ` 
- }
- if ( eas.checked) {
-    const resultadoEas = document.querySelector('.resultadoEas')
+    <p>- Após ejaculção (relação sexual), aguardar 2 dias.</p>
+    `
+  }
+  if (glipp.checked) {
+    const resultadoGlipp = document.querySelector(".resultadoGlipp");
+    resultadoGlipp.innerHTML = `<p><strong>Glicose pós pradial</strong>
+    - Manter a alimentação normal.</p>
+    <p>- Anotar o horário do início do almoço (1º garfada).</p>
+    <p>- Almoçar em até 20 minutos no máximo.</p>
+    <p>- Não ingerir nenhum tipo de alimento após o almoço até
+    o horário da coleta, apenas água é permitido.</p>
+    <p>- Chegar ao laboratório 15 minutos antes da coleta
+    para que o sangue seja colhido exatamente 2 horas após
+    o início do almoço. O atraso deixa o exame inválido.</p>`;
+  }
+
+  if (esp.checked) {
+    const resultadoEsp = document.querySelector(".resultadoEsp");
+    resultadoEsp.innerHTML = `<p><strong>Espermograma</strong>- Coleta deve ser realizada com 5 dias de abstinência sexual/ejaculação.</p>
+    <p>- A coleta é de segunda a sexta-feira das 7:00 ás 10:00 horas (coletar o material no laboratório).</p>
+    <p>- Local: Rua Conde de Araruama 365º (matriz).</p>`;
+  }
+  if (dna.checked) {
+    const resultadoDna = document.querySelector(".resultadoDna");
+    resultadoDna.innerHTML = `<p><strong>DNA</strong> - Levar documento original e copia do comprovante de residência e identidade.</p>
+    <p>- De segunda a sexta-feira, de 13:00 às 15:30.</p>
+    <p>- Local: Rua Conde de Araruama 365º (matriz).</p>`;
+  }
+  if (toxicologico.checked) {
+    const resultadoToxicologico = document.querySelector(".resultadoToxicologico");
+    resultadoToxicologico.innerHTML = ` <p><strong>Toxicológico</strong></p>
+    <p>- Realizado apenas para renovação de CNH.</p>
+    <p>- Pagamento somente no cartão de crédito, podendo dividir em até 3x R$60,00.</p>
+    <p>- Obrigatório levar CNH original e cópia.</p>
+    <p>- De segunda a sexta-feira, de 13:00 às 15:30.</p>
+    <p>- Local: Rua Conde de Araruama 365º (matriz).</p>`;
+  }
+  // ------ Materiais -----------------
+
+  if (eas.checked) {
+    const resultadoEas = document.querySelector(".resultadoEas");
     resultadoEas.innerHTML = `<p><strong>EAS</strong> - Coletar uma amostra de urina e 
-    entregar ao laboratório em até 3 horas após coletado.</p>` 
- } 
- if ( easCultura.checked) {
-    const resultadoEasCultura = document.querySelector('.resultadoEasCultura')
+    entregar ao laboratório em até 3 horas após coletado.</p>`;
+  }
+
+  if (easCultura.checked) {
+    const resultadoEasCultura = document.querySelector(".resultadoEasCultura");
     resultadoEasCultura.innerHTML = `<p><strong>EAS+CULTURA</strong> - Colher a primeira urina da manhã</p>
    <p> - Usar sempre o recipiente estéril fornecido pelo laboratório e abrir
     apenas na hora da coleta.<p/>
@@ -103,25 +146,38 @@ function handleImprimir() {
     <p>- Iniciar a micção, desprezando o primeiro jato de urina.
     - Entregar ao laboratório em até 3 horas após a coleta.<p/>
     <p>Obs: Período menstrual - Colher a urina 4 dias após o término
-    . Aguardar 7 dias após o uso de antibióticos.<p/>` 
- } 
- if ( epf.checked) {
-    const resultadoEpf = document.querySelector('.resultadoEpf')
+    . Aguardar 7 dias após o uso de antibióticos.<p/>`;
+  }
+  if (uri24.checked) {
+    const resultadoUri24 = document.querySelector(".resultadoUri24");
+    resultadoUri24.innerHTML = `<p><strong>Urina 24 horas</strong>
+    - Desprezara a primeira urina da manhã ao se levantar e marcar a hora. Colher todas as urinas dai por diante,
+    durante o dia e a noite, se houver.</p>
+    <p>- Colher a primeira urina do dia seguinte na mesma hora em que desprezou a urina do dia anterior.</p>
+    <p>- Colher todo o volume de cada micção, armazenando em um frasco de água mineral sem gás.</p>
+    <p>- Não perder nenhuma micção, isto acarreta erro no resultado dos exames.</p>
+    <p>- Entregar todo o volume no laboratório num prazo máximo de 3 horas após a última coleta.</p>
+    <p><strong> OBS: Refrigerar durante a coleta.</strong></p>`;
+  }
+
+  if (epf.checked) {
+    const resultadoEpf = document.querySelector(".resultadoEpf");
     resultadoEpf.innerHTML = `<p><strong>EPF</strong> - Coletar uma pequena quantidade de fezes<p/>
     <p>- Entregar ao laboratório em até 3 horas em temperatura ambiente
-    ou manter refrigerada e entregar em até 24 horas.<p/>` 
- } 
- if ( mif.checked) {
-    const resultadoMif = document.querySelector('.resultadoMif')
+    ou manter refrigerada e entregar em até 24 horas.<p/>`;
+  }
+
+  if (mif.checked) {
+    const resultadoMif = document.querySelector(".resultadoMif");
     resultadoMif.innerHTML = `<p><strong>MIF</strong>- Colher 3 amostras de fezes, no prazo
     máximo de 10 dias, alternando entre os dias.</p>
     <p>- Coletar uma pequena quantidade de fezes a cada dia, colocando
     3 amostras juntas num mesmo recipiente.<p/>
-    <p>- Evitar coletar em dias seguidos
-    - Não é necessário refrigerar<p/>`
- } 
- if ( escarro.checked) {
-    const resultadoEscarro = document.querySelector('.resultadoEscarro')
+    <p>- Evitar coletar em dias seguidos</p>
+    <p>- Não é necessário refrigerar<p/>`;
+  }
+  if (escarro.checked) {
+    const resultadoEscarro = document.querySelector(".resultadoEscarro");
     resultadoEscarro.innerHTML = `<p><strong>Escarro</strong> - Pela manhã, imediatamente após acordar
     eliminar o material de drenagem nasal que estiver presente</p>
     <p>- Escovar os dentes e lavar a boca com bastante água (não utilizar creme dental).</p>
@@ -132,41 +188,39 @@ function handleImprimir() {
     impróprio para a realização do exame.</p>
     <p>Obs: No caso de haver dificuldade de obter o escarro por falta de secreção
     , recomendamos fazer inalação com vapor de água quente ou
-    vaporização com soro fisiológico para estimular a secreção </p>` 
- }
+    vaporização com soro fisiológico para estimular a secreção </p>`;
+  }
 
- removeFromScreen()
- 
-window.print()
+  removeFromScreen();
+
+  window.print();
+  //window.alert('Aperte "F5" Para Retornar ao início')
 }
-
 
 /* removendo da tela ao imprimir */
 function removeFromScreen() {
-    let subTitle = document.querySelector('.sub-title')
-     subTitle.classList.add('printHide')
+  let subTitle = document.querySelector(".sub-title");
+  subTitle.classList.add("printHide");
 
-     let btnPrint = document.querySelector('.btn-imprimir')
-     btnPrint.classList.add('printHide')
+  let btnPrint = document.querySelector(".btn-imprimir");
+  btnPrint.classList.add("printHide");
 
-     let i = document.querySelectorAll('i')
-      i.forEach((icone) => {
-        icone.classList.add('printHide')
-      }) 
+  let i = document.querySelectorAll("i");
+  i.forEach((icone) => {
+    icone.classList.add("printHide");
+  });
 
-      let sectionEspeciais = document.querySelector('.sectionEspeciais')
-      sectionEspeciais.classList.add('printHide')
+  let sectionEspeciais = document.querySelector(".sectionEspeciais");
+  sectionEspeciais.classList.add("printHide");
 
-      let sectionMateriais= document.querySelector('.sectionMateriais')
-      sectionMateriais.classList.add('printHide')
+  let sectionMateriais = document.querySelector(".sectionMateriais");
+  sectionMateriais.classList.add("printHide");
 
-      let sectionJejumOff = document.querySelector('.sec-jejum')
-      sectionJejumOff.classList.add('printHide')
+  let sectionJejumOff = document.querySelector(".sec-jejum");
+  sectionJejumOff.classList.add("printHide");
 
-      let btnObs = document.querySelector('.btnObs')
-      btnObs.classList.add('printHide')
+  let btnObs = document.querySelector(".btnObs");
+  btnObs.classList.add("printHide");
+}
 
-      
-    }
-
-btn.addEventListener('click', handleImprimir)
+btn.addEventListener("click", handleImprimir);
