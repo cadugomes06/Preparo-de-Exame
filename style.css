@@ -46,6 +46,7 @@ input:hover {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
   height: 20px;
   width: 100%;
   background: black;
@@ -66,6 +67,7 @@ input:hover {
   background: #111;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   height: 20px;
   color: white;
   display: flex;
@@ -93,6 +95,7 @@ input:hover {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
   height: 20px;
   width: 100%;
   background: black;
@@ -126,6 +129,8 @@ input:hover {
 .observacao {
   background: #111;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   height: 30px;
   color: white;
   display: flex;
@@ -135,12 +140,12 @@ input:hover {
 }
 .observacao h3 {
   margin-left: 1rem;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
-
 .observacao input {
   font-family: sans-serif;
   display: flex;
+  justify-content: center;
   width: 600px;
   height: 50px;
   border: none;
@@ -221,13 +226,47 @@ input:hover {
   visibility: hidden;
 }
 
-/*.psa.inputOn,
-.cortisol.inputOn,
-.eas.inputOn,
-.easCultura.inputOn,
-.epf.inputOn,
-.mif.inputOn,
-.escarro.inputOn {
-    display: block;
-    visibility: visible;
-}*/
+/* ------ mobile ------*/ 
+
+@media (max-width: 1200px) {
+  .icon i {
+    display: none;
+  }
+  .btnShowSection {
+    margin-top: 1rem;
+  }
+}
+
+@media  (max-width: 750px) {
+  .sub-title h2 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .btnShowSection {
+    font-size: 0.8rem;
+  }
+
+  .observacao input {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+  }
+
+  .observacao h3{
+    display: none;
+  }
+
+  .sec-jejum label,
+  .preparos-adicionais label,
+  .sec-materiais label {
+    font-size: .8rem;
+    margin: 0;
+  }
+
+  .sec-jejum input,
+  .preparos-adicionais input,
+  .sec-materiais input {
+    margin-left: .2rem;
+  }
+}
