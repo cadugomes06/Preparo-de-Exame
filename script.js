@@ -18,7 +18,7 @@ const sessaoPreparosAdicionais = document.querySelector(".preparos-adicionais");
 const sessaoMateriais = document.querySelector(".sec-materiais");
 const observacao = document.querySelector(".observacao");
 const resultados = document.querySelectorAll(".lista-materiais");
-
+/* ------- Animação em cada sessao --------- */
 function activeModal(btn, index) {
   if (index === 0) {
     sessaoJejum.classList.toggle("SectionOn");
@@ -41,9 +41,10 @@ btnShowSection.forEach((btn, index) => {
     activeModal(btn, index);
   });
 });
+/* ------- Animação em cada sessao --------- */
 
+/* ----------------- evento de click "imprimir" --------- */
 function handleImprimir() {
-
   const radios = Array.from(
     document.querySelectorAll('input[type="radio"]:checked')
   );
@@ -68,18 +69,18 @@ function handleImprimir() {
       }
       if (i === 2) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><strong>São 8 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>`;
+        resultadoJejum.innerHTML = `<p><strong>São 8 à 12 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>`;
       }
       if (i === 3) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><strong>São 12 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p`;
+        resultadoJejum.innerHTML = `<p><strong>São 12 à 14 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p`;
       }
     }
   }
   //--------- PREPAROS ESPECIAIS --------
   if (cort.checked) {
     const resultadoCortisol = document.querySelector(".resultadoCortisol");
-    resultadoCortisol.innerHTML = `<p><strong>CORTISOL</strong>- Chegar ao laboratório no máximo
+    resultadoCortisol.innerHTML = `<p><strong>Cortisol</strong> - Chegar ao laboratório no máximo
      <strong>até às 7:20 horas</strong>,para realização do repouso
      pré cortisol e realizar a coleta às 8:00 horas.</p>`;
   }
@@ -93,7 +94,7 @@ function handleImprimir() {
     <p>- Após biópsia ou massagem de próstata,
     aguardar 4 semanas.</p>
     <p>- Após ejaculção (relação sexual), aguardar 2 dias.</p>
-    `
+    `;
   }
   if (glipp.checked) {
     const resultadoGlipp = document.querySelector(".resultadoGlipp");
@@ -121,7 +122,9 @@ function handleImprimir() {
     <p>- Local: Rua Conde de Araruama 365º (matriz).</p>`;
   }
   if (toxicologico.checked) {
-    const resultadoToxicologico = document.querySelector(".resultadoToxicologico");
+    const resultadoToxicologico = document.querySelector(
+      ".resultadoToxicologico"
+    );
     resultadoToxicologico.innerHTML = ` <p><strong>Toxicológico</strong></p>
     <p>- Realizado apenas para renovação de CNH.</p>
     <p>- Pagamento somente no cartão de crédito, podendo dividir em até 3x R$60,00.</p>
@@ -139,7 +142,7 @@ function handleImprimir() {
 
   if (easCultura.checked) {
     const resultadoEasCultura = document.querySelector(".resultadoEasCultura");
-    resultadoEasCultura.innerHTML = `<p><strong>EAS+CULTURA</strong> - Colher a primeira urina da manhã</p>
+    resultadoEasCultura.innerHTML = `<p><strong>EAS + Cultura</strong> - Colher a primeira urina da manhã</p>
    <p> - Usar sempre o recipiente estéril fornecido pelo laboratório e abrir
     apenas na hora da coleta.<p/>
     <p>- Lavar as mãos e região genital com água e sabão<p/>
@@ -194,7 +197,7 @@ function handleImprimir() {
   removeFromScreen();
 
   window.print();
-  //window.alert('Aperte "F5" Para Retornar ao início')
+  window.alert('Aperte "F5" Para Retornar ao início');
 }
 
 /* removendo da tela ao imprimir */

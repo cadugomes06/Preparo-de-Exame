@@ -21,6 +21,7 @@ input:hover {
   height: 150px;
   background: white;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 .header p {
   font-size: 0.8rem;
@@ -129,7 +130,7 @@ input:hover {
 .observacao {
   background: #111;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-wrap: wrap;
   height: 30px;
   color: white;
@@ -244,7 +245,7 @@ input:hover {
   }
 
   .btnShowSection {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   .observacao input {
@@ -260,7 +261,7 @@ input:hover {
   .sec-jejum label,
   .preparos-adicionais label,
   .sec-materiais label {
-    font-size: .8rem;
+    font-size: .9rem;
     margin: 0;
   }
 
