@@ -18,7 +18,7 @@ input:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 150px;
+  height: 160px;
   background: white;
   justify-content: center;
   margin-bottom: 2rem;
@@ -27,11 +27,11 @@ input:hover {
   font-size: 0.8rem;
   font-weight: normal;
   position: absolute;
-  top: 120px;
+  top: 135px;
 }
 
 .sub-title {
-  background: rgb(190, 50, 50);
+  background:rgba(58, 140, 124, 1);
   color: white;
   height: 80px;
   display: flex;
@@ -50,13 +50,16 @@ input:hover {
   flex-wrap: wrap;
   height: 20px;
   width: 100%;
-  background: black;
+  background: #0d8a7f; 
+  background: -webkit-linear-gradient(to right, #5ac5b0, #044d46); 
+  background: linear-gradient(to right, #5ea597, #023f3a); 
   color: white;
   visibility: hidden;
   transition: 0.5s linear;
 }
 .sec-jejum label {
   font-size: 1rem;
+  font-weight: bold;
 }
 .sec-jejum input {
   height: 14px;
@@ -65,7 +68,9 @@ input:hover {
 
 /* ------ Preparos Adicionais ----- */
 .preparos-adicionais {
-  background: #111;
+  background: #0d8a7f; 
+  background: -webkit-linear-gradient(to right, #5ac5b0, #044d46); 
+  background: linear-gradient(to right, #5ea597, #023f3a); 
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -78,17 +83,19 @@ input:hover {
 }
 .preparos-adicionais label {
   font-size: 1rem;
+  font-weight: bold;
 }
 .preparos-adicionais input {
   margin-left: 0.5rem;
   height: 12px;
   width: 12px;
 }
-.res-02 {
+.res-02, .especiais {
   color: black;
+  line-height: 1.125rem;
   font-size: 0.9rem;
   text-align: start;
-  margin-bottom: 0.6rem;
+  margin-bottom: .8rem;
 }
 
 /* -------- Materiais a serem coletados --------*/
@@ -99,13 +106,16 @@ input:hover {
   flex-wrap: wrap;
   height: 20px;
   width: 100%;
-  background: black;
+  background: #0d8a7f; 
+  background: -webkit-linear-gradient(to right, #5ac5b0, #044d46); 
+  background: linear-gradient(to right, #5ea597, #023f3a); 
   color: white;
   visibility: hidden;
   transition: 0.5s ease-in;
 }
 .sec-materiais label {
   font-size: 1rem;
+  font-weight: bold;
 }
 .sec-materiais input {
   margin-left: 0.2rem;
@@ -122,19 +132,20 @@ input:hover {
   flex-direction: column;
   color: black;
   font-size: 0.9rem;
+  line-height: 1.125rem;
   font-weight: normal;
   margin-bottom: 0.6rem;
 }
 
 /* ------------- obs ---------- */
 .observacao {
-  background: #111;
+  background: #0d8a7f; 
+  background: -webkit-linear-gradient(to right, #5ac5b0, #044d46); 
+  background: linear-gradient(to right, #5ea597, #023f3a); 
   display: flex;
   justify-content: start;
-  flex-wrap: wrap;
   height: 30px;
   color: white;
-  display: flex;
   align-items: center;
   visibility: hidden;
   transition: 0.5s ease-in;
@@ -142,38 +153,40 @@ input:hover {
 .observacao h3 {
   margin-left: 1rem;
   margin-right: 1rem;
+  font-weight: bold;
 }
 .observacao input {
   font-family: sans-serif;
   display: flex;
-  justify-content: center;
-  width: 600px;
+  width: 1000px;
   height: 50px;
   border: none;
   border-radius: 4px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: normal;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* ---------------- BOTAO IMPRIMIR ------------ */
 .wrapper-btn {
   height: 80px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(192, 40, 40);
+  background: rgba(58, 140, 124, 1);
 }
 .btn-imprimir {
   padding: 12px 60px;
-  color: rgb(1, 73, 25);
+  color: rgb(4, 59, 52);
   text-transform: uppercase;
   font-weight: bold;
-  letter-spacing: 0.8px;
-  background: rgb(4, 238, 74);
+  background:rgb(29, 212, 176);
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+.btn-imprimir:hover {
+  background: rgba(87, 187, 166, 1);
 }
 
 /* ---------- ANIMATION SECTION -------- */

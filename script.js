@@ -44,7 +44,9 @@ btnShowSection.forEach((btn, index) => {
 /* ------- Animação em cada sessao --------- */
 
 /* ----------------- evento de click "imprimir" --------- */
+
 function handleImprimir() {
+
   const radios = Array.from(
     document.querySelectorAll('input[type="radio"]:checked')
   );
@@ -55,7 +57,7 @@ function handleImprimir() {
     let btnShowJejum = document.querySelector(".btnShowJejum");
     btnShowJejum.classList.add("printHide");
   }
-
+  
   for (let i = 0; i < horasJejum.length; i++) {
     if (horasJejum[i].checked) {
       if (i === 0) {
@@ -145,9 +147,9 @@ function handleImprimir() {
     resultadoEasCultura.innerHTML = `<p><strong>EAS + Cultura</strong> - Colher a primeira urina da manhã</p>
    <p> - Usar sempre o recipiente estéril fornecido pelo laboratório e abrir
     apenas na hora da coleta.<p/>
-    <p>- Lavar as mãos e região genital com água e sabão<p/>
-    <p>- Iniciar a micção, desprezando o primeiro jato de urina.
-    - Entregar ao laboratório em até 3 horas após a coleta.<p/>
+    <p> - Lavar as mãos e região genital com água e sabão.<p/>
+    <p> - Iniciar a micção, desprezando o primeiro jato de urina.</p>
+    <p> - Entregar ao laboratório em até 3 horas após a coleta.<p/>
     <p>Obs: Período menstrual - Colher a urina 4 dias após o término
     . Aguardar 7 dias após o uso de antibióticos.<p/>`;
   }
@@ -165,7 +167,7 @@ function handleImprimir() {
 
   if (epf.checked) {
     const resultadoEpf = document.querySelector(".resultadoEpf");
-    resultadoEpf.innerHTML = `<p><strong>EPF</strong> - Coletar uma pequena quantidade de fezes<p/>
+    resultadoEpf.innerHTML = `<p><strong>EPF</strong> - Coletar uma pequena quantidade de fezes.<p/>
     <p>- Entregar ao laboratório em até 3 horas em temperatura ambiente
     ou manter refrigerada e entregar em até 24 horas.<p/>`;
   }
@@ -176,8 +178,8 @@ function handleImprimir() {
     máximo de 10 dias, alternando entre os dias.</p>
     <p>- Coletar uma pequena quantidade de fezes a cada dia, colocando
     3 amostras juntas num mesmo recipiente.<p/>
-    <p>- Evitar coletar em dias seguidos</p>
-    <p>- Não é necessário refrigerar<p/>`;
+    <p>- Evitar coletar em dias seguidos.</p>
+    <p>- Não é necessário refrigerar.<p/>`;
   }
   if (escarro.checked) {
     const resultadoEscarro = document.querySelector(".resultadoEscarro");
@@ -195,9 +197,23 @@ function handleImprimir() {
   }
 
   removeFromScreen();
+  
+  /*const especiaisCheckeds =  Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+  especiaisCheckeds.map((especial) => {
 
+    if (!especial.classList.contains('especiais') && !especial.classList.contains('materiaisOff') ) {
+      const sectionEspeciaisOff = document.querySelector('.especiaisOff')
+      sectionEspeciaisOff.classList.add('printHide')
+      console.log(especial)
+    } else if (!especial.classList.contains('materiaisOff')) {
+      let sectionMateriaisOff = document.querySelector('.materiaisOff')
+      sectionMateriaisOff.classList.add('printHide')
+      console.log(especial)
+    } 
+  })*/
+  
   window.print();
-  window.alert('Aperte "F5" Para Retornar ao início');
+  document.location.reload()
 }
 
 /* removendo da tela ao imprimir */
