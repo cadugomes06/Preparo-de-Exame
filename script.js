@@ -57,39 +57,53 @@ function handleImprimir() {
     let btnShowJejum = document.querySelector(".btnShowJejum");
     btnShowJejum.classList.add("printHide");
   }
+
+  const especiaisCheckeds =  Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+  especiaisCheckeds.map((especial) => {
+ 
+     if (!especial.classList.contains('especiais') ) {
+      const sectionEspeciaisOff = document.querySelector('.especiaisOff')
+      sectionEspeciaisOff.classList.add('printHide')
+    }else if (!especial.classList.contains('materiaisOff'))  {
+      const sectionMateriaisOff = document.querySelector('.materiaisOff')
+      sectionMateriaisOff.classList.add('printHide')
+      console.log(especial)
+    }
+  })
+  
   
   for (let i = 0; i < horasJejum.length; i++) {
     if (horasJejum[i].checked) {
       if (i === 0) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
         resultadoJejum.innerHTML = `
-            <p><strong>São 4 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>`;
+            <p><i class="fa-solid fa-syringe"></i> <strong>São 4 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>`;
       }
       if (i === 1) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><strong>São 6 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p`;
+        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 6 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p`;
       }
       if (i === 2) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><strong>São 8 à 12 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>`;
+        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 8 à 12 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>`;
       }
       if (i === 3) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><strong>São 12 à 14 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p`;
+        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i>  <strong>São 12 à 14 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p`;
       }
     }
   }
   //--------- PREPAROS ESPECIAIS --------
   if (cort.checked) {
     const resultadoCortisol = document.querySelector(".resultadoCortisol");
-    resultadoCortisol.innerHTML = `<p><strong>Cortisol</strong> - Chegar ao laboratório no máximo
+    resultadoCortisol.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol</strong> - Chegar ao laboratório no máximo
      <strong>até às 7:20 horas</strong>,para realização do repouso
      pré cortisol e realizar a coleta às 8:00 horas.</p>`;
   }
 
   if (psa.checked) {
     const resultadoPsa = document.querySelector(".resultadoPsa");
-    resultadoPsa.innerHTML = `<p><strong>PSA</strong> - Após toque retal, aguardar 2 dias</p>
+    resultadoPsa.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>PSA</strong> - Após toque retal, aguardar 2 dias</p>
     <p>- Após ultrassom transretal, 1 dia.</p>
     <p>- Após exercícios pesados, andar de bicicleta, andar de moto
     e à cavalo, aguardar 1 dia.<p/>
@@ -100,7 +114,7 @@ function handleImprimir() {
   }
   if (glipp.checked) {
     const resultadoGlipp = document.querySelector(".resultadoGlipp");
-    resultadoGlipp.innerHTML = `<p><strong>Glicose pós pradial</strong>
+    resultadoGlipp.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Glicose pós pradial</strong>
     - Manter a alimentação normal.</p>
     <p>- Anotar o horário do início do almoço (1º garfada).</p>
     <p>- Almoçar em até 20 minutos no máximo.</p>
@@ -113,13 +127,13 @@ function handleImprimir() {
 
   if (esp.checked) {
     const resultadoEsp = document.querySelector(".resultadoEsp");
-    resultadoEsp.innerHTML = `<p><strong>Espermograma</strong>- Coleta deve ser realizada com 5 dias de abstinência sexual/ejaculação.</p>
+    resultadoEsp.innerHTML = `<p> <i class="fa-solid fa-vial-circle-check"></i> <strong>Espermograma</strong>- Coleta deve ser realizada com 3 à 5 dias de abstinência sexual/ejaculação.</p>
     <p>- A coleta é de segunda a sexta-feira das 7:00 ás 10:00 horas (coletar o material no laboratório).</p>
     <p>- Local: Rua Conde de Araruama 365º (matriz).</p>`;
   }
   if (dna.checked) {
     const resultadoDna = document.querySelector(".resultadoDna");
-    resultadoDna.innerHTML = `<p><strong>DNA</strong> - Levar documento original e copia do comprovante de residência e identidade.</p>
+    resultadoDna.innerHTML = `<p><i class="fa-solid fa-dna"></i> <strong>DNA</strong> - Levar documento original e copia do comprovante de residência e identidade.</p>
     <p>- De segunda a sexta-feira, de 13:00 às 15:30.</p>
     <p>- Local: Rua Conde de Araruama 365º (matriz).</p>`;
   }
@@ -127,7 +141,7 @@ function handleImprimir() {
     const resultadoToxicologico = document.querySelector(
       ".resultadoToxicologico"
     );
-    resultadoToxicologico.innerHTML = ` <p><strong>Toxicológico</strong></p>
+    resultadoToxicologico.innerHTML = `<p><i class="fa-solid fa-biohazard"></i> <strong>Toxicológico</strong></p>
     <p>- Realizado apenas para renovação de CNH.</p>
     <p>- Pagamento somente no cartão de crédito, podendo dividir em até 3x R$60,00.</p>
     <p>- Obrigatório levar CNH original e cópia.</p>
@@ -138,13 +152,13 @@ function handleImprimir() {
 
   if (eas.checked) {
     const resultadoEas = document.querySelector(".resultadoEas");
-    resultadoEas.innerHTML = `<p><strong>EAS</strong> - Coletar uma amostra de urina e 
+    resultadoEas.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>EAS</strong> - Coletar uma amostra de urina e 
     entregar ao laboratório em até 3 horas após coletado.</p>`;
   }
 
   if (easCultura.checked) {
     const resultadoEasCultura = document.querySelector(".resultadoEasCultura");
-    resultadoEasCultura.innerHTML = `<p><strong>EAS + Cultura</strong> - Colher a primeira urina da manhã</p>
+    resultadoEasCultura.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>EAS + Cultura</strong> - Colher a primeira urina da manhã</p>
    <p> - Usar sempre o recipiente estéril fornecido pelo laboratório e abrir
     apenas na hora da coleta.<p/>
     <p> - Lavar as mãos e região genital com água e sabão.<p/>
@@ -155,7 +169,7 @@ function handleImprimir() {
   }
   if (uri24.checked) {
     const resultadoUri24 = document.querySelector(".resultadoUri24");
-    resultadoUri24.innerHTML = `<p><strong>Urina 24 horas</strong>
+    resultadoUri24.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>Urina 24 horas</strong>
     - Desprezara a primeira urina da manhã ao se levantar e marcar a hora. Colher todas as urinas dai por diante,
     durante o dia e a noite, se houver.</p>
     <p>- Colher a primeira urina do dia seguinte na mesma hora em que desprezou a urina do dia anterior.</p>
@@ -167,14 +181,14 @@ function handleImprimir() {
 
   if (epf.checked) {
     const resultadoEpf = document.querySelector(".resultadoEpf");
-    resultadoEpf.innerHTML = `<p><strong>EPF</strong> - Coletar uma pequena quantidade de fezes.<p/>
+    resultadoEpf.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>EPF</strong> - Coletar uma pequena quantidade de fezes.<p/>
     <p>- Entregar ao laboratório em até 3 horas em temperatura ambiente
     ou manter refrigerada e entregar em até 24 horas.<p/>`;
   }
 
   if (mif.checked) {
     const resultadoMif = document.querySelector(".resultadoMif");
-    resultadoMif.innerHTML = `<p><strong>MIF</strong>- Colher 3 amostras de fezes, no prazo
+    resultadoMif.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>MIF</strong>- Colher 3 amostras de fezes, no prazo
     máximo de 10 dias, alternando entre os dias.</p>
     <p>- Coletar uma pequena quantidade de fezes a cada dia, colocando
     3 amostras juntas num mesmo recipiente.<p/>
@@ -183,7 +197,7 @@ function handleImprimir() {
   }
   if (escarro.checked) {
     const resultadoEscarro = document.querySelector(".resultadoEscarro");
-    resultadoEscarro.innerHTML = `<p><strong>Escarro</strong> - Pela manhã, imediatamente após acordar
+    resultadoEscarro.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>Escarro</strong> - Pela manhã, imediatamente após acordar
     eliminar o material de drenagem nasal que estiver presente</p>
     <p>- Escovar os dentes e lavar a boca com bastante água (não utilizar creme dental).</p>
     <p>- Respirar fundo umas 8 a 10 vezes e  tossir profundamente.
@@ -198,20 +212,6 @@ function handleImprimir() {
 
   removeFromScreen();
   
-  /*const especiaisCheckeds =  Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
-  especiaisCheckeds.map((especial) => {
-
-    if (!especial.classList.contains('especiais') && !especial.classList.contains('materiaisOff') ) {
-      const sectionEspeciaisOff = document.querySelector('.especiaisOff')
-      sectionEspeciaisOff.classList.add('printHide')
-      console.log(especial)
-    } else if (!especial.classList.contains('materiaisOff')) {
-      let sectionMateriaisOff = document.querySelector('.materiaisOff')
-      sectionMateriaisOff.classList.add('printHide')
-      console.log(especial)
-    } 
-  })*/
-  
   window.print();
   document.location.reload()
 }
@@ -224,7 +224,7 @@ function removeFromScreen() {
   let btnPrint = document.querySelector(".btn-imprimir");
   btnPrint.classList.add("printHide");
 
-  let i = document.querySelectorAll("i");
+  let i = document.querySelectorAll(".fa-arrow-down");
   i.forEach((icone) => {
     icone.classList.add("printHide");
   });

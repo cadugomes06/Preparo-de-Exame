@@ -10,8 +10,11 @@ body {
 
 label:hover,
 input:hover {
-  color: rgb(196, 196, 196);
+  color: #eee;
   cursor: pointer;
+}
+.fa-solid {
+  color: rgb(114, 224, 70);
 }
 
 .header {
@@ -51,8 +54,8 @@ input:hover {
   height: 20px;
   width: 100%;
   background: #0d8a7f; 
-  background: -webkit-linear-gradient(to right, #5ac5b0, #044d46); 
-  background: linear-gradient(to right, #5ea597, #023f3a); 
+  background: -webkit-linear-gradient(to right, #65d4be, #044d46); 
+  background: linear-gradient(to right, #71beaf, #023f3a); 
   color: white;
   visibility: hidden;
   transition: 0.5s linear;
@@ -134,7 +137,7 @@ input:hover {
   font-size: 0.9rem;
   line-height: 1.125rem;
   font-weight: normal;
-  margin-bottom: 0.6rem;
+  margin-bottom: .5rem;
 }
 
 /* ------------- obs ---------- */
@@ -227,10 +230,11 @@ input:hover {
   color: #666;
   transition: 0.2s;
 }
-.fa-solid {
+.fa-arrow-down {
   position: relative;
   margin-left: 30rem;
   bottom: -18px;
+  color: black;
 }
 
 /* ------------ AO IMPRIMIR --------- */
@@ -238,12 +242,13 @@ input:hover {
 .printHide {
   display: none;
   visibility: hidden;
+  margin-bottom: 1rem;
 }
 
 /* ------ mobile ------*/ 
 
 @media (max-width: 1200px) {
-  .icon i {
+  .fa-arrow-down {
     display: none;
   }
   .btnShowSection {
