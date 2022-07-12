@@ -7,6 +7,9 @@
 body {
   height: 100vh;
 }
+head {
+  color: white;
+}
 
 label:hover,
 input:hover {
@@ -21,7 +24,7 @@ input:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 160px;
+  height: 120px;
   background: white;
   justify-content: center;
   margin-bottom: 2rem;
@@ -30,7 +33,7 @@ input:hover {
   font-size: 0.8rem;
   font-weight: normal;
   position: absolute;
-  top: 135px;
+  top: 105px;
 }
 
 .sub-title {
@@ -154,6 +157,7 @@ input:hover {
   transition: 0.5s ease-in;
 }
 .observacao h3 {
+  color: #eee;
   margin-left: 1rem;
   margin-right: 1rem;
   font-weight: bold;
@@ -169,6 +173,9 @@ input:hover {
   font-weight: normal;
 }
 
+.observacao input:hover {
+  color: black;
+}
 /* ---------------- BOTAO IMPRIMIR ------------ */
 .wrapper-btn {
   height: 80px;
@@ -242,7 +249,7 @@ input:hover {
 .printHide {
   display: none;
   visibility: hidden;
-  margin-bottom: 1rem;
+  background: white;
 }
 
 /* ------ mobile ------*/ 
@@ -271,11 +278,6 @@ input:hover {
     justify-content: center;
     width: 300px;
   }
-
-  .observacao h3{
-    display: none;
-  }
-
   .sec-jejum label,
   .preparos-adicionais label,
   .sec-materiais label {

@@ -46,7 +46,6 @@ btnShowSection.forEach((btn, index) => {
 /* ----------------- evento de click "imprimir" --------- */
 
 function handleImprimir() {
-
   const radios = Array.from(
     document.querySelectorAll('input[type="radio"]:checked')
   );
@@ -58,20 +57,25 @@ function handleImprimir() {
     btnShowJejum.classList.add("printHide");
   }
 
-  const especiaisCheckeds =  Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
-  especiaisCheckeds.map((especial) => {
- 
-     if (!especial.classList.contains('especiais') ) {
-      const sectionEspeciaisOff = document.querySelector('.especiaisOff')
-      sectionEspeciaisOff.classList.add('printHide')
-    }else if (!especial.classList.contains('materiaisOff'))  {
-      const sectionMateriaisOff = document.querySelector('.materiaisOff')
-      sectionMateriaisOff.classList.add('printHide')
-      console.log(especial)
+  var sectionEspeciaisOff = document.querySelector(".especiaisOff");
+  var sectionMateriaisOff = document.querySelector(".materiaisOff");
+  const especiaisCheckeds = Array.from(
+    document.querySelectorAll('input[type="checkbox"]:checked'));
+    if (especiaisCheckeds.length === 0) {
+      sectionEspeciaisOff.classList.add("printHide");
+      sectionMateriaisOff.classList.add("printHide"); 
     }
-  })
-  
-  
+    especiaisCheckeds.map((especial) => {
+    if (!especial.classList.contains("especiais")) {
+      let sectionEspeciaisOff = document.querySelector(".especiaisOff");
+      sectionEspeciaisOff.classList.add("printHide");
+    } else if (!especial.classList.contains("materiaisOff")) {
+      let sectionMateriaisOff = document.querySelector(".materiaisOff");
+      sectionMateriaisOff.classList.add("printHide");
+      console.log(especial);
+    }
+  });
+
   for (let i = 0; i < horasJejum.length; i++) {
     if (horasJejum[i].checked) {
       if (i === 0) {
@@ -97,7 +101,7 @@ function handleImprimir() {
   if (cort.checked) {
     const resultadoCortisol = document.querySelector(".resultadoCortisol");
     resultadoCortisol.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol</strong> - Chegar ao laboratório no máximo
-     <strong>até às 7:20 horas</strong>,para realização do repouso
+     <strong>até às 7:20 horas</strong>, para realização do repouso
      pré cortisol e realizar a coleta às 8:00 horas.</p>`;
   }
 
@@ -211,9 +215,8 @@ function handleImprimir() {
   }
 
   removeFromScreen();
-  
   window.print();
-  document.location.reload()
+  document.location.reload();
 }
 
 /* removendo da tela ao imprimir */
@@ -228,6 +231,12 @@ function removeFromScreen() {
   i.forEach((icone) => {
     icone.classList.add("printHide");
   });
+
+  let title = document.querySelector('title')
+  title.innerText = '`'
+
+  let meta = document.querySelector('meta')
+  meta.innerHTML = '`'
 
   let sectionEspeciais = document.querySelector(".sectionEspeciais");
   sectionEspeciais.classList.add("printHide");
