@@ -1,6 +1,7 @@
 const horasJejum = document.getElementsByName("jj");
 const btn = document.querySelector(".btn-imprimir");
 const cort = document.querySelector(".cortisol");
+const cortS = document.querySelector(".cortisolS");
 const psa = document.querySelector(".psa");
 const eas = document.querySelector(".eas");
 const easCultura = document.querySelector(".easCultura");
@@ -18,6 +19,7 @@ const sessaoPreparosAdicionais = document.querySelector(".preparos-adicionais");
 const sessaoMateriais = document.querySelector(".sec-materiais");
 const observacao = document.querySelector(".observacao");
 const resultados = document.querySelectorAll(".lista-materiais");
+
 /* ------- Animação em cada sessao --------- */
 function activeModal(btn, index) {
   if (index === 0) {
@@ -42,6 +44,35 @@ btnShowSection.forEach((btn, index) => {
   });
 });
 /* ------- Animação em cada sessao --------- */
+
+
+/* ----------- open/close menu -------- */
+const btnMenu = document.querySelector('.menu-btn')
+const menuContainer = document.querySelector('.container-menu')
+
+function toggleMenu() {
+  menuContainer.classList.toggle('activeMenu')
+  console.log('open/close menu', menuContainer)
+}
+
+btnMenu.addEventListener('click', toggleMenu)
+
+
+
+
+
+/* ---------------- open sections menu -------------- */
+const secConvenio = document.querySelector('.convenios')
+const listaCrn = document.querySelector('.lista-convenio')
+
+function handleClick() {
+  listaCrn.classList.toggle('activeSection')
+}
+
+secConvenio.addEventListener('click', handleClick)
+
+
+
 
 /* ----------------- evento de click "imprimir" --------- */
 
@@ -81,19 +112,23 @@ function handleImprimir() {
       if (i === 0) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
         resultadoJejum.innerHTML = `
-            <p><i class="fa-solid fa-syringe"></i> <strong>São 4 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>`;
+            <p><i class="fa-solid fa-syringe"></i> <strong>São 4 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
+            <p><strong>- Obs:</strong> Evitar atividade física antes do exame.</p>`;
       }
       if (i === 1) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 6 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p`;
+        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 6 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
+        <p><strong>- Obs:</strong> Evitar atividade física antes do exame.</p>`;
       }
       if (i === 2) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 8 à 12 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>`;
+        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 8 à 12 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
+        <p><strong>- Obs:</strong> Evitar atividade física antes do exame.</p>`;
       }
       if (i === 3) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i>  <strong>São 12 à 14 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p`;
+        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i>  <strong>São 12 à 14 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
+        <p><strong>- Obs:</strong> Evitar atividade física antes do exame.</p>`;
       }
     }
   }
@@ -103,6 +138,17 @@ function handleImprimir() {
     resultadoCortisol.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol</strong> - Chegar ao laboratório no máximo
      <strong>até às 7:20 horas</strong>, para realização do repouso
      pré cortisol e realizar a coleta às 8:00 horas.</p>`;
+  }
+
+  if (cortS.checked) {
+    const resultadoCortisolS = document.querySelector(".resultadoCortisolS");
+    resultadoCortisolS.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol Salivar</strong> - A coleta
+    deve ser feita até duas horas após o horário habitual do paciente acordar ou conforme solicitação médica.</p>
+    <p>- Não há necessidade de jejum após dieta leve.</p>
+    <p>- Não pode fazer tratamento dentário nas 24 horas que antecedem ao exame.</p>
+    <p>- Antes da coleta, é necessário ficar três horas sem escovar os dentes.</p>
+    <p>- É necessário informar todos os medicamentos em uso.</p>
+    <p><strong>- Obs: Coletar na Matriz - Rua Conde de Araruama n°365 - Centro </strong>`;
   }
 
   if (psa.checked) {
