@@ -7,7 +7,7 @@
 body {
   height: 100vh;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 head {
   color: white;
@@ -20,6 +20,10 @@ input:hover {
 }
 .fa-solid {
   color: rgb(114, 224, 70);
+}
+.icon h4 {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
 }
 
 .header {
@@ -51,8 +55,8 @@ input:hover {
 
 .menu-btn span {
    width: 30px;
-   height: 2px;
-   background: black;
+   height: 3px;
+   background: #044d46;
    position: absolute;
    top: 1.2rem;
    left: .7rem;
@@ -61,31 +65,63 @@ input:hover {
 .menu-btn span::after {
   content: '';
   width: 30px;
-  height: 2px;
-  background: black;
+  height: 3px;
+  background: #044d46;
   position: absolute;
   margin-top: 8px;
   cursor: pointer;
+  animation: split3 2s  forwards;
 }
 .menu-btn span::before {
   content: '';
   width: 30px;
-  height: 2px;
-  background: black;
+  height: 3px;
+  background: #044d46;
   position: absolute;
   margin-top: -8px;
   cursor: pointer;
+  animation: split2 2s  forwards;
 }
+.menu-btn {
+  animation: split 1s  forwards;
+}
+
+@keyframes split {
+  to {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(-180deg);
+  }
+}
+@keyframes split2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes split3 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 
 /*------------------ MENU LATERAL ------------------*/
 .container-menu {
   height: 100vh;
   width: 500px;
-  background:  #dafaf3;
+  background:#44a390;
   top: 0;
   right: 0;
-  z-index: 100;
+  z-index: 400;
   position: absolute;
   display: none;
   box-shadow: 0px 0px 5px 1px rgb(0, 0, 0, 0.2);
@@ -93,49 +129,53 @@ input:hover {
 }
 
 .menu h3 {
+  color: white;
   display: flex;
   justify-content: center;
   margin-top: 3rem;
+  margin-bottom: 5rem;
 }
 
-.convenios h4 {
-  margin-top: 4rem;
+.sessaoMenu h4 {
   width: 100%;
   background: white;
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   cursor: pointer;
+  border-bottom: 1px solid  rgb(0, 0, 0, 0.2);
 }
-.lista-convenio {
+.lista-sessaoMenu {
   display: none;
   width: 100%;
   background: white;
   padding: 0.5rem 2rem;
 }
-.lista-convenio li{
+.lista-sessaoMenu li{
   margin-bottom: 0.2rem;
   padding: 0.2rem 0.2rem;
   font-size: .9rem;
   font-weight: 500;
 }
 
-.lista-convenio li:nth-child(odd) { 
-  background: rgb(218, 218, 218);
+.lista-sessaoMenu li:nth-child(odd) { 
+  background: rgb(219, 219, 219);
 }
 
-.lista-convenio h5{
+.lista-sessaoMenu h5{
   margin: 1rem auto;
 }
 
-
+/* -------- ativando dinamicamente ---------- */
 .container-menu.activeMenu {
   display: block;
   animation: showMenu 1s ease-in-out;
 }
 
-.lista-convenio.activeSection {
+.lista-sessaoMenu.activeSection {
   display: block;
-  animation: showSub .5s forwards;
+  animation: showSub 1s forwards;
 }
+
+
 
 @keyframes showMenu {
   from {
@@ -152,9 +192,12 @@ input:hover {
 @keyframes showSub {
   from {
     opacity: 0;
+    top: 0;
+    
   }
   to {
     opacity: 1;
+    top: auto;
   }
 }
 
@@ -362,13 +405,6 @@ input:hover {
   color: #666;
   transition: 0.2s;
 }
-.fa-arrow-down {
-  position: relative;
-  margin-left: 30rem;
-  bottom: -18px;
-  color: black;
-}
-
 /* ------------ AO IMPRIMIR --------- */
 
 .printHide {

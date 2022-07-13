@@ -52,7 +52,6 @@ const menuContainer = document.querySelector('.container-menu')
 
 function toggleMenu() {
   menuContainer.classList.toggle('activeMenu')
-  console.log('open/close menu', menuContainer)
 }
 
 btnMenu.addEventListener('click', toggleMenu)
@@ -61,15 +60,19 @@ btnMenu.addEventListener('click', toggleMenu)
 
 
 
-/* ---------------- open sections menu -------------- */
-const secConvenio = document.querySelector('.convenios')
-const listaCrn = document.querySelector('.lista-convenio')
+/* ---------------- open sections on menu -------------- */
+const secAsideMenu = document.querySelectorAll('.asideMenu')
+const listasSectionsMenu = document.querySelectorAll('.sectionsMenus')
 
-function handleClick() {
-  listaCrn.classList.toggle('activeSection')
+function handleClick(sec, index) {
+  listasSectionsMenu[index].classList.toggle('activeSection')  
 }
 
-secConvenio.addEventListener('click', handleClick)
+secAsideMenu.forEach((sec, index) => {
+  sec.addEventListener('click', () => {
+    handleClick(sec, index)
+  })
+})
 
 
 
