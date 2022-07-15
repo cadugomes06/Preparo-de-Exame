@@ -2,6 +2,7 @@ const horasJejum = document.getElementsByName("jj");
 const btn = document.querySelector(".btn-imprimir");
 const cort = document.querySelector(".cortisol");
 const cortS = document.querySelector(".cortisolS");
+const serotonina = document.querySelector(".serotonina");
 const psa = document.querySelector(".psa");
 const eas = document.querySelector(".eas");
 const easCultura = document.querySelector(".easCultura");
@@ -53,11 +54,7 @@ const menuContainer = document.querySelector('.container-menu')
 function toggleMenu() {
   menuContainer.classList.toggle('activeMenu')
 }
-
 btnMenu.addEventListener('click', toggleMenu)
-
-
-
 
 
 /* ---------------- open sections on menu -------------- */
@@ -67,14 +64,11 @@ const listasSectionsMenu = document.querySelectorAll('.sectionsMenus')
 function handleClick(sec, index) {
   listasSectionsMenu[index].classList.toggle('activeSection')  
 }
-
 secAsideMenu.forEach((sec, index) => {
   sec.addEventListener('click', () => {
     handleClick(sec, index)
   })
 })
-
-
 
 
 /* ----------------- evento de click "imprimir" --------- */
@@ -140,7 +134,8 @@ function handleImprimir() {
     const resultadoCortisol = document.querySelector(".resultadoCortisol");
     resultadoCortisol.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol</strong> - Chegar ao laboratório no máximo
      <strong>até às 7:20 horas</strong>, para realização do repouso
-     pré cortisol e realizar a coleta às 8:00 horas.</p>`;
+     pré cortisol e realizar a coleta às 8:00 horas. </p>
+     <p><strong>- Obs:</strong> Retirar a senha de "cortisol" ao chegar ao laboratório no horário correto.`;
   }
 
   if (cortS.checked) {
@@ -152,6 +147,15 @@ function handleImprimir() {
     <p>- Antes da coleta, é necessário ficar três horas sem escovar os dentes.</p>
     <p>- É necessário informar todos os medicamentos em uso.</p>
     <p><strong>- Obs: Coletar na Matriz - Rua Conde de Araruama n°365 - Centro </strong>`;
+  }
+
+  if (serotonina.checked) {
+    const resultadoSerotonina = document.querySelector(".resultadoSerotonina");
+    resultadoSerotonina.innerHTML = `<p><i class="fa-solid fa-vial"></i> <strong>Serotonina</strong>- Jejum obrigatório de 8 horas.</p>
+    <p><strong>- Bebida alcoólica:</strong> A abstinência é obrigatória nas 24 horas que antecedem o exame.</p>
+    <p><strong>- Dieta:</strong> Não ingerir nas 24 horas que antecedem o exame: café, chá, chocolate, mate, 
+    refrigerante, abacate, abacaxi, ameixa, banana, berinjela, picles, kiwi, manga, nozes, tomate e alimentos
+    aromatizados com baunilha.</p>`
   }
 
   if (psa.checked) {

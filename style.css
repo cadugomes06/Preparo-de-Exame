@@ -172,7 +172,7 @@ input:hover {
 
 .lista-sessaoMenu.activeSection {
   display: block;
-  animation: showSub 1s forwards;
+  animation: showSub 1.2s forwards;
 }
 
 
