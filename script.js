@@ -70,6 +70,34 @@ secAsideMenu.forEach((sec, index) => {
   })
 })
 
+/* -------------- sessao to-do list --------------------------- */
+
+ const dataHoje = document.querySelector('.dataHoje')
+ const today = new Date()
+ dataHoje.innerHTML = today.toLocaleDateString()
+
+ const tarefas = []
+
+ const tarefasAdicionadas = document.querySelector('.input-toDo')
+ const btnTodoList = document.querySelector('.btn-toDo')
+ const resultadoTarefas = document.querySelector('.resultado-toDoList') 
+ 
+ function novaTarefa() {
+   tarefas.push(tarefasAdicionadas.value)
+   tarefasAdicionadas.value = ''
+   tarefasAdicionadas.focus()
+  console.log()
+
+  resultadoTarefas.classList.add('activeTo-do')
+
+  resultadoTarefas.innerHTML = tarefas.map((tarefa, index) => 
+   `<li>${index + 1} - ${tarefa}</li>`).join('') 
+ }
+
+ btnTodoList.addEventListener('click', novaTarefa)
+
+
+
 
 /* ----------------- evento de click "imprimir" --------- */
 
@@ -84,7 +112,6 @@ function handleImprimir() {
     let btnShowJejum = document.querySelector(".btnShowJejum");
     btnShowJejum.classList.add("printHide");
   }
-
   var sectionEspeciaisOff = document.querySelector(".especiaisOff");
   var sectionMateriaisOff = document.querySelector(".materiaisOff");
   const especiaisCheckeds = Array.from(
@@ -103,7 +130,6 @@ function handleImprimir() {
       console.log(especial);
     }
   });
-
   for (let i = 0; i < horasJejum.length; i++) {
     if (horasJejum[i].checked) {
       if (i === 0) {

@@ -28,10 +28,32 @@
       <div class="menu">
         <h3>Manual do Recepcionista</h3>
 
+
+        <div class="sessaoMenu ">
+          <div class="asideMenu">
+            <h4> Minhas tarefas <i class="fa-solid fa-caret-down"></i></h4>
+          </div>
+             <div class="lista-sessaoMenu sectionsMenus sessaoTodoList">
+              <h5 for="to-do-list"> Tarefas do dia - <span class="dataHoje"> </span> </h5>
+               <input 
+                type="text"
+                value=""
+                class="input-toDo"
+                name="to-do-list"
+                id="to-do-list"
+                placeholder="Solicitar NF para o paciente XXX"  />
+             <button class="btn-toDo"> Adicionar </button>
+
+          </div>        
+          <ul class="resultado-toDoList ">
+            
+          </ul>
+
+          </div>
          
         <div class="sessaoMenu ">
           <div class="asideMenu">
-            <h4> Termos <i class="fa-solid fa-caret-down"></i></h4>
+            <h4> Termos e Formulários<i class="fa-solid fa-caret-down"></i></h4>
           </div>
 
         <ul class="lista-sessaoMenu sectionsMenus">
@@ -44,6 +66,7 @@
           <li><a href="./termos/termo-cariotipo.pdf" target="_blank">Cariótipo</a></li>
           <li><a href="./termos/termo-exame-particular.pdf" target="_blank">Exame particular</a></li>
           <li><a href="./termos/termo-sexagemfetal.pdf" target="_blank">Sexagem fetal</a></li>
+          <li><a href="./termos/ficha-covid.pdf" target="_blank">Formulário para covid</a></li>
         </ul>
         </div>
          
@@ -61,12 +84,13 @@
           <li><a href="./tiss/tiss-assim.pdf" target="_blank">Assim saúde</a></li>
           <li><a href="./tiss/tiss-cedae.pdf" target="_blank">Cedae saúde</a></li>
           <li><a href="./tiss/tiss-caberj.pdf" target="_blank">Caberj / Integral</a></li>
+          <li><a href="./tiss/tiss-gamasaude.pdf" target="_blank">Gama sáude</a></li>
         </ul>
         </div>
 
         <div class="sessaoMenu ">
           <div class="asideMenu">
-            <h4>Convênios e resultado<i class="fa-solid fa-caret-down"></i></h4>
+            <h4>Resultado e Convênios <i class="fa-solid fa-caret-down"></i></h4>
           </div>
           
 
@@ -267,7 +291,6 @@
             <h5>Hepatite B:</h5>
             <li>HBS</li>
             <li>AHBS</li>
-            <li>HBS</li>
             <li>HBE</li>
             <li>AHBE</li>
             <li>AHBCG</li>
