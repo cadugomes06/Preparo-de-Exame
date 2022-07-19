@@ -167,7 +167,7 @@ input:hover {
 }
 
 .sessaoTodoList {
-  height: 120px;
+  height: 150px;
   bottom: auto;
   background: #eee;
 }
@@ -183,7 +183,7 @@ input:hover {
   font-size: .8rem;
 }
 .sessaoTodoList input:hover,
-input:focus{
+.sessaoTodoList input:focus{
   color: black;
   box-shadow: 0 0 4px 3px rgb(106, 206, 189);
   outline: none;
