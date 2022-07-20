@@ -76,30 +76,51 @@ secAsideMenu.forEach((sec, index) => {
  const today = new Date()
  dataHoje.innerHTML = today.toLocaleDateString()
 
- const tarefas = []
+ let tarefas = []
 
  const tarefasAdicionadas = document.querySelector('.input-toDo')
  const btnTodoList = document.querySelector('.btn-toDo')
- const resultadoTarefas = document.querySelector('.resultado-toDoList') 
+ const resultadoTarefas = document.querySelector('.resultado-toDoList')
+
+ function takeStorage() {
+  if (JSON.parse(localStorage.getItem('tarefa'))) {
+    tarefas = JSON.parse(localStorage.getItem('tarefa'))
+  }
+   if (tarefas.length > 0) {
+      resultadoTarefas.classList.add('activeTo-do')
+      resultadoTarefas.innerHTML = tarefas.map((tarefa, index) => 
+   `<li>${index + 1} - ${tarefa} <div><i class="fa-solid fa-circle-xmark"></i> </div></li>`).join('') 
+    }
+  } 
+ takeStorage()
  
  function novaTarefa() {
    tarefas.push(tarefasAdicionadas.value)
+   localStorage.setItem('tarefa', JSON.stringify(tarefas))
    tarefasAdicionadas.value = ''
    tarefasAdicionadas.focus()
-  console.log()
+   resultadoTarefas.classList.add('activeTo-do')
+   resultadoTarefas.innerHTML = tarefas.map((tarefa, index) => 
+   `<li>${index + 1} - ${tarefa} <div><i class="fa-solid fa-circle-xmark"></i> </div></li>`).join('') 
 
-  resultadoTarefas.classList.add('activeTo-do')
+   const iconCloseTarefa = document.querySelectorAll('.fa-circle-xmark')
+   iconCloseTarefa.forEach((icon, index) => {
+    icon.addEventListener('click', () => {
+      handleRemoveTarefa(icon, index)
+    })
+  })        
 
-  resultadoTarefas.innerHTML = tarefas.map((tarefa, index) => 
-   `<li>${index + 1} - ${tarefa}</li>`).join('') 
- }
-
- btnTodoList.addEventListener('click', novaTarefa)
+  }  
+  btnTodoList.addEventListener('click', novaTarefa)
 
 
+  function handleRemoveTarefa(icon, index) {
+    console.log(icon, index)
+  }
 
-
-/* ----------------- evento de click "imprimir" --------- */
+    
+  
+  /* ----------------- evento de click "imprimir" --------- */
 
 function handleImprimir() {
   const radios = Array.from(
