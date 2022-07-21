@@ -81,20 +81,24 @@ secAsideMenu.forEach((sec, index) => {
  const tarefasAdicionadas = document.querySelector('.input-toDo')
  const btnTodoList = document.querySelector('.btn-toDo')
  const resultadoTarefas = document.querySelector('.resultado-toDoList')
-
+ 
  function takeStorage() {
-  if (JSON.parse(localStorage.getItem('tarefa'))) {
-    tarefas = JSON.parse(localStorage.getItem('tarefa'))
+   if (JSON.parse(localStorage.getItem('tarefa'))) {
+     tarefas = JSON.parse(localStorage.getItem('tarefa'))
   }
    if (tarefas.length > 0) {
-      resultadoTarefas.classList.add('activeTo-do')
-      resultadoTarefas.innerHTML = tarefas.map((tarefa, index) => 
-   `<li>${index + 1} - ${tarefa} <div><i class="fa-solid fa-circle-xmark"></i> </div></li>`).join('') 
+     resultadoTarefas.classList.add('activeTo-do')
+     resultadoTarefas.innerHTML = tarefas.map((tarefa, index) => 
+     `<li>${index + 1} - ${tarefa} <div><i class="fa-solid fa-circle-xmark"></i> </div></li>`).join('') 
     }
   } 
  takeStorage()
  
  function novaTarefa() {
+   if (tarefasAdicionadas.value === '' || tarefasAdicionadas.value ) {
+     window.alert('Essa sessão estará disponível em breve')
+     return null
+    } else {
    tarefas.push(tarefasAdicionadas.value)
    localStorage.setItem('tarefa', JSON.stringify(tarefas))
    tarefasAdicionadas.value = ''
@@ -102,23 +106,32 @@ secAsideMenu.forEach((sec, index) => {
    resultadoTarefas.classList.add('activeTo-do')
    resultadoTarefas.innerHTML = tarefas.map((tarefa, index) => 
    `<li>${index + 1} - ${tarefa} <div><i class="fa-solid fa-circle-xmark"></i> </div></li>`).join('') 
+  }
 
-   const iconCloseTarefa = document.querySelectorAll('.fa-circle-xmark')
-   iconCloseTarefa.forEach((icon, index) => {
+  const iconCloseTarefa = document.querySelectorAll('.fa-circle-xmark')
+  iconCloseTarefa.forEach((icon, index) => {
     icon.addEventListener('click', () => {
       handleRemoveTarefa(icon, index)
     })
-  })        
-
+  }) 
   }  
   btnTodoList.addEventListener('click', novaTarefa)
 
+      
+  const iconCloseTarefa = document.querySelectorAll('.fa-circle-xmark')
 
-  function handleRemoveTarefa(icon, index) {
-    console.log(icon, index)
+    function handleRemoveTarefa(icon, index) {  
+      const itemRemovido = tarefas[index]
+     tarefas = tarefas.filter(item => item !== itemRemovido)
+     console.log(itemRemovido, tarefas)    
+     novaTarefa()
   }
+  iconCloseTarefa.forEach((icon, index) => {
+    icon.addEventListener('click', () => {
+      handleRemoveTarefa(icon, index)
+    })
+  })  
 
-    
   
   /* ----------------- evento de click "imprimir" --------- */
 
