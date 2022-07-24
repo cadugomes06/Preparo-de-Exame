@@ -105,17 +105,23 @@ secAsideMenu.forEach((sec, index) => {
    tarefasAdicionadas.focus()
    resultadoTarefas.classList.add('activeTo-do')
    resultadoTarefas.innerHTML = tarefas.map((tarefa) => 
-   `<li class='item-lista'>${tarefa} <div><i class="fa-solid fa-circle-xmark X"></i> </div></li>`).join('') 
+   `<li class='item-lista'>${tarefa} <div><i class="fa-solid fa-circle-xmark X"></i> </div></li>`).join('')
+   } 
+   
   }
-  }  
   btnTodoList.addEventListener('click', novaTarefa)
 
+
   const iconCloseTarefa = document.querySelectorAll('.fa-circle-xmark')
+  console.log(iconCloseTarefa)
 
   function handleClose(i) {
-    let novaArray = tarefas.filter((item, index) => index != i)
-    let resultadoTarefas02 = document.querySelectorAll('.resultado-toDoList li')
-    console.log(resultadoTarefas02[i])   
+    const novaArray = tarefas.filter((item, index) => index != i)
+    const resultadoTarefas02 = document.querySelectorAll('.resultado-toDoList li')
+    resultadoTarefas02[i].classList.add('removeTo-do')
+    tarefas = novaArray
+    localStorage.setItem('tarefa', JSON.stringify(tarefas))
+    console.log (tarefas, novaArray)   
   }
   for (let i = 0; i < iconCloseTarefa.length; i++) {
     iconCloseTarefa[i].addEventListener('click', () => {
