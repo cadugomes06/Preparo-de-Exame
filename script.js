@@ -76,27 +76,27 @@ secAsideMenu.forEach((sec, index) => {
  const today = new Date()
  dataHoje.innerHTML = today.toLocaleDateString()
 
- let tarefas = []
+ let tarefas = []  
 
  const tarefasAdicionadas = document.querySelector('.input-toDo')
  const btnTodoList = document.querySelector('.btn-toDo')
- const resultadoTarefas = document.querySelector('.resultado-toDoList')
+ let resultadoTarefas = document.querySelector('.resultado-toDoList')
  
  function takeStorage() {
    if (JSON.parse(localStorage.getItem('tarefa'))) {
-     tarefas = JSON.parse(localStorage.getItem('tarefa'))
-  }
-   if (tarefas.length > 0) {
+     tarefas = JSON.parse(localStorage.getItem('tarefa'))     
      resultadoTarefas.classList.add('activeTo-do')
-     resultadoTarefas.innerHTML = tarefas.map((tarefa, index) => 
-     `<li>${index + 1} - ${tarefa} <div><i class="fa-solid fa-circle-xmark"></i> </div></li>`).join('') 
-    }
+     resultadoTarefas.innerHTML = tarefas.map((tarefa) => 
+   `<li>${tarefa} <div><i class="fa-solid fa-circle-xmark"></i> </div></li>`).join('') 
+  }
+  console.log(tarefas)
   } 
  takeStorage()
+
  
  function novaTarefa() {
-   if (tarefasAdicionadas.value === '' || tarefasAdicionadas.value ) {
-     window.alert('Essa sessão estará disponível em breve')
+   if (tarefasAdicionadas.value === '') {
+     window.alert('Você esqueceu de escrever a sua tarefa!')
      return null
     } else {
    tarefas.push(tarefasAdicionadas.value)
@@ -104,34 +104,25 @@ secAsideMenu.forEach((sec, index) => {
    tarefasAdicionadas.value = ''
    tarefasAdicionadas.focus()
    resultadoTarefas.classList.add('activeTo-do')
-   resultadoTarefas.innerHTML = tarefas.map((tarefa, index) => 
-   `<li>${index + 1} - ${tarefa} <div><i class="fa-solid fa-circle-xmark"></i> </div></li>`).join('') 
+   resultadoTarefas.innerHTML = tarefas.map((tarefa) => 
+   `<li class='item-lista'>${tarefa} <div><i class="fa-solid fa-circle-xmark X"></i> </div></li>`).join('') 
   }
-
-  const iconCloseTarefa = document.querySelectorAll('.fa-circle-xmark')
-  iconCloseTarefa.forEach((icon, index) => {
-    icon.addEventListener('click', () => {
-      handleRemoveTarefa(icon, index)
-    })
-  }) 
   }  
   btnTodoList.addEventListener('click', novaTarefa)
 
-      
   const iconCloseTarefa = document.querySelectorAll('.fa-circle-xmark')
 
-    function handleRemoveTarefa(icon, index) {  
-      const itemRemovido = tarefas[index]
-     tarefas = tarefas.filter(item => item !== itemRemovido)
-     console.log(itemRemovido, tarefas)    
-     novaTarefa()
+  function handleClose(i) {
+    let novaArray = tarefas.filter((item, index) => index != i)
+    let resultadoTarefas02 = document.querySelectorAll('.resultado-toDoList li')
+    console.log(resultadoTarefas02[i])   
   }
-  iconCloseTarefa.forEach((icon, index) => {
-    icon.addEventListener('click', () => {
-      handleRemoveTarefa(icon, index)
+  for (let i = 0; i < iconCloseTarefa.length; i++) {
+    iconCloseTarefa[i].addEventListener('click', () => {
+      handleClose(i)
     })
-  })  
-
+  }
+  
   
   /* ----------------- evento de click "imprimir" --------- */
 
@@ -195,7 +186,7 @@ function handleImprimir() {
     resultadoCortisol.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol</strong> - Chegar ao laboratório no máximo
      <strong>até às 7:20 horas</strong>, para realização do repouso
      pré cortisol e realizar a coleta às 8:00 horas. </p>
-     <p><strong>- Obs:</strong> Retirar a senha de "cortisol" ao chegar ao laboratório no horário correto.`;
+     <p><strong>- Obs:</strong> Retirar a senha de <strong>cortisol</strong> ao chegar no laboratório.`;
   }
 
   if (cortS.checked) {
@@ -229,9 +220,10 @@ function handleImprimir() {
     <p>- Após ejaculção (relação sexual), aguardar 2 dias.</p>
     `;
   }
+
   if (glipp.checked) {
     const resultadoGlipp = document.querySelector(".resultadoGlipp");
-    resultadoGlipp.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Glicose pós pradial</strong>
+    resultadoGlipp.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Glicose pós prandial</strong>
     - Manter a alimentação normal.</p>
     <p>- Anotar o horário do início do almoço (1º garfada).</p>
     <p>- Almoçar em até 20 minutos no máximo.</p>
