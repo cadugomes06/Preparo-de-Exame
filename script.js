@@ -76,58 +76,85 @@ secAsideMenu.forEach((sec, index) => {
  const today = new Date()
  dataHoje.innerHTML = today.toLocaleDateString()
 
- let tarefas = []  
+ const texto = document.querySelector('.input-toDo')
+ const btnAdd = document.querySelector('.btn-toDo')
+ const ulResultado = document.querySelector('.resultado-toDoList')
 
- const tarefasAdicionadas = document.querySelector('.input-toDo')
- const btnTodoList = document.querySelector('.btn-toDo')
- let resultadoTarefas = document.querySelector('.resultado-toDoList')
+ var itensDB = []
+
+ btnAdd.onclick = () => {
+  if (texto.value != '') {
+    setItemDB()
+  }
+ }
+
+ function setItemDB() {
+  if (itensDB.length >= 7) {
+    alert('Limite máximo atingido de 6 itens')
+    return
+  }
+  itensDB.push({ 'item': texto.value , 'status': ''})
+  updateDB()
+}
+
+function updateDB() {
+  localStorage.setItem('todolist', JSON.stringify(itensDB))
+  loadItens()
+}
+
+function loadItens() {
+  ulResultado.innerHTML = "";
+  itensDB = JSON.parse(localStorage.getItem('todolist')) ?? []
+  itensDB.forEach((item, i) => {
+    addItemTela(item.item, item.status, i)
+  })
+}
+
+function addItemTela(text, status, i) {
+  const li = document.createElement('li')
+
+  li.innerHTML = `
+  <div class='divLi'>
+    <input type="checkbox" ${status} data-i=${i} onchange="done(this, ${i})" />
+    <span data-statusIndex=${i}>${text}</span>
+    <button onclick="removeItem(${i})" data-i=${i}>
+    <i class='bx bxs-message-square-x'></i> 
+    </button>
+  </div>
+  `
+  ulResultado.appendChild(li)
+
+  if (status) {
+    document.querySelector(`[data-statusIndex="${i}"]`).classList.add('line-through')
+  } else {
+    document.querySelector(`[data-statusIndex="${i}"]`).classList.remove('line-through')
+  }
+
+  texto.value = "";
+  texto.focus()
+}
+
+function done(chk, i ) {
+
+  if (chk.checked) {
+    itensDB[i].status = 'checked'
+  } else {
+    itensDB[i].status = ''
+  }
+
+  updateDB()
+}
+
+function removeItem(i) {
+  itensDB.splice(i, 1)
+  updateDB()
+}
+
+loadItens()
+
+
  
- function takeStorage() {
-   if (JSON.parse(localStorage.getItem('tarefa'))) {
-     tarefas = JSON.parse(localStorage.getItem('tarefa'))     
-     resultadoTarefas.classList.add('activeTo-do')
-     resultadoTarefas.innerHTML = tarefas.map((tarefa) => 
-   `<li>${tarefa} <div><i class="fa-solid fa-circle-xmark"></i> </div></li>`).join('') 
-  }
-  console.log(tarefas)
-  } 
- takeStorage()
-
  
- function novaTarefa() {
-   if (tarefasAdicionadas.value === '') {
-     window.alert('Você esqueceu de escrever a sua tarefa!')
-     return null
-    } else {
-   tarefas.push(tarefasAdicionadas.value)
-   localStorage.setItem('tarefa', JSON.stringify(tarefas))
-   tarefasAdicionadas.value = ''
-   tarefasAdicionadas.focus()
-   resultadoTarefas.classList.add('activeTo-do')
-   resultadoTarefas.innerHTML = tarefas.map((tarefa) => 
-   `<li class='item-lista'>${tarefa} <div><i class="fa-solid fa-circle-xmark X"></i> </div></li>`).join('')
-   } 
-   
-  }
-  btnTodoList.addEventListener('click', novaTarefa)
-
-
-  const iconCloseTarefa = document.querySelectorAll('.fa-circle-xmark')
-  console.log(iconCloseTarefa)
-
-  function handleClose(i) {
-    const novaArray = tarefas.filter((item, index) => index != i)
-    const resultadoTarefas02 = document.querySelectorAll('.resultado-toDoList li')
-    resultadoTarefas02[i].classList.add('removeTo-do')
-    tarefas = novaArray
-    localStorage.setItem('tarefa', JSON.stringify(tarefas))
-    console.log (tarefas, novaArray)   
-  }
-  for (let i = 0; i < iconCloseTarefa.length; i++) {
-    iconCloseTarefa[i].addEventListener('click', () => {
-      handleClose(i)
-    })
-  }
   
   
   /* ----------------- evento de click "imprimir" --------- */

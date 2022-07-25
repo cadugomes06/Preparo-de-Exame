@@ -205,29 +205,43 @@ input:hover {
   background: rgba(87, 187, 166, 1);
 }
 
-.resultado-toDoList.activeTo-do {
-  background: #189e93;  
-  cursor: pointer;
-}
-.resultado-toDoList.activeTo-do li{
-  padding: 1rem 0.5rem 1rem 2rem;
+.divLi {
+  margin: 10px 5px;
+  padding: 10px;
+  background: #eee;
+  border-radius: 10px;
+  box-shadow: 4px 5px 10px 0px #0d8a7f;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+}
+
+.divLi span {
+  width: 95%;
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(0, 0, 0, .1);
-}
-.resultado-toDoList.activeTo-do li:hover{
-  background: #5ac5b0;
 }
 
-.resultado-toDoList li.removeTo-do{
-  display: none;
+.divLi input {
+  width: 10%;
+  outline: none;
+  accent-color: currentcolor;
 }
-
-.fa-circle-xmark {
+.divLi i{
+  color: #0d8a7f;
+  font-size: 20px;
   cursor: pointer;
 }
+.line-through {
+  text-decoration: line-through;
+  background: rgb(212, 212, 212);
+}
+
+.dataHoje {
+  padding: 5px;
+  border-radius: 8px;
+  background: #71beaf;
+}
+
 
 .lista-sessaoMenu li:nth-child(odd) { 
   background: rgb(219, 219, 219);
