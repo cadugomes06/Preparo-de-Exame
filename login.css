@@ -64,6 +64,13 @@ body {
     box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);;
     cursor: pointer;
 }
+.sectionLogin input:hover,
+.sectionLogin input:focus {
+    box-shadow: 1px 1px 6px 1px rgba(7, 201, 168, 0.8); 
+    transition: .5s;
+}
+    
+
 .sectionLogin label {
     margin-top: 20px;
     font-family: Arial, Helvetica, sans-serif;
@@ -89,4 +96,33 @@ body {
     background: -webkit-linear-gradient(to right, #544ec4, #43C6AC); 
     background: linear-gradient(to right, #4741b3, #43C6AC);
     box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);;
+}
+.btnLogin:hover,
+.btnLogin:focus {
+    animation: changeColor 8s ease-in-out infinite;
+}   
+
+@keyframes changeColor {
+    from {
+        background: #373b44; 
+        background: -webkit-linear-gradient(to right, #373b44, #4286f4);
+        background: linear-gradient(to right, #373b44, #4286f4); 
+    }
+    30% {
+        background: #009FFF;  
+        background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF); 
+        background: linear-gradient(to right, #ec2F4B, #009FFF); 
+
+    }
+    60% {
+        background: #aa4b6b;  
+        background: -webkit-linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b);  
+        background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); 
+
+    }
+    to {
+        background: #009FFF;  
+        background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF); 
+        background: linear-gradient(to right, #ec2F4B, #009FFF); 
+    }        
 }

@@ -1,3 +1,14 @@
+function autentication() {
+  const key = localStorage.getItem('key')
+  if ( key === 'hemolabes') {
+    return null
+  } else {
+    window.location.href='index.html'
+  }
+}
+autentication()
+
+
 const horasJejum = document.getElementsByName("jj");
 const btn = document.querySelector(".btn-imprimir");
 const cort = document.querySelector(".cortisol");

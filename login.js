@@ -7,7 +7,9 @@ btnLogar.addEventListener('click', login)
 function login(event) {
     event.preventDefault()
     if (user.value === 'hemolabes' && password.value === 'hemolabes' ) {
-       window.location.href='home.html'
+        localStorage.setItem('key', user.value)
+        window.location.href='home.html'
+        alert('Login realizado com sucesso *-*    Você é o cara!' )
     } else if (user.value === '' || password.value === ''){
         alert('Campo imcompleto')
     } else {
