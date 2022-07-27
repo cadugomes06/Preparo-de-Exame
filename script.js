@@ -185,10 +185,7 @@ if (checkbox[0].classList.contains('especiais')) {
      materiaisOff.classList.add("printHide"); 
 } else {
       especiaisOff.classList.add("printHide"); 
-  }
-
-
-  
+  }  
 
   for (let i = 0; i < horasJejum.length; i++) {
     if (horasJejum[i].checked) {
@@ -372,8 +369,8 @@ if (checkbox[0].classList.contains('especiais')) {
   }
 
   removeFromScreen();
-  //window.print();
-  //document.location.reload();
+  window.print();
+  document.location.reload();
 }
 
 /* removendo da tela ao imprimir */
