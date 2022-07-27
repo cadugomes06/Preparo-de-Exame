@@ -176,6 +176,18 @@ function handleImprimir() {
     let btnShowJejum = document.querySelector(".btnShowJejum");
     btnShowJejum.classList.add("printHide");
   }
+
+  const checkbox = document.querySelectorAll('input[type="checkbox"]:checked')
+  const especiaisOff = document.querySelector(".especiaisOff");
+  const materiaisOff = document.querySelector(".materiaisOff");
+
+if (checkbox[0].classList.contains('especiais')) {
+     materiaisOff.classList.add("printHide"); 
+} else {
+      especiaisOff.classList.add("printHide"); 
+  }
+
+
   
 
   for (let i = 0; i < horasJejum.length; i++) {
@@ -360,8 +372,8 @@ function handleImprimir() {
   }
 
   removeFromScreen();
-  window.print();
-  document.location.reload();
+  //window.print();
+  //document.location.reload();
 }
 
 /* removendo da tela ao imprimir */
