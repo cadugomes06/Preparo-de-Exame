@@ -262,8 +262,6 @@ input:hover {
   animation: showSub 1.2s forwards;
 }
 
-
-
 @keyframes showMenu {
   from {
     right: -500px;
@@ -346,9 +344,9 @@ input:hover {
   font-weight: bold;
 }
 .preparos-adicionais input {
-  margin-left: 0.5rem;
-  height: 12px;
-  width: 12px;
+  margin-right: 1rem;
+  height: 13px;
+  width: 13px;
 }
 .res-02, .especiais {
   color: black;

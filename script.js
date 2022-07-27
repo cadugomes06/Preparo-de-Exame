@@ -1,12 +1,12 @@
-function autentication() {
+function authentication() {
   const key = localStorage.getItem('key')
   if ( key === 'hemolabes') {
     return null
   } else {
-    window.location.href='index.html'
+    window.location.href='login.html'
   }
 }
-autentication()
+authentication()
 
 
 const horasJejum = document.getElementsByName("jj");
@@ -25,6 +25,7 @@ const esp = document.querySelector(".esp");
 const dna = document.querySelector(".dna");
 const toxicologico = document.querySelector(".toxicologico");
 const glipp = document.querySelector(".glipp");
+const catec = document.querySelector(".catec");
 const btnShowSection = document.querySelectorAll(".btnShowSection");
 const sessaoJejum = document.querySelector(".sec-jejum");
 const sessaoPreparosAdicionais = document.querySelector(".preparos-adicionais");
@@ -160,13 +161,7 @@ function removeItem(i) {
   itensDB.splice(i, 1)
   updateDB()
 }
-
-loadItens()
-
-
- 
- 
-  
+loadItens()  
   
   /* ----------------- evento de click "imprimir" --------- */
 
@@ -181,35 +176,18 @@ function handleImprimir() {
     let btnShowJejum = document.querySelector(".btnShowJejum");
     btnShowJejum.classList.add("printHide");
   }
-  var sectionEspeciaisOff = document.querySelector(".especiaisOff");
-  var sectionMateriaisOff = document.querySelector(".materiaisOff");
-  const especiaisCheckeds = Array.from(
-    document.querySelectorAll('input[type="checkbox"]:checked'));
-    if (especiaisCheckeds.length === 0) {
-      sectionEspeciaisOff.classList.add("printHide");
-      sectionMateriaisOff.classList.add("printHide"); 
-    }
-    especiaisCheckeds.map((especial) => {
-    if (!especial.classList.contains("especiais")) {
-      let sectionEspeciaisOff = document.querySelector(".especiaisOff");
-      sectionEspeciaisOff.classList.add("printHide");
-    } else if (!especial.classList.contains("materiaisOff")) {
-      let sectionMateriaisOff = document.querySelector(".materiaisOff");
-      sectionMateriaisOff.classList.add("printHide");
-      console.log(especial);
-    }
-  });
+  
   for (let i = 0; i < horasJejum.length; i++) {
     if (horasJejum[i].checked) {
       if (i === 0) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
         resultadoJejum.innerHTML = `
-            <p><i class="fa-solid fa-syringe"></i> <strong>São 4 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
+            <p><i class="fa-solid fa-syringe"></i> <strong>São 4  horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
             <p><strong>- Obs:</strong> Evitar atividade física antes do exame.</p>`;
       }
       if (i === 1) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 6 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
+        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 6 a 8 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
         <p><strong>- Obs:</strong> Evitar atividade física antes do exame.</p>`;
       }
       if (i === 2) {
@@ -278,6 +256,17 @@ function handleImprimir() {
     o início do almoço. O atraso deixa o exame inválido.</p>`;
   }
 
+  if (catec.checked) {
+    const resultadoCatec = document.querySelector(".resultadoCatec");
+    resultadoCatec.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong> Catecolaminas: </strong></p>
+    <p> - <strong>Bebida alcoólica:</strong> A abstinência é desejável nos 5 dias que antecedem o exame teste.</p>
+    <p> - <strong>Dieta: </strong> Não é recomendado ingerir durante 5 dias antes da coleta os seguintes
+    alimentos: banana, laranja, abacaxi, queijo, café, chá, chocolate, caramelos, marmeladas, doces, sorvetes,
+    nozes e bebidas alcoólicas.</p>
+    <p> - Não fumar nas 4 horas que antecederem a coleta.</p>
+    `
+  }
+
   if (esp.checked) {
     const resultadoEsp = document.querySelector(".resultadoEsp");
     resultadoEsp.innerHTML = `<p> <i class="fa-solid fa-vial-circle-check"></i> <strong>Espermograma</strong>- Coleta deve ser realizada com 3 à 5 dias de abstinência sexual/ejaculação.</p>
@@ -305,8 +294,14 @@ function handleImprimir() {
 
   if (eas.checked) {
     const resultadoEas = document.querySelector(".resultadoEas");
-    resultadoEas.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>EAS</strong> - Coletar uma amostra de urina e 
-    entregar ao laboratório em até 3 horas após coletado.</p>`;
+    resultadoEas.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong> Rotina de Urina (EAS) </strong> - Coletar uma amostra de urina.</p>
+    <p> - Usar sempre o recipiente estéril fornecido pelo laboratório e abrir
+     apenas na hora da coleta.<p/>
+     <p> - Lavar as mãos e região genital com água e sabão.<p/>
+     <p> - Iniciar a micção, desprezando o primeiro jato de urina.</p>
+     <p> - Entregar ao laboratório em até 3 horas após a coleta.<p/>
+     <p><strong>Obs:</strong> Período menstrual - Colher a urina 4 dias após o término
+     . Aguardar 7 dias após o uso de antibióticos.<p/>`;
   }
 
   if (easCultura.checked) {
@@ -317,7 +312,7 @@ function handleImprimir() {
     <p> - Lavar as mãos e região genital com água e sabão.<p/>
     <p> - Iniciar a micção, desprezando o primeiro jato de urina.</p>
     <p> - Entregar ao laboratório em até 3 horas após a coleta.<p/>
-    <p>Obs: Período menstrual - Colher a urina 4 dias após o término
+    <p><strong>Obs: </strong> Período menstrual - Colher a urina 4 dias após o término
     . Aguardar 7 dias após o uso de antibióticos.<p/>`;
   }
   if (uri24.checked) {
@@ -364,8 +359,8 @@ function handleImprimir() {
   }
 
   removeFromScreen();
-  window.print();
-  document.location.reload();
+  //window.print();
+  //document.location.reload();
 }
 
 /* removendo da tela ao imprimir */
