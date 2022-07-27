@@ -177,6 +177,7 @@ function handleImprimir() {
     btnShowJejum.classList.add("printHide");
   }
   
+
   for (let i = 0; i < horasJejum.length; i++) {
     if (horasJejum[i].checked) {
       if (i === 0) {
@@ -359,8 +360,8 @@ function handleImprimir() {
   }
 
   removeFromScreen();
-  //window.print();
-  //document.location.reload();
+  window.print();
+  document.location.reload();
 }
 
 /* removendo da tela ao imprimir */
