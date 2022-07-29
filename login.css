@@ -8,11 +8,15 @@
 }
 
 body {
-    background: #43C6AC;  
-    background: -webkit-linear-gradient(to right, #191654, #43C6AC); 
-    background: linear-gradient(to right, #191654, #43C6AC);
+    background: #0d8a7f; 
+    background: -webkit-linear-gradient(to right, #65d4be, #044d46); 
+    background: linear-gradient(to right, #71beaf, #023f3a); 
 }
 
+img {
+    width: 100px;
+    height: 100px;
+}
 .container {
     display: flex;
     justify-content: center;
@@ -32,12 +36,17 @@ body {
 .sectionLogin h1 {
     display: flex;
     font-size: 36px;
-    font-family: Raleway;
+    font-family: Raleway, Arial, sans-serif;
+    font-weight: 800;
     font-weight: bold;
     justify-content: center;
-    margin-top: 40px;
-    width: 100%;
+    width: 100%;   
+    background-image: linear-gradient(to right, #74dbc7, #000000, #75b6a9, #0f615a);
+    background-clip: text; -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #012c29;
 }
+
 .form {
     width: 100%;
     height: 300px;
@@ -92,36 +101,14 @@ body {
     font-weight: bold;
     font-family: Raleway;
     cursor: pointer;
-    background: #43C6AC;  
-    background: -webkit-linear-gradient(to right, #544ec4, #43C6AC); 
-    background: linear-gradient(to right, #4741b3, #43C6AC);
+    background: #0d8a7f; 
+    background: -webkit-linear-gradient(to right, #65d4be, #044d46); 
+    background: linear-gradient(to right, #71beaf, #023f3a); 
     box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);;
 }
 .btnLogin:hover,
 .btnLogin:focus {
-    animation: changeColor 8s ease-in-out infinite;
+    background: #0d8a7f; 
+    background: -webkit-linear-gradient(to right, #449c8b, #023d37); 
+    background: linear-gradient(to right, #589b8e, #012c29); 
 }   
-
-@keyframes changeColor {
-    from {
-        background: #373b44; 
-        background: -webkit-linear-gradient(to right, #373b44, #4286f4);
-        background: linear-gradient(to right, #373b44, #4286f4); 
-    }
-    30% {
-        background: #009FFF;  
-        background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF); 
-        background: linear-gradient(to right, #ec2F4B, #009FFF); 
-    }
-    60% {
-        background: #aa4b6b;  
-        background: -webkit-linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b);  
-        background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); 
-
-    }
-    to {
-        background: #009FFF;  
-        background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF); 
-        background: linear-gradient(to right, #ec2F4B, #009FFF); 
-    }        
-}

@@ -56,8 +56,17 @@ btnShowSection.forEach((btn, index) => {
     activeModal(btn, index);
   });
 });
+
 /* ------- Animação em cada sessao --------- */
 
+const btnLogout = document.querySelector('.btn-logout')
+
+function logOut() {
+  localStorage.setItem('key', '')
+  window.location.href="login.html"
+}
+
+btnLogout.addEventListener('click', logOut)
 
 /* ----------- open/close menu -------- */
 const btnMenu = document.querySelector('.menu-btn')
@@ -375,6 +384,8 @@ if (checkbox[0].classList.contains('especiais')) {
 
 /* removendo da tela ao imprimir */
 function removeFromScreen() {
+  btnLogout.classList.add('printHide')
+
   let subTitle = document.querySelector(".sub-title");
   subTitle.classList.add("printHide");
 
@@ -387,10 +398,7 @@ function removeFromScreen() {
   });
 
   let title = document.querySelector('title')
-  title.innerText = '`'
-
-  let meta = document.querySelector('meta')
-  meta.innerHTML = '`'
+  title.innerText = '.'
 
   let sectionEspeciais = document.querySelector(".sectionEspeciais");
   sectionEspeciais.classList.add("printHide");

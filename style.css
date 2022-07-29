@@ -286,6 +286,29 @@ input:hover {
   }
 }
 
+/* ----------------- LogOut ---------- */
+
+.btn-logout {
+  font-size: 30px;
+  color:#0d8a7f;
+  position: absolute;
+  top: 48px;
+  left: 30px;
+  cursor: pointer;
+}
+.btn-logout:hover {
+  color: #06776e;
+}
+.btn-logout:hover::after {
+  content: 'Sair';
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  background: #0d8a7f;
+  padding: 5px;
+  border-radius: 8px;
+}
+
 
 /* ------------------------------- */
 .sub-title {
