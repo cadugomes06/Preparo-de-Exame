@@ -128,13 +128,23 @@ input:hover {
   overflow-y: auto;
 }
 
-.menu h3 {
+.info-manualrecp {
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 3.2rem;
   margin-bottom: 4.8rem;
+  letter-spacing: 0.15rem;
+}
+.info-exames {
+  color: white;
+  display: flex;
+  font-size: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   letter-spacing: 0.15rem;
 }
 

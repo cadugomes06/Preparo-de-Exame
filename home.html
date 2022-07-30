@@ -38,7 +38,7 @@
 
     <div class="container-menu">
       <div class="menu">
-        <h3>Manual do Recepcionista</h3>
+        <h3 class="info-manualrecp">Manual do Recepcionista</h3>
 
 
         <div class="sessaoMenu ">
@@ -78,9 +78,12 @@
           <li><a href="./termos/termo-biopsia.pdf" target="_blank">Termo para biópsia</a></li>
           <li><a href="./termos/termo-esclarecimento.pdf" target="_blank">Termo de esclarecimento (colpo ou biópsia)</a></li>
           <li><a href="./termos/termo-cariotipo.pdf" target="_blank">Cariótipo</a></li>
-          <li><a href="./termos/termo-exame-particular.pdf" target="_blank">Exame particular</a></li>
           <li><a href="./termos/termo-sexagemfetal.pdf" target="_blank">Sexagem fetal</a></li>
           <li><a href="./termos/ficha-covid.pdf" target="_blank">Formulário para covid</a></li>
+          <li><a href="./termos/marcacao-sus.pdf" target="_blank">Marcação do SUS</a></li>
+          <li><a href="./termos/contato-hemolabes.pdf" target="_blank">Contatos Hemolabes</a></li>
+          <li><a href="./termos/unimedQRcode.pdf" target="_blank">QRcode Unimed</a></li>
+          <li><a href="./termos/termo-exame-particular.pdf" target="_blank">Exame particular</a></li>
         </ul>
         </div>
          
@@ -109,14 +112,14 @@
           
 
           <ul class="lista-sessaoMenu sectionsMenus">
-            <h5>Resultado de exame </h5>
+            <h5 class="dataHoje">Resultado de exame </h5>
             <li>
               <a
                 href="https://www.laudoonline.com.br/hemolabes/" target="_blank"
                 >Resultado online</a
               >
             </li>
-            <h5> Convênios </h5>
+            <h5 class="dataHoje"> Convênios </h5>
 
             <li>
               <a
@@ -174,43 +177,37 @@
           </ul>
         </div>
 
+        <h3 class="info-exames">Informações de exames</h3>
+
         <div class="sessaoMenu ">
           <div class="asideMenu">
             <h4>
-              Exames com CRN petrobrás
+              Convênios que aceitam CRN (Nutricionista)
               <i class="fa-solid fa-caret-down"></i>
             </h4>
 
           </div>
          
           <ul class="lista-sessaoMenu sectionsMenus">
+            <h5 class="dataHoje">UNIMED</h5>
+            <li>Apenas com pedido autorizado!</li>
+
+            <h5 class="dataHoje">PETROBRÁS</h5>
             <li>Hemograma</li>
             <li>Proteinas Totais</li>
             <li>Proteína ligadora de retinol</li>
             <li>Triglicerídes, colesterol total, HDL, LDL E VLDL</li>
-            <li>Glicemia</li>
+            <li>TGO, TGP, GGT, BILTF</li>
+            <li>Glicemia | Hemoglobina glicada | Insulina</li>
             <li>Teste oral de tolerância á glicose</li>
-            <li>Insulina</li>
             <li>Peptídeo C</li>
-            <li>Hemoglobina glicada</li>
-            <li>Tiroxinas totais e livres</li>
+            <li> TSH | Tiroxinas totais e livres</li>
             <li>Triiodotironina</li>
             <li>Tireoglobulina</li>
-            <li>TSH</li>
-            <li>Uréia</li>
-            <li>Creatinina</li>
-            <li>Sódio</li>
-            <li>Cálcio</li>
-            <li>Potássio sérico</li>
-            <li>Fósforo</li>
-            <li>Magnésio sérico</li>
-            <li>Ácido úrico</li>
+            <li>Uréia | Creatinina | Ácido úrico</li>
+            <li>Sódio | Cálcio | Potássio | Fósforo | Magnésio</li>
+            <li>Ferro | Ferritina | Transferrina | Capacidade de ligação do ferro</li>
             <li>EAS</li>
-            <li>TGO, TGP, GGT, BILTF</li>
-            <li>Ferro</li>
-            <li>Transferrina</li>
-            <li>Ferritina</li>
-            <li>Capacidade total de ligação do ferro</li>
 
             <h5>Específicos para pacientes de cirurgia bariátrica:</h5>
             <li>Vitamina B12</li>
@@ -341,7 +338,7 @@
       <h4 class="btnShowSection btnShowJejum">
         Tempo de jejum <i class="fa-solid fa-caret-down"></i>
       </h4>
-      <div class="sec-jejum">
+      <div class="sec-jejum printOff">
         <label for="4h">
           <i class="fa-solid fa-syringe"></i> 4 horas
           <input
@@ -387,7 +384,7 @@
     </section>
 
     <div class="icon">
-      <h4 class="btnShowSection btnEspecial especiaisOff allCheckbox">
+      <h4 class="btnShowSection btnEspecial especiaisOff ">
         Preparos especiais <i class="fa-solid fa-caret-down"></i>
       </h4>
 
@@ -397,6 +394,7 @@
           <input
             type="checkbox"
             id="cort"
+            name="preparoEsp"
             class="cortisol especiais"
             value="cortisol"
           />
@@ -407,6 +405,7 @@
           <input
             type="checkbox"
             id="cortS"
+            name="preparoEsp"
             class="cortisolS especiais"
             value="cortisolS"
           />
@@ -417,6 +416,7 @@
           <input
             type="checkbox"
             id="ser"
+            name="preparoEsp"
             class="serotonina especiais"
             value="serotonina"
           />
@@ -424,13 +424,17 @@
 
         <label for="psa">
           <i class="fa-solid fa-vial"></i> PSA
-          <input type="checkbox" id="psa" value="psa" class="psa especiais" />
+          <input type="checkbox"
+           id="psa" value="psa"
+           name="preparoEsp"
+            class="psa especiais" />
         </label>
 
         <label for="glipp">
           <i class="fa-solid fa-vial"></i> Glicose pós prandial <input
             type="checkbox"
             id="glipp"
+            name="preparoEsp"
             value="glipp"
             class="glipp especiais"
           />
@@ -439,6 +443,7 @@
         <label for="catec">
           <i class="fa-solid fa-vial"></i> Catecolaminas <input
             type="checkbox"
+            name="preparoEsp"
             id="catec"
             value="catec"
             class="catec especiais"
@@ -449,6 +454,7 @@
           <i class="fa-solid fa-vial-circle-check"></i> Espermograma <input
             type="checkbox"
             id="esp"
+            name="preparoEsp"
             value="esp"
             class="esp especiais"
           />
@@ -481,16 +487,17 @@
     </div>
 
     <section class="icon">
-      <h4 class="btnShowSection materiaisOff">
+      <h4 class="btnShowSection materiaisOff  ">
         Coleta de material <i class="fa-solid fa-caret-down"></i>
       </h4>
 
-      <div class="sec-materiais sectionMateriais">
+      <div class="sec-materiais sectionMateriais printOff">
         <label for="eas">
           <i class="fa-solid fa-vial-virus"></i>EAS
           <input
             type="checkbox"
             id="eas"
+            name="materiais"
             class="eas materiaisOff"
             value="eas"
           />
@@ -501,6 +508,7 @@
           <input
             type="checkbox"
             id="easCultura"
+            name="materiais"
             value="easCultura"
             class="easCultura materiaisOff"
           />
@@ -511,6 +519,7 @@
           <input
             type="checkbox"
             id="uri24"
+            name="materiais"
             class="uri24 materiaisOff"
             value="uri24"
           />
@@ -521,6 +530,7 @@
           <input
             type="checkbox"
             id="epf"
+            name="materiais"
             class="epf materiaisOff"
             value="epf"
           />
@@ -531,6 +541,7 @@
           <input
             type="checkbox"
             id="mif"
+            name="materiais"
             class="mif materiaisOff"
             value="mif"
           />
@@ -541,6 +552,7 @@
           <input
             type="checkbox"
             id="escarro"
+            name="materiais"
             class="escarro materiaisOff"
             value="escarro"
           />

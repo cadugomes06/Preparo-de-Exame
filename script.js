@@ -8,7 +8,6 @@ function authentication() {
 }
 authentication()
 
-
 const horasJejum = document.getElementsByName("jj");
 const btn = document.querySelector(".btn-imprimir");
 const cort = document.querySelector(".cortisol");
@@ -57,21 +56,19 @@ btnShowSection.forEach((btn, index) => {
   });
 });
 
-/* ------- Animação em cada sessao --------- */
 
+/* ------- Logout --------- */
 const btnLogout = document.querySelector('.btn-logout')
-
 function logOut() {
   localStorage.setItem('key', '')
   window.location.href="login.html"
 }
-
 btnLogout.addEventListener('click', logOut)
+
 
 /* ----------- open/close menu -------- */
 const btnMenu = document.querySelector('.menu-btn')
 const menuContainer = document.querySelector('.container-menu')
-
 function toggleMenu() {
   menuContainer.classList.toggle('activeMenu')
 }
@@ -108,21 +105,18 @@ secAsideMenu.forEach((sec, index) => {
     setItemDB()
   }
  }
-
  function setItemDB() {
-  if (itensDB.length >= 7) {
-    alert('Limite máximo atingido de 6 itens')
+  if (itensDB.length > 5) {
+    alert('Limite máximo atingido de 6 itens atingido!')
     return
   }
   itensDB.push({ 'item': texto.value , 'status': ''})
   updateDB()
 }
-
 function updateDB() {
   localStorage.setItem('todolist', JSON.stringify(itensDB))
   loadItens()
 }
-
 function loadItens() {
   ulResultado.innerHTML = "";
   itensDB = JSON.parse(localStorage.getItem('todolist')) ?? []
@@ -130,10 +124,8 @@ function loadItens() {
     addItemTela(item.item, item.status, i)
   })
 }
-
 function addItemTela(text, status, i) {
   const li = document.createElement('li')
-
   li.innerHTML = `
   <div class='divLi'>
     <input type="checkbox" ${status} data-i=${i} onchange="done(this, ${i})" />
@@ -144,13 +136,11 @@ function addItemTela(text, status, i) {
   </div>
   `
   ulResultado.appendChild(li)
-
   if (status) {
     document.querySelector(`[data-statusIndex="${i}"]`).classList.add('line-through')
   } else {
     document.querySelector(`[data-statusIndex="${i}"]`).classList.remove('line-through')
   }
-
   texto.value = "";
   texto.focus()
 }
@@ -162,7 +152,6 @@ function done(chk, i ) {
   } else {
     itensDB[i].status = ''
   }
-
   updateDB()
 }
 
@@ -175,27 +164,33 @@ loadItens()
   /* ----------------- evento de click "imprimir" --------- */
 
 function handleImprimir() {
+
   const radios = Array.from(
     document.querySelectorAll('input[type="radio"]:checked')
   );
+  const sectionJejumOff = document.querySelector(".sec-jejum");
+  const btnShowJejum = document.querySelector(".btnShowJejum");
   if (radios.length === 0) {
-    let sectionJejumOff = document.querySelector(".sec-jejum");
     sectionJejumOff.classList.add("printHide");
-
-    let btnShowJejum = document.querySelector(".btnShowJejum");
     btnShowJejum.classList.add("printHide");
   }
 
-  const checkbox = document.querySelectorAll('input[type="checkbox"]:checked')
   const especiaisOff = document.querySelector(".especiaisOff");
+  const checksEsp = document.querySelectorAll('input[name="preparoEsp"]:checked')
+  if (checksEsp.length != 0) {
+    especiaisOff.classList.remove('printHide')
+  } else {
+    especiaisOff.classList.add('printHide')
+  }
   const materiaisOff = document.querySelector(".materiaisOff");
+  const checksMat = document.querySelectorAll('input[name="materiais"]:checked')
+  if (checksMat.length != 0) {
+    materiaisOff.classList.remove('printHide')
+  } else {
+    materiaisOff.classList.add('printHide')
+  }
 
-if (checkbox[0].classList.contains('especiais')) {
-     materiaisOff.classList.add("printHide"); 
-} else {
-      especiaisOff.classList.add("printHide"); 
-  }  
-
+/* ------- tempo em jejum -------- */
   for (let i = 0; i < horasJejum.length; i++) {
     if (horasJejum[i].checked) {
       if (i === 0) {
@@ -348,7 +343,7 @@ if (checkbox[0].classList.contains('especiais')) {
 
   if (epf.checked) {
     const resultadoEpf = document.querySelector(".resultadoEpf");
-    resultadoEpf.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>EPF</strong> - Coletar uma pequena quantidade de fezes.<p/>
+    resultadoEpf.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>Parasitológico(EPF)</strong> - Coletar uma pequena quantidade de fezes.<p/>
     <p>- Entregar ao laboratório em até 3 horas em temperatura ambiente
     ou manter refrigerada e entregar em até 24 horas.<p/>`;
   }
@@ -384,6 +379,7 @@ if (checkbox[0].classList.contains('especiais')) {
 
 /* removendo da tela ao imprimir */
 function removeFromScreen() {
+
   btnLogout.classList.add('printHide')
 
   let subTitle = document.querySelector(".sub-title");
@@ -398,7 +394,10 @@ function removeFromScreen() {
   });
 
   let title = document.querySelector('title')
-  title.innerText = '.'
+  title.innerText = '`'
+
+  let meta = document.querySelector('meta')
+  meta.innerHTML = '`'
 
   let sectionEspeciais = document.querySelector(".sectionEspeciais");
   sectionEspeciais.classList.add("printHide");
