@@ -33,7 +33,7 @@ input:hover {
   height: 120px;
   background: white;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 .header p {
   font-size: 0.8rem;
@@ -46,7 +46,7 @@ input:hover {
 .menu-btn {
   width: 50px;
   height: 40px;
-  top: 2.5rem;
+  top: 3rem;
   right: 2rem;
   position: absolute;
   cursor: pointer;
@@ -134,7 +134,7 @@ input:hover {
   justify-content: center;
   align-items: center;
   margin-top: 3.2rem;
-  margin-bottom: 4.8rem;
+  margin-bottom: 5.3rem;
   letter-spacing: 0.15rem;
 }
 .info-exames {
