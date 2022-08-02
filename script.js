@@ -15,6 +15,7 @@ const cortS = document.querySelector(".cortisolS");
 const serotonina = document.querySelector(".serotonina");
 const psa = document.querySelector(".psa");
 const eas = document.querySelector(".eas");
+const easInfantil = document.querySelector(".easInfantil");
 const easCultura = document.querySelector(".easCultura");
 const epf = document.querySelector(".epf");
 const mif = document.querySelector(".mif");
@@ -214,6 +215,10 @@ function handleImprimir() {
         resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i>  <strong>São 12 à 14 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
         <p><strong>- Obs:</strong> Evitar atividade física antes do exame.</p>`;
       }
+      if (i === 4) {
+        const resultadoJejum = document.querySelector(".resultadoJejum");
+        resultadoJejum.innerHTML = `<p> ${"   "}<i class='bx bxs-bowl-hot' ></i> - Não possui jejum para esses exames. Manter a dieta regular.</p>`
+       }
     }
   }
   //--------- PREPAROS ESPECIAIS --------
@@ -306,6 +311,21 @@ function handleImprimir() {
   }
   // ------ Materiais -----------------
 
+
+  if (easInfantil.checked) {
+    const resultadoEasInfantil = document.querySelector(".resultadoEasInfantil");
+    resultadoEasInfantil.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong> Urina - Coletor infantil. </strong></p>
+    <p><strong> - Instruções de uso:</strong> Retirar o produto da embalagem somente na hora
+    do uso e em condições assépticas.</p>
+    <p> - Higienizar a genitália com auxílio de luvas.</p>
+    <p> - Segurar uma extremidade do adesivo e retirar o protetor do mesmo.</p>
+    <p> - Posicionar a abertura do coletor sobre o períneo e ao longo dos lábios genitais.</p>
+    <p> - Pressione delicadamente para fixá-lo</p>
+    <p> - Aguardar a micção da criança, inspecionando em intervalos de 30 a 60 minutos.</p>
+    <p> - Após a criança urinar, com luvas, descolar e retirar o dispositivo cuidadosamente
+    Se necessário, transferir o material coletado para outro recipiente. </p>`
+  }
+  
   if (eas.checked) {
     const resultadoEas = document.querySelector(".resultadoEas");
     resultadoEas.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong> Rotina de Urina (EAS) </strong> - Coletar uma amostra de urina.</p>

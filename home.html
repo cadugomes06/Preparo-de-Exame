@@ -379,6 +379,16 @@
             value="12 horas"
           />
         </label>
+        <label for="noJejum">
+          <i class='bx bxs-x-circle'></i> Não possui jejum
+          <input
+            class="horas-jj"
+            id="noJejum"
+            name="jj"
+            type="radio"
+            value="noJejum"
+          />
+        </label>
       </div>
       <div class="resultadoJejum res"></div>
     </section>
@@ -492,6 +502,18 @@
       </h4>
 
       <div class="sec-materiais sectionMateriais printOff">
+
+        <label for="easInfantil">
+          <i class="fa-solid fa-vial-virus"></i>EAS - Coletor infantil
+          <input
+            type="checkbox"
+            id="easInfantil"
+            name="materiais"
+            class="easInfantil materiaisOff"
+            value="easInfantil"
+          />
+        </label>
+
         <label for="eas">
           <i class="fa-solid fa-vial-virus"></i>EAS
           <input
@@ -561,6 +583,7 @@
 
       <div class="lista-materiais">
         <div class="resultadoEas res"></div>
+        <div class="resultadoEasInfantil res"></div>
         <div class="resultadoEasCultura res"></div>
         <div class="resultadoEpf res"></div>
         <div class="resultadoMif res"></div>
