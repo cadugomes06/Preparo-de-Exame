@@ -30,8 +30,8 @@ const btnShowSection = document.querySelectorAll(".btnShowSection");
 const sessaoJejum = document.querySelector(".sec-jejum");
 const sessaoPreparosAdicionais = document.querySelector(".preparos-adicionais");
 const sessaoMateriais = document.querySelector(".sec-materiais");
-const observacao = document.querySelector(".observacao");
-const resultados = document.querySelectorAll(".lista-materiais");
+const observacao = document.querySelector(".observacao")
+
 
 /* ------- Animação em cada sessao --------- */
 function activeModal(btn, index) {
@@ -43,9 +43,6 @@ function activeModal(btn, index) {
   }
   if (index === 2) {
     sessaoMateriais.classList.toggle("SectionOn");
-    resultados.forEach((res) => {
-      res.classList.toggle("SectionOn");
-    });
   }
   if (index === 3) {
     observacao.classList.toggle("SectionOn");
@@ -359,8 +356,8 @@ function handleImprimir() {
   }
   if (uri24.checked) {
     const resultadoUri24 = document.querySelector(".resultadoUri24");
-    resultadoUri24.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>Urina 24 horas</strong>
-    - Desprezara a primeira urina da manhã ao se levantar e marcar a hora. Colher todas as urinas dai por diante,
+    resultadoUri24.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i><strong> Urina 24 horas</strong></p>
+    <p>- Desprezara a primeira urina da manhã ao se levantar e marcar a hora. Colher todas as urinas dai por diante,
     durante o dia e a noite, se houver.</p>
     <p>- Colher a primeira urina do dia seguinte na mesma hora em que desprezou a urina do dia anterior.</p>
     <p>- Colher todo o volume de cada micção, armazenando em um frasco de água mineral sem gás.</p>
@@ -409,13 +406,15 @@ function handleImprimir() {
 
 /* ---------- Adicionar na tela -------------- */
 
+const resultados = document.querySelectorAll(".lista-materiais");
  function showFromScreen() {
   const footer = document.querySelector('.footer-container')
   footer.classList.add('printShow')
-  console.log(footer)
+
+  resultados.forEach((res) => {
+    res.classList.toggle("SectionOn");
+  });
  }
-
-
 
 /* removendo da tela ao imprimir */
 function removeFromScreen() {
@@ -448,8 +447,18 @@ function removeFromScreen() {
   let sectionJejumOff = document.querySelector(".sec-jejum");
   sectionJejumOff.classList.add("printHide");
 
-  let btnObs = document.querySelector(".btnObs");
-  btnObs.classList.add("printHide");
+  let obsTitle = document.querySelector('.btnObs')
+  obsTitle.classList.add("printHide");  
+  
+  let inputObs = document.querySelector('.input-obs')
+  let btnObs = document.querySelector(".obs");
+
+  if (inputObs.value === '') {
+    btnObs.classList.add("printHide");
+  } else {
+    btnObs.classList.remove("printHide");
+  }
+
 }
 
 btn.addEventListener("click", handleImprimir);

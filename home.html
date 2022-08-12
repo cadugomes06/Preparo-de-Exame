@@ -24,8 +24,11 @@
   <body>
     
     <header class="header">
-      <img src="img/logo-hemolabes 1.svg" alt="logo" />
-      <p><strong>Laboratório </strong>clínico</p>
+      <div>
+        <img src="img/logo-hemolabes 1.svg" alt="logo" />
+      </div>
+      <p><strong>hemo</strong>labes</p>
+      <span>laboratório clínico</span>
     </header>
 
     <div class="menu-btn">
@@ -599,7 +602,11 @@
 
       <div class="observacao">
         <h3>Observação:</h3>
-        <input type="text" maxlength="50" minlength="4" value="" id="txt" />
+        <input class="input-obs"
+         type="text"
+          maxlength="50"
+           minlength="4"
+           value="" id="txt" />
       </div>
       <div class="resultadoObs res"></div>
     </div>
@@ -610,16 +617,18 @@
 
     <div class="footer-container">
       <div class="footer-info">
+
         <div class="contatos-title">
-          <h4>Contatos:</h4>
+          <h5>Contatos:</h5>
         </div>
 
-        <ul class="lista-contatos">
+        <div class="lista-contatos">
           <li><i class='bx bxs-phone-call'></i> (22) 2762-5213</li> 
           <li><i class='bx bxs-phone-call'></i> (22) 2759-5282</li>
-          <li><i class='bx bxl-whatsapp' ></i> (22) 99811-8969</li>
-          <li><i class='bx bx-link' ></i> www.hemolabes.com</li>
-        </ul>
+        </div>
+
+        <div class="grid-wpp"><span><i class='bx bxl-whatsapp' ></i> (22) 99811-8969</span></div>
+        <div class="grid-site"><span><i class='bx bx-link'></i> www.hemolabes.com</span></div> 
 
       </div>
       
