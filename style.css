@@ -21,6 +21,10 @@ input:hover {
 .fa-solid {
   color: rgb(114, 224, 70);
 }
+
+.bxs-bowl-hot {
+  color: rgb(114, 224, 70);
+}
 .bxs-x-circle{
   font-size: 16px;
   display: block;
@@ -389,9 +393,9 @@ input:hover {
 .res-02, .especiais {
   color: black;
   line-height: 1.125rem;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   text-align: start;
-  margin-bottom: .8rem;
+  margin-bottom: .5rem;
 }
 
 /* -------- Materiais a serem coletados --------*/
@@ -449,7 +453,7 @@ input:hover {
 .observacao h3 {
   color: #eee;
   margin-left: 1rem;
-  margin-right: 1rem;
+  margin-right: .5rem;
   font-weight: bold;
 }
 .observacao input {
@@ -535,6 +539,40 @@ input:hover {
   visibility: hidden;
   background: white;
 }
+/* -------- Footer --------------*/
+
+.footer-container {
+  top: -800px;
+  display: none;
+  border-top: 1px solid #eee;
+}
+
+.footer-info {
+  margin-top: 20px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.contatos-title h3{
+  background: teal;
+  display: block;
+}
+
+.lista-contatos{
+  list-style: none;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.lista-contatos li {
+  margin-bottom: 2px;
+}
+
+.printShow {
+  display: block;
+}
+
 
 /* ------ mobile ------*/ 
 

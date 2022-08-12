@@ -197,27 +197,31 @@ function handleImprimir() {
       if (i === 0) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
         resultadoJejum.innerHTML = `
-            <p><i class="fa-solid fa-syringe"></i> <strong>São 4  horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
+            <p><i class="fa-solid fa-syringe"></i> <strong>São 4 a 6 horas de jejum</strong>.</p>
+            <p>- Pode hidratar-se normalmente (apenas com água).</p>
             <p><strong>- Obs:</strong> Evitar atividade física antes do exame.</p>`;
       }
       if (i === 1) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 6 a 8 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
+        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 6 a 8 horas de jejum.</strong></p>
+        <p>- Pode hidratar-se normalmente (apenas com água).</p>
         <p><strong>- Obs:</strong> Evitar atividade física antes do exame.</p>`;
       }
       if (i === 2) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 8 à 12 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
+        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i> <strong>São 8 à 12 horas de jejum.</strong></p>
+        <p>- Pode hidratar-se normalmente (apenas com água).</p>
         <p><strong>- Obs:</strong> Evitar atividade física antes do exame.</p>`;
       }
       if (i === 3) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i>  <strong>São 12 à 14 horas de jejum</strong>. Pode hidratar-se normalmente (apenas com água).</p>
+        resultadoJejum.innerHTML = `<p><i class="fa-solid fa-syringe"></i>  <strong>São 12 à 14 horas de jejum.</strong></p>
+        <p>- Pode hidratar-se normalmente (apenas com água).</p>
         <p><strong>- Obs:</strong> Evitar atividade física antes do exame.</p>`;
       }
       if (i === 4) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p> ${"   "}<i class='bx bxs-bowl-hot' ></i> - Não possui jejum para esses exames. Manter a dieta regular.</p>`
+        resultadoJejum.innerHTML = `<p><i class='bx bxs-bowl-hot' ></i> - Não possui jejum para esses exames. Manter a dieta regular.</p>`
        }
     }
   }
@@ -294,8 +298,12 @@ function handleImprimir() {
   }
   if (dna.checked) {
     const resultadoDna = document.querySelector(".resultadoDna");
-    resultadoDna.innerHTML = `<p><i class="fa-solid fa-dna"></i> <strong>DNA</strong> - Levar documento original e copia do comprovante de residência e identidade.</p>
-    <p>- De segunda a sexta-feira, de 13:00 às 15:30.</p>
+    resultadoDna.innerHTML = `<p><i class="fa-solid fa-dna"></i> <strong>DNA</strong> - Documentos necessários.</p>
+    <p><strong>- Suposto pai:</strong> Cópia do RG e CPF.</p>
+    <p><strong>- Mãe:</strong> Cópia do RG e CPF.</p>
+    <p><strong>- Filho(a):</strong> Cópia da certidão de nascimento ou RG, CPF ou 
+    declaração de nascido vivo.</p>
+    <p>- De segunda a sexta-feira, de 13:30 às 15:30.</p>
     <p>- Local: Rua Conde de Araruama 365º (matriz).</p>`;
   }
   if (toxicologico.checked) {
@@ -393,9 +401,21 @@ function handleImprimir() {
   }
 
   removeFromScreen();
+  showFromScreen()
   window.print();
   document.location.reload();
 }
+
+
+/* ---------- Adicionar na tela -------------- */
+
+ function showFromScreen() {
+  const footer = document.querySelector('.footer-container')
+  footer.classList.add('printShow')
+  console.log(footer)
+ }
+
+
 
 /* removendo da tela ao imprimir */
 function removeFromScreen() {
@@ -405,7 +425,7 @@ function removeFromScreen() {
   let subTitle = document.querySelector(".sub-title");
   subTitle.classList.add("printHide");
 
-  let btnPrint = document.querySelector(".btn-imprimir");
+  let btnPrint = document.querySelector(".wrapper-btn");
   btnPrint.classList.add("printHide");
 
   let i = document.querySelectorAll(".fa-arrow-down");

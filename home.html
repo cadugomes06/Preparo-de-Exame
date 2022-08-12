@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Preparo de exame</title>
     <link rel="stylesheet" href="style.css" />
+    <!--<link rel="manifest" href="/manifest.webmanifest">-->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -13,10 +14,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
   </head>
@@ -80,7 +80,7 @@
           <li><a href="./termos/termo-cariotipo.pdf" target="_blank">Cariótipo</a></li>
           <li><a href="./termos/termo-sexagemfetal.pdf" target="_blank">Sexagem fetal</a></li>
           <li><a href="./termos/ficha-covid.pdf" target="_blank">Formulário para covid</a></li>
-          <li><a href="./termos/marcacao-sus.pdf" target="_blank">Marcação do SUS</a></li>
+          <li><a href="./termos/marcação-sus.pdf" target="_blank">Marcação do SUS</a></li>
           <li><a href="./termos/contato-hemolabes.pdf" target="_blank">Contatos Hemolabes</a></li>
           <li><a href="./termos/unimedQRcode.pdf" target="_blank">QRcode Unimed</a></li>
           <li><a href="./termos/termo-exame-particular.pdf" target="_blank">Exame particular</a></li>
@@ -101,7 +101,7 @@
           <li><a href="./tiss/tiss-assim.pdf" target="_blank">Assim saúde</a></li>
           <li><a href="./tiss/tiss-cedae.pdf" target="_blank">Cedae saúde</a></li>
           <li><a href="./tiss/tiss-caberj.pdf" target="_blank">Caberj / Integral</a></li>
-          <li><a href="./tiss/tiss-gamasaude.pdf" target="_blank">Gama sáude</a></li>
+          <li><a href="./tiss/tiss-gamasaude.pdf" target="_blank">Gama saúde</a></li>
         </ul>
         </div>
 
@@ -195,8 +195,8 @@
             <h5 class="dataHoje">PETROBRÁS</h5>
             <li>Hemograma</li>
             <li>Proteinas Totais</li>
-            <li>Proteína ligadora de retinol</li>
-            <li>Triglicerídes, colesterol total, HDL, LDL E VLDL</li>
+            <li>Vitamina A</li>
+            <li>Lipidograma</li>
             <li>TGO, TGP, GGT, BILTF</li>
             <li>Glicemia | Hemoglobina glicada | Insulina</li>
             <li>Teste oral de tolerância á glicose</li>
@@ -594,7 +594,7 @@
 
     <div class="obs icon">
       <h4 class="btnShowSection btnObs">
-        Observação? <i class="fa-solid fa-caret-down"></i>
+        Observação <i class="fa-solid fa-caret-down"></i>
       </h4>
 
       <div class="observacao">
@@ -608,9 +608,22 @@
       <button class="btn-imprimir">Imprimir</button>
     </div>
 
-    <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <div class="contatos-title">
+          <h4>Contatos:</h4>
+        </div>
+
+        <ul class="lista-contatos">
+          <li><i class='bx bxs-phone-call'></i> (22) 2762-5213</li> 
+          <li><i class='bx bxs-phone-call'></i> (22) 2759-5282</li>
+          <li><i class='bx bxl-whatsapp' ></i> (22) 99811-8969</li>
+          <li><i class='bx bx-link' ></i> www.hemolabes.com</li>
+        </ul>
+
+      </div>
       
-    </footer>
+    </div>
 
     <script src="script.js"></script>
   </body>

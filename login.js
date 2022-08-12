@@ -7,7 +7,7 @@ function login(event) {
     if (user.value === 'hemolabes' && password.value === 'hemolabes' ) {
         localStorage.setItem('key', user.value)
         window.location.href='home.html'
-        alert('Login realizado com sucesso! Bem vindo ao Manual-do-recpcionista' )
+        alert('Login realizado com sucesso!' )
     } else if (user.value === '' || password.value === ''){
         alert('Campo imcompleto')
     } else {
