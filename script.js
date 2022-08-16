@@ -64,11 +64,14 @@ function logOut() {
 btnLogout.addEventListener('click', logOut)
 
 
+
 /* ----------- open/close menu -------- */
 const btnMenu = document.querySelector('.menu-btn')
 const menuContainer = document.querySelector('.container-menu')
 function toggleMenu() {
   menuContainer.classList.toggle('activeMenu')
+  btnMenu.classList.toggle('activeMenu')
+
 }
 btnMenu.addEventListener('click', toggleMenu)
 
@@ -125,10 +128,10 @@ function loadItens() {
 function addItemTela(text, status, i) {
   const li = document.createElement('li')
   li.innerHTML = `
-  <div class='divLi'>
+  <div class='divLi modalMenu'>
     <input type="checkbox" ${status} data-i=${i} onchange="done(this, ${i})" />
     <span data-statusIndex=${i}>${text}</span>
-    <button onclick="removeItem(${i})" data-i=${i}>
+    <button onclick="removeItem(${i})" data-i=${i} class="cancelList">
     <i class='bx bxs-message-square-x'></i> 
     </button>
   </div>
@@ -144,7 +147,6 @@ function addItemTela(text, status, i) {
 }
 
 function done(chk, i ) {
-
   if (chk.checked) {
     itensDB[i].status = 'checked'
   } else {
@@ -154,6 +156,10 @@ function done(chk, i ) {
 }
 
 function removeItem(i) {
+ /* if (clickOutside) {
+    document.removeEventListener('click', clickOutside)
+  }*/
+
   itensDB.splice(i, 1)
   updateDB()
 }
