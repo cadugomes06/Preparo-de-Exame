@@ -75,7 +75,6 @@ function toggleMenu() {
 }
 btnMenu.addEventListener('click', toggleMenu)
 
-
 /* ---------------- open sections on menu -------------- */
 const secAsideMenu = document.querySelectorAll('.asideMenu')
 const listasSectionsMenu = document.querySelectorAll('.sectionsMenus')
@@ -167,6 +166,7 @@ loadItens()
   
   /* ----------------- evento de click "imprimir" --------- */
 
+
 function handleImprimir() {
 
   const radios = Array.from(
@@ -228,6 +228,7 @@ function handleImprimir() {
        }
     }
   }
+
   //--------- PREPAROS ESPECIAIS --------
   if (cort.checked) {
     const resultadoCortisol = document.querySelector(".resultadoCortisol");
@@ -408,7 +409,6 @@ function handleImprimir() {
   window.print();
   document.location.reload();
 }
-
 
 /* ---------- Adicionar na tela -------------- */
 
