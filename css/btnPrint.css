@@ -1,0 +1,24 @@
+.wrapper-btn {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(58, 140, 124, 1);
+    bottom: 0;
+  }
+  
+  .btn-imprimir {
+    padding: 12px 60px;
+    color: rgb(4, 59, 52);
+    text-transform: uppercase;
+    font-weight: bold;
+    background:rgb(29, 212, 176);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn-imprimir:hover {
+    background: rgba(87, 187, 166, 1);
+  }
+  

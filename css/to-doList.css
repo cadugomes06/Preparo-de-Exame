@@ -1,0 +1,84 @@
+.sessaoTodoList {
+    height: 150px;
+    bottom: auto;
+    background: #eee;
+  }
+  .sessaoTodoList input{
+    width: 300px;
+    height: 30px;
+    background: #eee;
+    margin-top: 1rem;
+    padding-left: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px 0 rgb(42, 48, 47);
+    font-size: .8rem;
+  }
+  .sessaoTodoList input:hover,
+  .sessaoTodoList input:focus{
+    color: black;
+    box-shadow: 0 0 4px 3px rgb(106, 206, 189);
+    outline: none;
+    background: rgb(250, 250, 250);
+  }
+  .btn-toDo {
+    padding: 10px 10px;
+    margin-left: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    color: rgb(4, 59, 52);
+    text-transform: uppercase;
+    font-size: 0.725rem;
+    font-weight: 600;
+    background:rgb(29, 212, 176);
+    cursor: pointer;
+  }
+  .btn-toDo:hover  {
+    background: rgba(87, 187, 166, 1);
+  }
+  
+  .divLi {
+    margin: 10px 5px;
+    padding: 10px;
+    background: #eee;
+    border-radius: 10px;
+    box-shadow: 4px 5px 10px 0px #0d8a7f;
+    display: flex;
+    align-items: center;
+  }
+  
+  .divLi span {
+    width: 95%;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .divLi input {
+    width: 10%;
+    outline: none;
+    accent-color: currentcolor;
+  }
+  .divLi i{
+    color: #0d8a7f;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .line-through {
+    text-decoration: line-through;
+    background: rgb(212, 212, 212);
+  }
+  
+  .dataHoje {
+    padding: 5px;
+    border-radius: 8px;
+    background: #71beaf;
+  }
+  
+  
+  .lista-sessaoMenu li:nth-child(odd) { 
+    background: rgb(219, 219, 219);
+  }
+  
+  .lista-sessaoMenu h5{
+    margin: 1rem auto;
+  }

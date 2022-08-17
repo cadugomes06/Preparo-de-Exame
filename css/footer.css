@@ -1,0 +1,41 @@
+
+.footer-container {
+    display: none;
+    border-top: 1px solid rgb(182, 182, 182);
+    border-bottom: 1px dashed rgb(182, 182, 182);
+  }
+  
+  .footer-info {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .contatos-title {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    padding-top: 0px;
+  }
+  .lista-contatos{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: .8rem;
+  }
+  .grid-wpp {
+    display: grid;
+    align-items: center;
+    font-size: .8rem;
+  }
+  .grid-site {
+    display: grid;
+    align-items: center;
+    font-size: .8rem;
+  }
+  .printShow {
+    display: block;
+  }
+  

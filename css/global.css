@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif, helvetica, Arial;
+    box-sizing: border-box;
+  }
+  body {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  head {
+    color: white;
+  }
+
+  label:hover,
+input:hover {
+  color: #eee;
+  cursor: pointer;
+}
+.fa-solid {
+  color: rgb(114, 224, 70);
+}
+.bxs-bowl-hot {
+  color: rgb(114, 224, 70);
+}
+.bxs-x-circle{
+  font-size: 16px;
+  display: block;
+  color: tomato;
+}
+.icon h4 {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+  

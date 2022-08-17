@@ -1,0 +1,38 @@
+.sec-materiais {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 20px;
+    width: 100%;
+    background: #0d8a7f; 
+    background: -webkit-linear-gradient(to right, #5ac5b0, #044d46); 
+    background: linear-gradient(to right, #5ea597, #023f3a); 
+    color: white;
+    visibility: hidden;
+    transition: 0.5s ease-in;
+  }
+  .sec-materiais label {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .sec-materiais input {
+    margin-left: 0.2rem;
+    height: 13px;
+    width: 13px;
+  }
+  .lista-materiais {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .res {
+    text-align: start;
+    color: black;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    font-weight: normal;
+    margin-bottom: 1rem ;
+  }
+  

@@ -1,0 +1,88 @@
+.menu-btn {
+    width: 50px;
+    height: 40px;
+    top: 3.5rem;
+    right: 2rem;
+    position: absolute;
+    cursor: pointer;
+    z-index: 500;
+  }
+  .menu-btn span {
+     width: 30px;
+     height: 3px;
+     background: #044d46;
+     position: absolute;
+     top: 1.2rem;
+     left: .7rem;
+     transition: 0.5s;
+     cursor: pointer;
+  }
+  .menu-btn span::after {
+    content: '';
+    width: 30px;
+    height: 3px;
+    background: #044d46;
+    position: absolute;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: 0.5s;
+    animation: split3 2s  forwards;
+  }
+  .menu-btn span::before {
+    content: '';
+    width: 30px;
+    height: 3px;
+    background: #044d46;
+    position: absolute;
+    margin-top: -8px;
+    cursor: pointer;
+    transition: 0.5s;
+    animation: split2 2s  forwards;
+  }
+  .menu-btn {
+    animation: split 1s  forwards;
+  }
+  
+  .menu-btn.activeMenu span{
+    background-color: white;
+    transition: 1s;
+    box-shadow: 2px 2px 2px 0px rgb(85, 85, 85);
+  }
+  .menu-btn.activeMenu  span::after{
+    background-color: white;
+    box-shadow: 2px 2px 2px 0px rgb(85, 85, 85);
+    transition: 1s;
+  }
+  .menu-btn.activeMenu span::before{
+    background-color: white;
+    box-shadow: -2px -2px 2px 0px rgb(85, 85, 85);
+    transition: 1s;
+  }
+  
+  
+  @keyframes split {
+    to {
+      transform: rotate(0deg);
+    }
+    from {
+      transform: rotate(-180deg);
+    }
+  }
+  @keyframes split2 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-180deg);
+    }
+  }
+  
+  @keyframes split3 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
