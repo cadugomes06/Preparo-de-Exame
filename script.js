@@ -154,12 +154,7 @@ function done(chk, i ) {
   }
   updateDB()
 }
-
 function removeItem(i) {
- /* if (clickOutside) {
-    document.removeEventListener('click', clickOutside)
-  }*/
-
   itensDB.splice(i, 1)
   updateDB()
 }
