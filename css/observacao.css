@@ -1,32 +1,42 @@
 .observacao {
-    background: #0d8a7f; 
-    background: -webkit-linear-gradient(to right, #5ac5b0, #044d46); 
-    background: linear-gradient(to right, #5ea597, #023f3a); 
-    display: flex;
-    justify-content: start;
-    height: 30px;
-    color: white;
-    align-items: center;
-    visibility: hidden;
-    transition: 0.5s ease-in;
-  }
-  
-  .observacao h3 {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  
-  .observacao input {
-    font-family: sans-serif;
-    display: inline-block;
-    width: 60%;
-    height: 40px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: normal;
-  }
-  
-  .observacao input:hover {
-    color: black;
-  }
+  background: #0d8a7f;
+  background: -webkit-linear-gradient(to right, #5ac5b0, #044d46);
+  background: linear-gradient(to right, #5ea597, #023f3a);
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  align-items: center;
+  visibility: hidden;
+  transition: 0.5s ease-in;
+}
+.pegarSenha label {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.pegarSenha input {
+  width: 13px;
+  height: 13px;
+}
+
+.fa-brands {
+  color: white;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+.observacao input:hover {
+  color: black;
+}
+
+.container-matPD {
+  display: block;
+}
+
+.matPD {
+  border-top: 1px solid rgb(182, 182, 182);
+  padding-top: 15px;
+}

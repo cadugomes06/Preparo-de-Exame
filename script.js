@@ -31,6 +31,7 @@ const sessaoJejum = document.querySelector(".sec-jejum");
 const sessaoPreparosAdicionais = document.querySelector(".preparos-adicionais");
 const sessaoMateriais = document.querySelector(".sec-materiais");
 const observacao = document.querySelector(".observacao")
+const materialPD = document.querySelector(".checkMaterialPD")
 
 
 /* ------- Animação em cada sessao --------- */
@@ -233,9 +234,10 @@ function handleImprimir() {
   if (cort.checked) {
     const resultadoCortisol = document.querySelector(".resultadoCortisol");
     resultadoCortisol.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol</strong> - Chegar ao laboratório no máximo
-     <strong>até às 7:20 horas</strong>, para realização do repouso
-     pré cortisol e realizar a coleta às 8:00 horas. </p>
-     <p><strong>- Obs:</strong> Retirar a senha de <strong>cortisol</strong> ao chegar no laboratório.`;
+     <strong>até às 7:20 horas.</strong></p>
+     <p>- Realizar o repouso obrigatório antes do exame.</p>
+     <p>- Realizar a coleta às 8:00 horas. </p>
+     `;
   }
 
   if (cortS.checked) {
@@ -352,7 +354,7 @@ function handleImprimir() {
 
   if (easCultura.checked) {
     const resultadoEasCultura = document.querySelector(".resultadoEasCultura");
-    resultadoEasCultura.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>EAS + Cultura</strong> - Colher a primeira urina da manhã</p>
+    resultadoEasCultura.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>Cultura de urina</strong> - Colher a primeira urina da manhã</p>
    <p> - Usar sempre o recipiente estéril fornecido pelo laboratório e abrir
     apenas na hora da coleta.<p/>
     <p> - Lavar as mãos e região genital com água e sabão.<p/>
@@ -402,6 +404,18 @@ function handleImprimir() {
     <p>Obs: No caso de haver dificuldade de obter o escarro por falta de secreção
     , recomendamos fazer inalação com vapor de água quente ou
     vaporização com soro fisiológico para estimular a secreção </p>`;
+  }
+  if (materialPD.checked) {
+    const resMaterialPD = document.querySelector('.resMaterialPD')
+    resMaterialPD.innerHTML = `
+        <div class="matPD">
+        <p><i class='bx bxs-hourglass'></i> - <strong>Exame Pendente</strong> </p>
+        <p><i class='bx bxs-printer'></i> - Retirar a senha de <strong>Material Pendente</strong> ao chegar no laboratório para
+        agilizar o seu atendimento.</p>
+        <p><strong>Obs:</strong> Senha exclusiva para exames já cadastrados anteriormente.</p>
+        </div> 
+     
+     `
   }
 
   removeFromScreen();
@@ -456,15 +470,8 @@ function removeFromScreen() {
   let obsTitle = document.querySelector('.btnObs')
   obsTitle.classList.add("printHide");  
   
-  let inputObs = document.querySelector('.input-obs')
-  let btnObs = document.querySelector(".obs");
-
-  if (inputObs.value === '') {
-    btnObs.classList.add("printHide");
-  } else {
-    btnObs.classList.remove("printHide");
-  }
-
+  let observacao = document.querySelector('.observacao')
+  observacao.classList.add('printHide')
 }
 
 btn.addEventListener("click", handleImprimir);

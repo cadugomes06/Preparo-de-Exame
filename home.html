@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Preparo de exame</title>
     <link rel="stylesheet" href="style.css" />
-    <!--<link rel="manifest" href="/manifest.webmanifest">-->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -597,27 +596,31 @@
       </div>
     </section>
 
-    <div class="obs icon">
+    <article class="obs icon">
       <h4 class="btnShowSection btnObs">
         Observação <i class="fa-solid fa-caret-down"></i>
       </h4>
 
       <div class="observacao">
-        <h3>Observação:</h3>
-        <input class="input-obs"
-         type="text"
-          maxlength="50"
-           minlength="4"
-           value="" id="txt" />
+    
+        <div class="pegarSenha">
+          <i class="fa-brands fa-product-hunt"></i>
+          <label for="materialPD">Material Pendente</label>
+          <input type="checkbox"  class="checkMaterialPD" id="materialPD" />  
+        </div>         
       </div>
-      <div class="resultadoObs res"></div>
-    </div>
 
+    </div>
+    <div class="resMaterialPD res"></div>
+    </article>
+
+    <!--btn Imprimir-->
     <div class="wrapper-btn">
       <button class="btn-imprimir">Imprimir</button>
     </div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer-container">
       <div class="footer-info">
         <div class="contatos-title">
@@ -634,8 +637,7 @@
         <div class="grid-wpp"><span><i class='bx bxl-whatsapp' ></i> (22) 99811-8969</span></div>
         <div class="grid-site"><span><i class='bx bx-link'></i> www.hemolabes.com</span></div> 
 
-      </div>
-      
+      </div>      
     </footer>
 
     <script src="script.js"></script>
