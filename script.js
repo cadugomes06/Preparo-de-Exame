@@ -32,6 +32,8 @@ const sessaoPreparosAdicionais = document.querySelector(".preparos-adicionais");
 const sessaoMateriais = document.querySelector(".sec-materiais");
 const observacao = document.querySelector(".observacao")
 const materialPD = document.querySelector(".checkMaterialPD")
+const marcacaoSUS = document.querySelector(".marcacaoSUS")
+
 
 
 /* ------- Animação em cada sessao --------- */
@@ -412,6 +414,11 @@ function handleImprimir() {
      
      `
   }
+  if (marcacaoSUS.checked) {
+    console.log('funcionando')
+    const resMarcaSUS = document.querySelector('.resMarcaSUS')
+    resMarcaSUS.classList.add('activeSUS')
+  }
 
   removeFromScreen();
   showFromScreen()
@@ -433,7 +440,7 @@ const resultados = document.querySelectorAll(".lista-materiais");
 
 /* removendo da tela ao imprimir */
 function removeFromScreen() {
-
+  
   btnLogout.classList.add('printHide')
 
   let subTitle = document.querySelector(".sub-title");

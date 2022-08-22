@@ -4,6 +4,7 @@
   background: linear-gradient(to right, #5ea597, #023f3a);
   height: 30px;
   display: flex;
+  gap: 22px;
   align-items: center;
   justify-content: center;
   color: white;
@@ -40,3 +41,51 @@
   border-top: 1px solid rgb(182, 182, 182);
   padding-top: 15px;
 }
+
+.secmarcacaoSUS input {
+  width: 13px;
+  height: 13px;
+}
+
+.secmarcacaoSUS label {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.resMarcaSUS  {
+  display: none;
+}
+
+.resMarcaSUS img{
+  display: grid;
+  width: 60px;
+  height: 60px;
+  margin-right: 12px;
+}
+
+.resMarcaSUS.activeSUS  {
+  display: block;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr ;
+  border-top: 1px solid rgb(182, 182, 182);
+}
+
+.resMarcaSUS  {
+  justify-items: center;
+  align-items: center;
+}
+
+.resMarcaSUS div:nth-child(3) {
+  padding-bottom: 20px;
+}
+
+.resMarcaSUS h4,
+.resMarcaSUS h3 {
+  padding-bottom: 6px;
+  font-size: .9rem;
+}
+.resMarcaSUS ul li {
+  font-size: .8rem;
+}
+
