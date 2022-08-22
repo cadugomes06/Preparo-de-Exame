@@ -107,3 +107,13 @@
   }
 }
 
+@media (min-width: 1400px) {
+  .menu-title {
+    height: 255px;
+    letter-spacing: 0.15rem;
+    font-size: 1.2rem;
+  }
+  .sessaoMenu h4 {
+    padding: 1.2rem 2rem;
+  }
+}

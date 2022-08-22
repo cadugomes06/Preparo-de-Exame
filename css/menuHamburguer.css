@@ -85,4 +85,9 @@
       transform: rotate(360deg);
     }
   }
-  
+
+  @media (min-width: 1400px) {
+    .menu-btn {
+      top: 4.5rem;
+    }
+  }

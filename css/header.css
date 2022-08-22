@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 120px;
     background: white;
     justify-content: center;
@@ -33,5 +34,22 @@
     font-size: 1.2rem;
     margin-left: 2rem;
   }
-  
+
+  @media (min-width: 1400px) {
+    .header {
+      height: 220px;
+    }
+    .header p {
+      top: 150px;
+    }
+    .header span {
+      top: 170px;
+    }
+    .sub-title {
+      height: 100px;
+    }
+    .sub-title h2 {
+      font-size: 1.5rem;
+    }
+  }
   

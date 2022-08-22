@@ -53,3 +53,12 @@
     margin-bottom: .5rem;
   }
   
+  @media (min-width: 1400px) {
+    .sec-jejum {
+      height: 30px;
+  }
+  .preparos-adicionais {
+    height: 30px;
+    color: white;
+  }
+}

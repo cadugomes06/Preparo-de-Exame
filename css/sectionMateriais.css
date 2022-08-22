@@ -35,4 +35,9 @@
     font-weight: normal;
     margin-bottom: 1rem ;
   }
-  
+
+  @media (min-width: 1400px) {
+    .sec-materiais {
+      height: 30px;
+    }
+  }

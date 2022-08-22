@@ -22,3 +22,12 @@
     background: rgba(87, 187, 166, 1);
   }
   
+  @media (min-width: 1400px) {
+    .wrapper-btn {
+      height: 100px;
+      bottom: 0;
+    }
+    .btn-imprimir {
+      padding: 16px 80px;
+    }
+  }

@@ -440,7 +440,7 @@ const resultados = document.querySelectorAll(".lista-materiais");
 
 /* removendo da tela ao imprimir */
 function removeFromScreen() {
-  
+
   btnLogout.classList.add('printHide')
 
   let subTitle = document.querySelector(".sub-title");

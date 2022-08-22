@@ -18,3 +18,10 @@
     padding: 5px;
     border-radius: 8px;
   }
+
+  @media (min-width: 1400px) {
+    .btn-logout {
+      top: 5rem;
+      font-size: 35px;
+    }
+  }
