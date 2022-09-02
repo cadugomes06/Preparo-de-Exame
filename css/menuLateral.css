@@ -107,6 +107,13 @@
   }
 }
 
+.bg-atencion {
+  padding: 6px;
+  border-radius: 8px;
+  background: teal;
+  color: white;
+}
+
 @media (min-width: 1400px) {
   .menu-title {
     height: 255px;
