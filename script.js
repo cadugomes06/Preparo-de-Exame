@@ -414,7 +414,6 @@ function handleImprimir() {
      `
   }
   if (marcacaoSUS.checked) {
-    console.log('funcionando')
     const resMarcaSUS = document.querySelector('.resMarcaSUS')
     resMarcaSUS.classList.add('activeSUS')
   }
@@ -422,8 +421,8 @@ function handleImprimir() {
   if (senhaCort.checked && resultadoCortisol.innerHTML != '') {
     resultadoCortisol.innerHTML += `<p>- <strong>Obs: </strong>Retirar a senha de <strong>Cortisol</strong> 
     ao chegar no laboratório.</p>`
-  }
-  
+  } 
+
   removeFromScreen();
   showFromScreen()
   window.print();
