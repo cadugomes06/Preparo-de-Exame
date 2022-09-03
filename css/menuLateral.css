@@ -66,6 +66,7 @@
   animation: showMenu 1.5s both;
 }
 
+
 .lista-sessaoMenu.activeSection {
   display: block;
   right: 0px;

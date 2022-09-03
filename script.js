@@ -11,6 +11,7 @@ authentication()
 const horasJejum = document.getElementsByName("jj");
 const btn = document.querySelector(".btn-imprimir");
 const cort = document.querySelector(".cortisol");
+const resultadoCortisol = document.querySelector(".resultadoCortisol");
 const cortS = document.querySelector(".cortisolS");
 const serotonina = document.querySelector(".serotonina");
 const psa = document.querySelector(".psa");
@@ -33,7 +34,7 @@ const sessaoMateriais = document.querySelector(".sec-materiais");
 const observacao = document.querySelector(".observacao")
 const materialPD = document.querySelector(".checkMaterialPD")
 const marcacaoSUS = document.querySelector(".marcacaoSUS")
-
+const senhaCort = document.querySelector(".senhaCortisol")
 
 
 /* ------- Animação em cada sessao --------- */
@@ -229,7 +230,6 @@ function handleImprimir() {
 
   //--------- PREPAROS ESPECIAIS --------
   if (cort.checked) {
-    const resultadoCortisol = document.querySelector(".resultadoCortisol");
     resultadoCortisol.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol</strong> - Chegar ao laboratório no máximo
      <strong>até às 7:20 horas.</strong></p>
      <p>- Realizar o repouso obrigatório antes do exame.</p>
@@ -411,7 +411,6 @@ function handleImprimir() {
         agilizar o seu atendimento.</p>
         <p><strong>Obs:</strong> Senha exclusiva para exames já cadastrados anteriormente.</p>
         </div> 
-     
      `
   }
   if (marcacaoSUS.checked) {
@@ -420,10 +419,16 @@ function handleImprimir() {
     resMarcaSUS.classList.add('activeSUS')
   }
 
+  if (senhaCort.checked && resultadoCortisol.innerHTML != '') {
+    resultadoCortisol.innerHTML += `<p>- <strong>Obs: </strong>Retirar a senha de <strong>Cortisol</strong> 
+    ao chegar no laboratório.</p>`
+  }
+  
   removeFromScreen();
   showFromScreen()
   window.print();
   document.location.reload();
+  alert('Nova opção na sessão de Observação (Senha/Cortisol) para pacientes que precisam retirar exclusivamente a senha de cortisol e novo campo de info-exame (Curva glicêmica e insulínica) ')
 }
 
 /* ---------- Adicionar na tela -------------- */
