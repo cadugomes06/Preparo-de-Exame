@@ -427,7 +427,6 @@ function handleImprimir() {
   showFromScreen()
   window.print();
   document.location.reload();
-  alert('Nova opção na sessão de Observação (Senha/Cortisol) para pacientes que precisam retirar exclusivamente a senha de cortisol e novo campo de info-exame (Curva glicêmica e insulínica) ')
 }
 
 /* ---------- Adicionar na tela -------------- */
