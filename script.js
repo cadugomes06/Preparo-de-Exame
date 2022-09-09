@@ -26,6 +26,7 @@ const esp = document.querySelector(".esp");
 const dna = document.querySelector(".dna");
 const toxicologico = document.querySelector(".toxicologico");
 const glipp = document.querySelector(".glipp");
+const curvaGlicemica = document.querySelector(".curvaGli");
 const catec = document.querySelector(".catec");
 const btnShowSection = document.querySelectorAll(".btnShowSection");
 const sessaoJejum = document.querySelector(".sec-jejum");
@@ -35,7 +36,6 @@ const observacao = document.querySelector(".observacao")
 const materialPD = document.querySelector(".checkMaterialPD")
 const marcacaoSUS = document.querySelector(".marcacaoSUS")
 const senhaCort = document.querySelector(".senhaCortisol")
-
 
 /* ------- Animação em cada sessao --------- */
 function activeModal(btn, index) {
@@ -421,7 +421,21 @@ function handleImprimir() {
   if (senhaCort.checked && resultadoCortisol.innerHTML != '') {
     resultadoCortisol.innerHTML += `<p>- <strong>Obs: </strong>Retirar a senha de <strong>Cortisol</strong> 
     ao chegar no laboratório.</p>`
+  } else if (!cort.checked && senhaCort.checked) {
+    alert('Atenção!! Você esqueceu de selecionar o campo de "Cortisol", refaça a operação.')
   } 
+
+  if (curvaGlicemica.checked) {
+    const resultadoCurvaGli = document.querySelector('.resultadoCurvaGli')
+    resultadoCurvaGli.innerHTML = `
+    
+    <p><i class="fa-solid fa-vial"></i> <strong> Curva Glicêmica</strong></p>
+    <p><i class='bx bxs-time'></i> Será necessário <strong>permanecer 2 hóras no laboratório</strong> para a realização do exame. </p>
+    <p>- Após a primeira coleta, o paciente irá ingerir o dextrosol e aguardar a próxima coleta no horário indicado pelo técnico.</p>
+    <p><strong>Obs: </strong>O repouso entre as coletas deverá ser realizada no laboratório.</p>
+    `
+  }
+  
 
   removeFromScreen();
   showFromScreen()

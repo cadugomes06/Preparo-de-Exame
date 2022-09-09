@@ -18,7 +18,10 @@ input:hover {
   color: #eee;
   cursor: pointer;
 }
-.fa-solid {
+.bxs-time {
+  font-size: 16px;
+}
+.fa-solid, .bxs-time {
   color: rgb(114, 224, 70);
 }
 .bxs-bowl-hot {
