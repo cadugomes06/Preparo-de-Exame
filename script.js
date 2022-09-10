@@ -423,15 +423,15 @@ function handleImprimir() {
     ao chegar no laboratório.</p>`
   } else if (!cort.checked && senhaCort.checked) {
     alert('Atenção!! Você esqueceu de selecionar o campo de "Cortisol", refaça a operação.')
+    window.location.href='home.html'
   } 
 
   if (curvaGlicemica.checked) {
     const resultadoCurvaGli = document.querySelector('.resultadoCurvaGli')
-    resultadoCurvaGli.innerHTML = `
-    
+    resultadoCurvaGli.innerHTML = `    
     <p><i class="fa-solid fa-vial"></i> <strong> Curva Glicêmica</strong></p>
-    <p><i class='bx bxs-time'></i> Será necessário <strong>permanecer 2 hóras no laboratório</strong> para a realização do exame. </p>
-    <p>- Após a primeira coleta, o paciente irá ingerir o dextrosol e aguardar a próxima coleta no horário indicado pelo técnico.</p>
+    <p><i class='bx bxs-time'></i> Será necessário <strong>permanecer 2 horas no laboratório</strong> para a realização do exame. </p>
+    <p>- Após a primeira coleta, o paciente irá ingerir o dextrosol e aguardar a próxima coleta no horário indicado pelo médico.</p>
     <p><strong>Obs: </strong>O repouso entre as coletas deverá ser realizada no laboratório.</p>
     `
   }
