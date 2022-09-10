@@ -527,26 +527,14 @@
         </label>
 
         <label for="curvaGli">
-          <i class='bx bxs-time'></i> Curva-Glicêmica(2h) <input
+          <i class='bx bxs-time'></i> Curva-Glicêmica <input
           type="checkbox"
           id="curvaGli"
           name="preparoEsp"
           value="curvaGlicemica2"
           class="curvaGli especiais"
           />
-        </label>
-
-        <label for="curvaGli2">
-          <i class='bx bxs-time'></i> Curva-Glicêmica(3h) <input
-          type="checkbox"
-          id="curvaGli2"
-          name="preparoEsp"
-          value="curvaGlicemica3"
-          class="curvaGli especiais"
-          disabled 
-          />
-        </label>
-      
+        </label>      
 
         <label for="catec">
           <i class="fa-solid fa-vial"></i> Catecolaminas <input
@@ -749,6 +737,29 @@
       <button class="btn-imprimir">Imprimir</button>
     </div>
     </main>
+
+    <!-- Modal-->
+    <div class="modal">
+      <div class="container">
+      <h4>Marque as opções conforme o pedido médico ou orientação do sistema.</h4>
+
+      <div class="containerTempo">
+      <h5>tempo de exame: </h5>
+      <input type="number" id="time" value="2" min="2" max="3" class="timeDextrosol">
+    </div>
+
+    <div class="containerQuantidade">
+      <h5>Quantide de dextrosol: </h5>
+      <label for="dextrosol50">50mg</label>
+      <input type="radio" name="dextrosol" value="50" id="dextrosol50" class="dextrosol5"/>
+      <label for="dextrosol75">75mg</label>
+      <input type="radio" name="dextrosol" value="75"  id="dextrosol75" class="dextrosol7"/>
+    </div>
+
+    <button class="modalConfirmar">Confirmar</button>
+    
+     </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer-container">

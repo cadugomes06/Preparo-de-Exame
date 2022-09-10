@@ -1,12 +1,12 @@
 function authentication() {
-  const key = localStorage.getItem('key')
-  if ( key === 'hemolabes') {
-    return null
+  const key = localStorage.getItem("key");
+  if (key === "hemolabes") {
+    return null;
   } else {
-    window.location.href='login.html'
+    window.location.href = "login.html";
   }
 }
-authentication()
+authentication();
 
 const horasJejum = document.getElementsByName("jj");
 const btn = document.querySelector(".btn-imprimir");
@@ -32,10 +32,10 @@ const btnShowSection = document.querySelectorAll(".btnShowSection");
 const sessaoJejum = document.querySelector(".sec-jejum");
 const sessaoPreparosAdicionais = document.querySelector(".preparos-adicionais");
 const sessaoMateriais = document.querySelector(".sec-materiais");
-const observacao = document.querySelector(".observacao")
-const materialPD = document.querySelector(".checkMaterialPD")
-const marcacaoSUS = document.querySelector(".marcacaoSUS")
-const senhaCort = document.querySelector(".senhaCortisol")
+const observacao = document.querySelector(".observacao");
+const materialPD = document.querySelector(".checkMaterialPD");
+const marcacaoSUS = document.querySelector(".marcacaoSUS");
+const senhaCort = document.querySelector(".senhaCortisol");
 
 /* ------- Animação em cada sessao --------- */
 function activeModal(btn, index) {
@@ -58,78 +58,74 @@ btnShowSection.forEach((btn, index) => {
   });
 });
 
-
 /* ------- Logout --------- */
-const btnLogout = document.querySelector('.btn-logout')
+const btnLogout = document.querySelector(".btn-logout");
 function logOut() {
-  localStorage.setItem('key', '')
-  window.location.href="login.html"
+  localStorage.setItem("key", "");
+  window.location.href = "login.html";
 }
-btnLogout.addEventListener('click', logOut)
-
-
+btnLogout.addEventListener("click", logOut);
 
 /* ----------- open/close menu -------- */
-const btnMenu = document.querySelector('.menu-btn')
-const menuContainer = document.querySelector('.container-menu')
+const btnMenu = document.querySelector(".menu-btn");
+const menuContainer = document.querySelector(".container-menu");
 function toggleMenu() {
-  menuContainer.classList.toggle('activeMenu')
-  btnMenu.classList.toggle('activeMenu')
-
+  menuContainer.classList.toggle("activeMenu");
+  btnMenu.classList.toggle("activeMenu");
 }
-btnMenu.addEventListener('click', toggleMenu)
+btnMenu.addEventListener("click", toggleMenu);
 
 /* ---------------- open sections on menu -------------- */
-const secAsideMenu = document.querySelectorAll('.asideMenu')
-const listasSectionsMenu = document.querySelectorAll('.sectionsMenus')
+const secAsideMenu = document.querySelectorAll(".asideMenu");
+const listasSectionsMenu = document.querySelectorAll(".sectionsMenus");
 
 function handleClick(sec, index) {
-  listasSectionsMenu[index].classList.toggle('activeSection')  
+  listasSectionsMenu[index].classList.toggle("activeSection");
 }
 secAsideMenu.forEach((sec, index) => {
-  sec.addEventListener('click', () => {
-    handleClick(sec, index)
-  })
-})
+  sec.addEventListener("click", () => {
+    handleClick(sec, index);
+  });
+});
 
 /* -------------- sessao to-do list --------------------------- */
 
- const dataHoje = document.querySelector('.dataHoje')
- const today = new Date()
- dataHoje.innerHTML = today.toLocaleDateString()
+const dataHoje = document.querySelector(".dataHoje");
+const today = new Date();
+dataHoje.innerHTML = today.toLocaleDateString();
 
- const texto = document.querySelector('.input-toDo')
- const btnAdd = document.querySelector('.btn-toDo')
- const ulResultado = document.querySelector('.resultado-toDoList')
+const texto = document.querySelector(".input-toDo");
+const btnAdd = document.querySelector(".btn-toDo");
+const ulResultado = document.querySelector(".resultado-toDoList");
 
- var itensDB = []
+var itensDB = [];
 
- btnAdd.onclick = () => {
-  if (texto.value != '') {
-    setItemDB()
+btnAdd.onclick = () => {
+  if (texto.value != "") {
+    setItemDB();
   }
- }
- function setItemDB() {
+};
+function setItemDB() {
   if (itensDB.length > 5) {
-    alert('Limite máximo atingido de 6 itens atingido!')
-    return
+    alert("Limite máximo atingido de 6 itens atingido!");
+    return;
   }
-  itensDB.push({ 'item': texto.value , 'status': ''})
-  updateDB()
+  itensDB.push({ item: texto.value, status: "" });
+  updateDB();
 }
 function updateDB() {
-  localStorage.setItem('todolist', JSON.stringify(itensDB))
-  loadItens()
+  localStorage.setItem("todolist", JSON.stringify(itensDB));
+  loadItens();
 }
 function loadItens() {
   ulResultado.innerHTML = "";
-  itensDB = JSON.parse(localStorage.getItem('todolist')) ?? []
+  itensDB = JSON.parse(localStorage.getItem("todolist")) ?? [];
   itensDB.forEach((item, i) => {
-    addItemTela(item.item, item.status, i)
-  })
+    addItemTela(item.item, item.status, i);
+  });
 }
 function addItemTela(text, status, i) {
-  const li = document.createElement('li')
+  const li = document.createElement("li");
   li.innerHTML = `
   <div class='divLi modalMenu'>
     <input type="checkbox" ${status} data-i=${i} onchange="done(this, ${i})" />
@@ -138,36 +134,38 @@ function addItemTela(text, status, i) {
     <i class='bx bxs-message-square-x'></i> 
     </button>
   </div>
-  `
-  ulResultado.appendChild(li)
+  `;
+  ulResultado.appendChild(li);
   if (status) {
-    document.querySelector(`[data-statusIndex="${i}"]`).classList.add('line-through')
+    document
+      .querySelector(`[data-statusIndex="${i}"]`)
+      .classList.add("line-through");
   } else {
-    document.querySelector(`[data-statusIndex="${i}"]`).classList.remove('line-through')
+    document
+      .querySelector(`[data-statusIndex="${i}"]`)
+      .classList.remove("line-through");
   }
   texto.value = "";
-  texto.focus()
+  texto.focus();
 }
 
-function done(chk, i ) {
+function done(chk, i) {
   if (chk.checked) {
-    itensDB[i].status = 'checked'
+    itensDB[i].status = "checked";
   } else {
-    itensDB[i].status = ''
+    itensDB[i].status = "";
   }
-  updateDB()
+  updateDB();
 }
 function removeItem(i) {
-  itensDB.splice(i, 1)
-  updateDB()
+  itensDB.splice(i, 1);
+  updateDB();
 }
-loadItens()  
-  
-  /* ----------------- evento de click "imprimir" --------- */
+loadItens();
 
+/* ----------------- evento de click "imprimir" --------- */
 
 function handleImprimir() {
-
   const radios = Array.from(
     document.querySelectorAll('input[type="radio"]:checked')
   );
@@ -179,21 +177,25 @@ function handleImprimir() {
   }
 
   const especiaisOff = document.querySelector(".especiaisOff");
-  const checksEsp = document.querySelectorAll('input[name="preparoEsp"]:checked')
+  const checksEsp = document.querySelectorAll(
+    'input[name="preparoEsp"]:checked'
+  );
   if (checksEsp.length != 0) {
-    especiaisOff.classList.remove('printHide')
+    especiaisOff.classList.remove("printHide");
   } else {
-    especiaisOff.classList.add('printHide')
+    especiaisOff.classList.add("printHide");
   }
   const materiaisOff = document.querySelector(".materiaisOff");
-  const checksMat = document.querySelectorAll('input[name="materiais"]:checked')
+  const checksMat = document.querySelectorAll(
+    'input[name="materiais"]:checked'
+  );
   if (checksMat.length != 0) {
-    materiaisOff.classList.remove('printHide')
+    materiaisOff.classList.remove("printHide");
   } else {
-    materiaisOff.classList.add('printHide')
+    materiaisOff.classList.add("printHide");
   }
 
-/* ------- tempo em jejum -------- */
+  /* ------- tempo em jejum -------- */
   for (let i = 0; i < horasJejum.length; i++) {
     if (horasJejum[i].checked) {
       if (i === 0) {
@@ -223,8 +225,8 @@ function handleImprimir() {
       }
       if (i === 4) {
         const resultadoJejum = document.querySelector(".resultadoJejum");
-        resultadoJejum.innerHTML = `<p><i class='bx bxs-bowl-hot' ></i> - Não possui jejum para esses exames. Manter a dieta regular.</p>`
-       }
+        resultadoJejum.innerHTML = `<p><i class='bx bxs-bowl-hot' ></i> - Não possui jejum para esses exames. Manter a dieta regular.</p>`;
+      }
     }
   }
 
@@ -254,7 +256,7 @@ function handleImprimir() {
     <p><strong>- Bebida alcoólica:</strong> A abstinência é obrigatória nas 24 horas que antecedem o exame.</p>
     <p><strong>- Dieta:</strong> Não ingerir nas 24 horas que antecedem o exame: café, chá, chocolate, mate, 
     refrigerante, abacate, abacaxi, ameixa, banana, berinjela, picles, kiwi, manga, nozes, tomate e alimentos
-    aromatizados com baunilha.</p>`
+    aromatizados com baunilha.</p>`;
   }
 
   if (psa.checked) {
@@ -290,7 +292,7 @@ function handleImprimir() {
     alimentos: banana, laranja, abacaxi, queijo, café, chá, chocolate, caramelos, marmeladas, doces, sorvetes,
     nozes e bebidas alcoólicas.</p>
     <p> - Não fumar nas 4 horas que antecederem a coleta.</p>
-    `
+    `;
   }
 
   if (esp.checked) {
@@ -322,9 +324,10 @@ function handleImprimir() {
   }
   // ------ Materiais -----------------
 
-
   if (easInfantil.checked) {
-    const resultadoEasInfantil = document.querySelector(".resultadoEasInfantil");
+    const resultadoEasInfantil = document.querySelector(
+      ".resultadoEasInfantil"
+    );
     resultadoEasInfantil.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong> Urina - Coletor infantil. </strong></p>
     <p><strong> - Instruções de uso:</strong> Retirar o produto da embalagem somente na hora
     do uso e em condições assépticas.</p>
@@ -334,9 +337,9 @@ function handleImprimir() {
     <p> - Pressione delicadamente para fixá-lo</p>
     <p> - Aguardar a micção da criança, inspecionando em intervalos de 30 a 60 minutos.</p>
     <p> - Após a criança urinar, com luvas, descolar e retirar o dispositivo cuidadosamente
-    Se necessário, transferir o material coletado para outro recipiente. </p>`
+    Se necessário, transferir o material coletado para outro recipiente. </p>`;
   }
-  
+
   if (eas.checked) {
     const resultadoEas = document.querySelector(".resultadoEas");
     resultadoEas.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong> Rotina de Urina (EAS) </strong> - Coletar uma amostra de urina.</p>
@@ -403,7 +406,7 @@ function handleImprimir() {
     vaporização com soro fisiológico para estimular a secreção </p>`;
   }
   if (materialPD.checked) {
-    const resMaterialPD = document.querySelector('.resMaterialPD')
+    const resMaterialPD = document.querySelector(".resMaterialPD");
     resMaterialPD.innerHTML = `
         <div class="matPD">
         <p><i class='bx bxs-hourglass'></i> - <strong>Exame Pendente</strong> </p>
@@ -411,54 +414,71 @@ function handleImprimir() {
         agilizar o seu atendimento.</p>
         <p><strong>Obs:</strong> Senha exclusiva para exames já cadastrados anteriormente.</p>
         </div> 
-     `
+     `;
   }
   if (marcacaoSUS.checked) {
-    const resMarcaSUS = document.querySelector('.resMarcaSUS')
-    resMarcaSUS.classList.add('activeSUS')
+    const resMarcaSUS = document.querySelector(".resMarcaSUS");
+    resMarcaSUS.classList.add("activeSUS");
   }
 
-  if (senhaCort.checked && resultadoCortisol.innerHTML != '') {
+  if (senhaCort.checked && resultadoCortisol.innerHTML != "") {
     resultadoCortisol.innerHTML += `<p>- <strong>Obs: </strong>Retirar a senha de <strong>Cortisol</strong> 
-    ao chegar no laboratório.</p>`
+    ao chegar no laboratório.</p>`;
   } else if (!cort.checked && senhaCort.checked) {
-    alert('Atenção!! Você esqueceu de selecionar o campo de "Cortisol", refaça a operação.')
-    window.location.href='home.html'
-  } 
+    alert(
+      'Atenção!! Você esqueceu de selecionar o campo de "Cortisol", refaça a operação.'
+    );
+    document.location.reload();
+  }
 
   if (curvaGlicemica.checked) {
-    const resultadoCurvaGli = document.querySelector('.resultadoCurvaGli')
-    resultadoCurvaGli.innerHTML = `    
-    <p><i class="fa-solid fa-vial"></i> <strong> Curva Glicêmica</strong></p>
-    <p><i class='bx bxs-time'></i> Será necessário <strong>permanecer 2 horas no laboratório</strong> para a realização do exame. </p>
-    <p>- Após a primeira coleta, o paciente irá ingerir o dextrosol e aguardar a próxima coleta no horário indicado pelo médico.</p>
-    <p><strong>Obs: </strong>O repouso entre as coletas deverá ser realizada no laboratório.</p>
-    `
+    ativandoModal();
+  } else {
+    removeFromScreen();
+    showFromScreen();
+    window.print();
+    document.location.reload();
   }
-  
-
+}
+//Modal
+function ativandoModal() {
+  const modal = document.querySelector(".modal");
+  modal.classList.add("ativo");
+}
+function setValueCurva() {
+  const tempo = document.querySelector(".timeDextrosol");
+  const quantidade = document.querySelector('input[name="dextrosol"]:checked');
+  const modal = document.querySelector(".modal");
+  const resultadoCurvaGli = document.querySelector(".resultadoCurvaGli");
+  resultadoCurvaGli.innerHTML = `    
+  <p><i class="fa-solid fa-vial"></i> <strong> Curva Glicêmica (${tempo.value} horas)</strong></p>
+  <p><i class='bx bxs-time'></i> Será necessário <strong>permanecer ${tempo.value} horas no laboratório</strong> para a realização do exame. </p>
+  <p>- Após a primeira coleta, o paciente irá ingerir ${quantidade.value}mg de dextrosol e aguardar a próxima coleta no horário indicado pelo médico.</p>
+  <p><strong>Obs: </strong>O repouso entre as coletas deverá ser realizada no laboratório.</p>
+  `;
+  modal.classList.remove("ativo");
   removeFromScreen();
-  showFromScreen()
+  showFromScreen();
   window.print();
   document.location.reload();
 }
+const btnConfirmar = document.querySelector(".modalConfirmar");
+btnConfirmar.addEventListener("click", setValueCurva);
 
 /* ---------- Adicionar na tela -------------- */
-
 const resultados = document.querySelectorAll(".lista-materiais");
- function showFromScreen() {
-  const footer = document.querySelector('.footer-container')
-  footer.classList.add('printShow')
+function showFromScreen() {
+  const footer = document.querySelector(".footer-container");
+  footer.classList.add("printShow");
 
   resultados.forEach((res) => {
     res.classList.toggle("SectionOn");
   });
- }
+}
 
 /* removendo da tela ao imprimir */
 function removeFromScreen() {
-
-  btnLogout.classList.add('printHide')
+  btnLogout.classList.add("printHide");
 
   let subTitle = document.querySelector(".sub-title");
   subTitle.classList.add("printHide");
@@ -471,11 +491,11 @@ function removeFromScreen() {
     icone.classList.add("printHide");
   });
 
-  let title = document.querySelector('title')
-  title.innerText = '`'
+  let title = document.querySelector("title");
+  title.innerText = "`";
 
-  let meta = document.querySelector('meta')
-  meta.innerHTML = '`'
+  let meta = document.querySelector("meta");
+  meta.innerHTML = "`";
 
   let sectionEspeciais = document.querySelector(".sectionEspeciais");
   sectionEspeciais.classList.add("printHide");
@@ -486,11 +506,11 @@ function removeFromScreen() {
   let sectionJejumOff = document.querySelector(".sec-jejum");
   sectionJejumOff.classList.add("printHide");
 
-  let obsTitle = document.querySelector('.btnObs')
-  obsTitle.classList.add("printHide");  
-  
-  let observacao = document.querySelector('.observacao')
-  observacao.classList.add('printHide')
+  let obsTitle = document.querySelector(".btnObs");
+  obsTitle.classList.add("printHide");
+
+  let observacao = document.querySelector(".observacao");
+  observacao.classList.add("printHide");
 }
 
 btn.addEventListener("click", handleImprimir);
