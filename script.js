@@ -163,6 +163,27 @@ function removeItem(i) {
 }
 loadItens();
 
+// ------ Configurações (dentro do menu)
+
+const horaEntrada = document.querySelector(".inputHoraEntrada")
+const horaSaida = document.querySelector(".inputhoraSaida")
+const horaEntradaFDS = document.querySelector(".inputHoraEntradaFDS")
+const horaSaidaFDS = document.querySelector(".inputhoraSaidaFDS")
+const btnConfigHora = document.querySelector(".btnConfig") 
+
+function saveHours() {
+  const Horarios =  {horaEntrada: horaEntrada.value,
+      horaSaida: horaSaida.value,
+      horaEntradaFDS: horaEntradaFDS.value,
+      horaSaidaFDS: horaSaidaFDS.value
+  }
+  
+  localStorage.setItem("horarios", JSON.stringify(Horarios))
+  window.alert("Horário atualizado com sucesso!")
+}
+
+btnConfigHora.addEventListener("click", saveHours)
+
 /* ----------------- evento de click "imprimir" --------- */
 
 function handleImprimir() {
@@ -407,12 +428,16 @@ function handleImprimir() {
   }
   if (materialPD.checked) {
     const resMaterialPD = document.querySelector(".resMaterialPD");
+    const setHorario = JSON.parse(localStorage.getItem("horarios"))
+    console.log(setHorario.horaEntrada)
     resMaterialPD.innerHTML = `
         <div class="matPD">
-        <p><i class='bx bxs-hourglass'></i> - <strong>Exame Pendente</strong> </p>
+        <p><i class='bx bxs-hourglass'></i> - <strong>Exame Pendente </strong> </p>
         <p><i class='bx bxs-printer'></i> - Retirar a senha de <strong>Material Pendente</strong> ao chegar no laboratório para
         agilizar o seu atendimento.</p>
         <p><strong>Obs:</strong> Senha exclusiva para exames já cadastrados anteriormente.</p>
+        <p>- <strong>Horário de coleta: </strong>De <strong>${setHorario.horaEntrada}</strong> às <strong>${setHorario.horaSaida}</strong>
+         - <strong>Sábado:</strong> De <strong>${setHorario.horaEntradaFDS}</strong> às <strong>${setHorario.horaSaidaFDS}</strong></p>
         </div> 
      `;
   }
@@ -440,6 +465,7 @@ function handleImprimir() {
     document.location.reload();
   }
 }
+
 //Modal
 function ativandoModal() {
   const modal = document.querySelector(".modal");

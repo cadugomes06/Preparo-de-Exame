@@ -1,3 +1,8 @@
+
+.bxs-cog {
+  color: white;
+}
+
 .container-menu {
     height: 100vh;
     width: 500px;
@@ -71,6 +76,60 @@
   opacity: 1;
   animation: showSub 1.5s ease-out;
 }
+
+.sessaoMenu .config h4 {
+  background: teal;
+  color: white;
+  scroll-behavior:  smooth;
+}
+
+.configHorario  {
+  background: #44a390;
+  scroll-behavior:  smooth;
+}
+
+.configHorario h4 {
+  padding: 10px 5px;
+  margin: 20px 0;
+  background-color: #44a390;
+  color: white;
+  cursor:auto;
+}
+
+.configHorario label {
+  color: #eee;
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.configHorario input {
+  display: inline-block;
+  width: 80px;
+  border: none;
+  border-radius: 4px;
+  height: 22px;
+  margin: 0 16px 10px 0 ;
+  text-align: center;
+}
+.configHorario input:hover {
+  color: currentColor;
+}
+
+.btnConfig {
+  margin: 20px 0;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: teal;
+  color: white;
+  box-shadow: 1px 1px 4px 1px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+.btnConfig:hover {
+  background-color: rgb(1, 104, 104);
+}
+
 
 @keyframes showMenu {
   0% {
