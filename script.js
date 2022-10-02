@@ -429,8 +429,9 @@ function handleImprimir() {
   if (materialPD.checked) {
     const resMaterialPD = document.querySelector(".resMaterialPD");
     const setHorario = JSON.parse(localStorage.getItem("horarios"))
-    console.log(setHorario.horaEntrada)
-    resMaterialPD.innerHTML = `
+    
+    if (setHorario != null || setHorario != undefined) {
+      resMaterialPD.innerHTML = `
         <div class="matPD">
         <p><i class='bx bxs-hourglass'></i> - <strong>Exame Pendente </strong> </p>
         <p><i class='bx bxs-printer'></i> - Retirar a senha de <strong>Material Pendente</strong> ao chegar no laboratório para
@@ -440,6 +441,15 @@ function handleImprimir() {
          - <strong>Sábado:</strong> De <strong>${setHorario.horaEntradaFDS}</strong> às <strong>${setHorario.horaSaidaFDS}</strong></p>
         </div> 
      `;
+    } else {
+      resMaterialPD.innerHTML = `
+        <div class="matPD">
+        <p><i class='bx bxs-hourglass'></i> - <strong>Exame Pendente </strong> </p>
+        <p><i class='bx bxs-printer'></i> - Retirar a senha de <strong>Material Pendente</strong> ao chegar no laboratório para
+        agilizar o seu atendimento.</p>
+        <p><strong>Obs:</strong> Senha exclusiva para exames já cadastrados anteriormente.</p>`     
+    }
+    
   }
   if (marcacaoSUS.checked) {
     const resMarcaSUS = document.querySelector(".resMarcaSUS");
