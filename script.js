@@ -172,16 +172,20 @@ const horaSaidaFDS = document.querySelector(".inputhoraSaidaFDS")
 const btnConfigHora = document.querySelector(".btnConfig") 
 
 function saveHours() {
-  const Horarios =  {horaEntrada: horaEntrada.value,
-      horaSaida: horaSaida.value,
-      horaEntradaFDS: horaEntradaFDS.value,
-      horaSaidaFDS: horaSaidaFDS.value
-  }
-  
-  localStorage.setItem("horarios", JSON.stringify(Horarios))
-  window.alert("Horário atualizado com sucesso!")
-}
+  const horarios =  {horaEntrada: horaEntrada.value,
+    horaSaida: horaSaida.value,
+    horaEntradaFDS: horaEntradaFDS.value,
+    horaSaidaFDS: horaSaidaFDS.value
+   }  
 
+  if(horaEntrada.value == "" || horaSaida.value == "" || horaEntradaFDS.value == "" || horaSaidaFDS.value == ""){
+    window.alert("Preencha todos os campos por favor no formato 00:00")
+  } else {
+    localStorage.setItem("horarios", JSON.stringify(horarios))
+    window.alert("Horário atualizado com sucesso!")
+  }
+
+}
 btnConfigHora.addEventListener("click", saveHours)
 
 /* ----------------- evento de click "imprimir" --------- */
@@ -440,7 +444,7 @@ function handleImprimir() {
         <p>- <strong>Horário de coleta: </strong>De <strong>${setHorario.horaEntrada}</strong> às <strong>${setHorario.horaSaida}</strong>
          - <strong>Sábado:</strong> De <strong>${setHorario.horaEntradaFDS}</strong> às <strong>${setHorario.horaSaidaFDS}</strong></p>
         </div> 
-     `;
+     `
     } else {
       resMaterialPD.innerHTML = `
         <div class="matPD">
@@ -471,8 +475,8 @@ function handleImprimir() {
   } else {
     removeFromScreen();
     showFromScreen();
-    window.print();
-    document.location.reload();
+    //window.print();
+    //document.location.reload();
   }
 }
 
