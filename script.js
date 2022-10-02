@@ -475,8 +475,8 @@ function handleImprimir() {
   } else {
     removeFromScreen();
     showFromScreen();
-    //window.print();
-    //document.location.reload();
+    window.print();
+    document.location.reload();
   }
 }
 
