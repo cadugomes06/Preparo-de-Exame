@@ -169,13 +169,16 @@ const horaEntrada = document.querySelector(".inputHoraEntrada")
 const horaSaida = document.querySelector(".inputhoraSaida")
 const horaEntradaFDS = document.querySelector(".inputHoraEntradaFDS")
 const horaSaidaFDS = document.querySelector(".inputhoraSaidaFDS")
+const unidade = document.querySelector(".inputUnidade")
 const btnConfigHora = document.querySelector(".btnConfig") 
 
 function saveHours() {
-  const horarios =  {horaEntrada: horaEntrada.value,
+  const horarios =  {
+    horaEntrada: horaEntrada.value,
     horaSaida: horaSaida.value,
     horaEntradaFDS: horaEntradaFDS.value,
-    horaSaidaFDS: horaSaidaFDS.value
+    horaSaidaFDS: horaSaidaFDS.value,
+    unidade: unidade.value
    }  
 
   if(horaEntrada.value == "" || horaSaida.value == "" || horaEntradaFDS.value == "" || horaSaidaFDS.value == ""){
@@ -430,10 +433,12 @@ function handleImprimir() {
     , recomendamos fazer inalação com vapor de água quente ou
     vaporização com soro fisiológico para estimular a secreção </p>`;
   }
+
+  //Material pendente
   if (materialPD.checked) {
     const resMaterialPD = document.querySelector(".resMaterialPD");
     const setHorario = JSON.parse(localStorage.getItem("horarios"))
-    
+
     if (setHorario != null || setHorario != undefined) {
       resMaterialPD.innerHTML = `
         <div class="matPD">
@@ -441,8 +446,8 @@ function handleImprimir() {
         <p><i class='bx bxs-printer'></i> - Retirar a senha de <strong>Material Pendente</strong> ao chegar no laboratório para
         agilizar o seu atendimento.</p>
         <p><strong>Obs:</strong> Senha exclusiva para exames já cadastrados anteriormente.</p>
-        <p>- <strong>Horário de coleta: </strong>De <strong>${setHorario.horaEntrada}</strong> às <strong>${setHorario.horaSaida}</strong>
-         - <strong>Sábado:</strong> De <strong>${setHorario.horaEntradaFDS}</strong> às <strong>${setHorario.horaSaidaFDS}</strong></p>
+        <p>- <strong>Horário de coleta (${setHorario.unidade}): </strong>De <strong>${setHorario.horaEntrada}h</strong> às <strong>${setHorario.horaSaida}h</strong>
+         - <strong>Sábado:</strong> De <strong>${setHorario.horaEntradaFDS}h</strong> às <strong>${setHorario.horaSaidaFDS}h</strong></p>
         </div> 
      `
     } else {
