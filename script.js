@@ -164,7 +164,6 @@ function removeItem(i) {
 loadItens();
 
 // ------ Configurações (dentro do menu)
-
 const horaEntrada = document.querySelector(".inputHoraEntrada")
 const horaSaida = document.querySelector(".inputhoraSaida")
 const horaEntradaFDS = document.querySelector(".inputHoraEntradaFDS")
