@@ -8,6 +8,8 @@ function authentication() {
 }
 authentication();
 
+
+//Checkbox
 const horasJejum = document.getElementsByName("jj");
 const btn = document.querySelector(".btn-imprimir");
 const cort = document.querySelector(".cortisol");
@@ -164,31 +166,35 @@ function removeItem(i) {
 loadItens();
 
 // ------ Configurações (dentro do menu)
-const horaEntrada = document.querySelector(".inputHoraEntrada")
-const horaSaida = document.querySelector(".inputhoraSaida")
-const horaEntradaFDS = document.querySelector(".inputHoraEntradaFDS")
-const horaSaidaFDS = document.querySelector(".inputhoraSaidaFDS")
-const unidade = document.querySelector(".inputUnidade")
-const btnConfigHora = document.querySelector(".btnConfig") 
+const horaEntrada = document.querySelector(".inputHoraEntrada");
+const horaSaida = document.querySelector(".inputhoraSaida");
+const horaEntradaFDS = document.querySelector(".inputHoraEntradaFDS");
+const horaSaidaFDS = document.querySelector(".inputhoraSaidaFDS");
+const unidade = document.querySelector(".inputUnidade");
+const btnConfigHora = document.querySelector(".btnConfig");
 
 function saveHours() {
-  const horarios =  {
+  const horarios = {
     horaEntrada: horaEntrada.value,
     horaSaida: horaSaida.value,
     horaEntradaFDS: horaEntradaFDS.value,
     horaSaidaFDS: horaSaidaFDS.value,
-    unidade: unidade.value
-   }  
+    unidade: unidade.value,
+  };
 
-  if(horaEntrada.value == "" || horaSaida.value == "" || horaEntradaFDS.value == "" || horaSaidaFDS.value == ""){
-    window.alert("Preencha todos os campos por favor no formato 00:00")
+  if (
+    horaEntrada.value == "" ||
+    horaSaida.value == "" ||
+    horaEntradaFDS.value == "" ||
+    horaSaidaFDS.value == ""
+  ) {
+    window.alert("Preencha todos os campos por favor no formato 00:00");
   } else {
-    localStorage.setItem("horarios", JSON.stringify(horarios))
-    window.alert("Horário atualizado com sucesso!")
+    localStorage.setItem("horarios", JSON.stringify(horarios));
+    window.alert("Horário atualizado com sucesso!");
   }
-
 }
-btnConfigHora.addEventListener("click", saveHours)
+btnConfigHora.addEventListener("click", saveHours);
 
 /* ----------------- evento de click "imprimir" --------- */
 
@@ -258,13 +264,22 @@ function handleImprimir() {
   }
 
   //--------- PREPAROS ESPECIAIS --------
-  if (cort.checked) {
+  if(cort.checked && materialPD.checked) {
     resultadoCortisol.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol</strong> - Chegar ao laboratório no máximo
      <strong>até às 7:20 horas.</strong></p>
      <p>- Realizar o repouso obrigatório antes do exame.</p>
      <p>- Realizar a coleta às 8:00 horas. </p>
      `;
-  }
+  } else if(cort.checked) {
+    resultadoCortisol.innerHTML = ''
+    resultadoCortisol.innerHTML += `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol</strong> - Chegar ao laboratório no máximo
+     <strong>até às 7:20 horas.</strong></p>
+     <p>- Realizar o repouso obrigatório antes do exame.</p>
+     <p>- Realizar a coleta às 8:00 horas. </p>
+     <p>- <strong>Obs: </strong>Retirar a senha de <strong>Cortisol</strong> 
+     ao chegar no laboratório.</p>
+    `
+  } 
 
   if (cortS.checked) {
     const resultadoCortisolS = document.querySelector(".resultadoCortisolS");
@@ -436,7 +451,7 @@ function handleImprimir() {
   //Material pendente
   if (materialPD.checked) {
     const resMaterialPD = document.querySelector(".resMaterialPD");
-    const setHorario = JSON.parse(localStorage.getItem("horarios"))
+    const setHorario = JSON.parse(localStorage.getItem("horarios"));
 
     if (setHorario != null || setHorario != undefined) {
       resMaterialPD.innerHTML = `
@@ -448,30 +463,20 @@ function handleImprimir() {
         <p>- <strong>Horário de coleta (${setHorario.unidade}): </strong>De <strong>${setHorario.horaEntrada}h</strong> às <strong>${setHorario.horaSaida}h</strong>
          - <strong>Sábado:</strong> De <strong>${setHorario.horaEntradaFDS}h</strong> às <strong>${setHorario.horaSaidaFDS}h</strong></p>
         </div> 
-     `
+     `;
+
     } else {
       resMaterialPD.innerHTML = `
         <div class="matPD">
         <p><i class='bx bxs-hourglass'></i> - <strong>Exame Pendente </strong> </p>
         <p><i class='bx bxs-printer'></i> - Retirar a senha de <strong>Material Pendente</strong> ao chegar no laboratório para
         agilizar o seu atendimento.</p>
-        <p><strong>Obs:</strong> Senha exclusiva para exames já cadastrados anteriormente.</p>`     
+        <p><strong>Obs:</strong> Senha exclusiva para exames já cadastrados anteriormente.</p>`;
     }
-    
   }
   if (marcacaoSUS.checked) {
     const resMarcaSUS = document.querySelector(".resMarcaSUS");
     resMarcaSUS.classList.add("activeSUS");
-  }
-
-  if (senhaCort.checked && resultadoCortisol.innerHTML != "") {
-    resultadoCortisol.innerHTML += `<p>- <strong>Obs: </strong>Retirar a senha de <strong>Cortisol</strong> 
-    ao chegar no laboratório.</p>`;
-  } else if (!cort.checked && senhaCort.checked) {
-    alert(
-      'Atenção!! Você esqueceu de selecionar o campo de "Cortisol", refaça a operação.'
-    );
-    document.location.reload();
   }
 
   if (curvaGlicemica.checked) {

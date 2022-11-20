@@ -29,11 +29,73 @@
     height: 80px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
   .sub-title h2 {
     font-size: 1.2rem;
     margin-left: 2rem;
   }
+  
+  /*.searchExame {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    width: 400px;
+    height: 80px;
+  }
+  .exameSelecao {
+    display: flex;
+    align-items: center;
+    max-height: 80px;
+  }
+  .exameSelecao input {
+    display: inline-block;
+    height: 26px;
+    width: 100px;
+    margin: 0 .5rem;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    padding-left: 4px;
+    box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, .2);
+  }
+  .exameSelecao input:hover {
+    color: black;
+  }
+  .exameSelecao button {
+    padding: 6px;
+    border: none;
+    background-color: teal;
+    color: white;
+    border-radius: 6px;
+    box-shadow: 1px 1px 4px 1px rgba(105, 105, 105, 0.2);
+  }
+
+  .resultadosExames {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.5rem;
+    padding-bottom: .5rem;
+    z-index: 1;
+    background:rgba(58, 140, 124, 1);
+  }
+  .resultadosExames h4 {
+    padding-bottom: 6px;
+    padding-top: 6px;
+  }
+  .resultadosExames li {
+    display: flex;
+    padding-bottom: 4px;
+    list-style:decimal;
+  }
+  .codeNome {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+  .resultadosExames button {
+    position: absolute;
+    right: 0;
+  }*/
+
 
   @media (min-width: 1400px) {
     .header {
