@@ -197,7 +197,6 @@ function saveHours() {
 btnConfigHora.addEventListener("click", saveHours);
 
 /* ----------------- evento de click "imprimir" --------- */
-
 function handleImprimir() {
   const radios = Array.from(
     document.querySelectorAll('input[type="radio"]:checked')
