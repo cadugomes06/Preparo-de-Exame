@@ -87,18 +87,7 @@
 }
 .resMarcaSUS ul li {
   font-size: .8rem;
-}
-
-
-.senhaCort label {
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-}
-
-.senhaCort input {
-  width: 13px;
-  height: 13px;
+  margin-bottom: 3px;
 }
 
 
