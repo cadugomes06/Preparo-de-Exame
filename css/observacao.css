@@ -90,4 +90,16 @@
   margin-bottom: 3px;
 }
 
+.lb-atzConvenios {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
 
+#convenios {
+  padding: 2px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -439,7 +439,7 @@ function handleImprimir() {
     <p>- Apoiar a tira de fita adesiva no fundo de um tubo de ensaio de vidro, com a parte adesiva para fora.<p/>
     <p>- Encostar delicadamente na região anal, realizando um movimento lateral com o tubo, de modo a atingir toda a região do ânus.</p>
     <p>- Colher 2 (duas) amostragens. Colar as fitas adesivas em lâminas e colocá-las em tubetes de transporte devidamente identificados.<p/>
-    <p>- - Enviar rapidamente ao laboratório. </p>`
+    <p>- Enviar rapidamente ao laboratório. </p>`
     ;
   }
   if (escarro.checked) {
@@ -455,6 +455,46 @@ function handleImprimir() {
     <p>Obs: No caso de haver dificuldade de obter o escarro por falta de secreção
     , recomendamos fazer inalação com vapor de água quente ou
     vaporização com soro fisiológico para estimular a secreção </p>`;
+  }
+
+  //Autorização prévia dos convênios
+  const convenioSelected = document.getElementById('convenios')
+  const resAtzConvenios = document.querySelector('.resAtzConvenios')
+
+  const valueConvenio = convenioSelected.options[convenioSelected.selectedIndex].value;
+  const nomeConvenio = convenioSelected.options[convenioSelected.selectedIndex].text;
+  if(valueConvenio === 'amil'){
+    resAtzConvenios.innerHTML = `<p>- <strong>${nomeConvenio}: </strong></p>
+    <p>- A autorização deve ser prévia.</p>
+    <p>- O exame deve ser cadastrado em uma guia separada.</p>
+    <p>- Junto com pedido médico deve vir um <strong>relatório médico</strong> com: 
+    <strong>histórico, quadro clínico, histórico genético familiar, peso, altura e 
+    descrição de anomalias existentes</strong>.</p>
+    <p>- Enviar toda documentação <strong>(pedido, relatório, carteirinha)</strong> para o e-mail do faturamento solicitando a autorização.</p>
+    <p>- E-mail: <strong>faturamento@hemolabes.com</strong> </p>
+    <p>- Assim que o convênio autorizar, o faturamento irá entrar em contato.</p>`
+  }
+  else if(valueConvenio === 'bradesco') {
+    resAtzConvenios.innerHTML = `<p>- <strong>${nomeConvenio}: </strong></p>
+    <p>- A autorização deve ser prévia.</p>
+    <p>- O exame deve ser cadastrado em uma guia separada.</p>
+    <p>- Junto com pedido médico deve vir um <strong>relatório médico</strong> com: 
+    <strong>histórico, quadro clínico, histórico genético familiar, peso, altura e 
+    descrição de anomalias existentes</strong>.</p>
+    <p>- Enviar toda documentação <strong>(pedido, relatório, carteirinha)</strong> para o e-mail do faturamento solicitando a autorização.</p>
+    <p>- E-mail: <strong>faturamento@hemolabes.com</strong> </p>
+    <p>- Assim que o convênio autorizar, o faturamento irá entrar em contato.</p>`
+  }
+  else if(valueConvenio === 'unimed') {
+    resAtzConvenios.innerHTML = `<p>- <strong>${nomeConvenio}: </strong></p>
+    <p>- A autorização deve ser prévia.</p>
+    <p>- O exame deve ser cadastrado em uma guia separada.</p>
+    <p>- Junto com pedido médico deve vir um <strong>relatório médico</strong> com: 
+    <strong>histórico, quadro clínico, histórico genético familiar, peso, altura e 
+    descrição de anomalias existentes</strong>.</p>
+    <p>- Fazer a autorização na administração da Unimed ou pelo portal do convênio(fale conosco).</p>
+    <p>- Apresentar o pedido médico e autorização no laboratório para realizar o exame.</p>
+    `
   }
 
   //Material pendente
