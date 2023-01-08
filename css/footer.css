@@ -2,12 +2,21 @@
 .footer-container {
     display: none;
     border-top: 1px solid rgb(182, 182, 182);
-    border-bottom: 1px dashed rgb(182, 182, 182);
+    border-bottom: 2px dashed rgb(182, 182, 182);
   }
   
   .footer-info {
     margin-top: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: normal;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .footer-info2 {
+    margin-top: 10px;
+    margin-bottom: 30px;
     color: black;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -37,5 +46,10 @@
   }
   .printShow {
     display: block;
+  }
+
+  .SecHorarioColeta {
+    display: flex;
+    gap: 32px;
   }
   

@@ -510,7 +510,7 @@
 
       <div class="preparos-adicionais sectionEspeciais">
         <label for="cort">
-          <i class="fa-solid fa-vial"></i> Cortisol
+          <i class="fa-solid fa-vial"></i> Cort
           <input
             type="checkbox"
             id="cort"
@@ -521,7 +521,7 @@
         </label>
 
         <label for="cortS">
-          <i class="fa-solid fa-vial"></i> Cortisol-Salivar
+          <i class="fa-solid fa-vial"></i> Corts
           <input
             type="checkbox"
             id="cortS"
@@ -531,8 +531,19 @@
           />
         </label>
 
+        <label for="tesls">
+          <i class="fa-solid fa-vial"></i> Tesls
+          <input
+            type="checkbox"
+            id="tesls"
+            name="preparoEsp"
+            class="tesls especiais"
+            value="tesls"
+          />
+        </label>
+
         <label for="ser">
-          <i class="fa-solid fa-vial"></i> Serotonina
+          <i class="fa-solid fa-vial"></i> Ser
           <input
             type="checkbox"
             id="ser"
@@ -551,7 +562,7 @@
         </label>
 
         <label for="glipp">
-          <i class="fa-solid fa-vial"></i> Glicose-pós-prandial <input
+          <i class="fa-solid fa-vial"></i> Glipp <input
             type="checkbox"
             id="glipp"
             name="preparoEsp"
@@ -571,7 +582,7 @@
         </label>      
 
         <label for="catec">
-          <i class="fa-solid fa-vial"></i> Catecolaminas <input
+          <i class="fa-solid fa-vial"></i> Catec <input
             type="checkbox"
             name="preparoEsp"
             id="catec"
@@ -607,6 +618,7 @@
 
       <div class="resultadoCortisol res-02"></div>
       <div class="resultadoCortisolS res-02"></div>
+      <div class="resultadoTesls res-02"></div>
       <div class="resultadoSerotonina res-02"></div>
       <div class="resultadoPsa res-02"></div>
       <div class="resultadoEsp res-02"></div>
@@ -690,6 +702,17 @@
           />
         </label>
 
+        <label for="poxi">
+          <i class="fa-solid fa-vial-virus"></i> Oxiúrus
+          <input
+            type="checkbox"
+            id="poxi"
+            name="materiais"
+            class="poxi materiaisOff"
+            value="poxi"
+          />
+        </label>
+
         <label for="escarro">
           <i class="fa-solid fa-vial-virus"></i> Escarro
           <input
@@ -708,6 +731,7 @@
         <div class="resultadoEasCultura res"></div>
         <div class="resultadoEpf res"></div>
         <div class="resultadoMif res"></div>
+        <div class="resultadoPoxi res"></div>
         <div class="resultadoEscarro res"></div>
         <div class="resultadoUri24 res"></div>
       </div>
@@ -731,9 +755,18 @@
           <input type="checkbox"  class="marcacaoSUS" id="marcaSUS" /> 
         </div>   
 
+        <form desabled>
+        <label>Solicitação de: </label>
+        <select name="convenios" id="convenios">
+          <option selected="" disabled>FTVL|MTHFR</option>
+          <option value="bradesco" desabled>Bradesco</option>
+          <option value="amil" desabled>Amil</option>
+          <option value="unimed" desabled>Unimed</option>
+        </select>
+      </form>
       </div>
 
-
+    <div class="resAtzConvenios res"></div>
     <div class="resMaterialPD res"></div>
 
     <div class="resMarcaSUS ">
@@ -792,8 +825,23 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="footer-container">
-      <div class="footer-info">
+    <footer class="footer-container">      
+      <div class="footer-info SecHorarioColeta">
+        <div class="contatos-title footerHorarioColetaTxt">
+          <h5></h5>
+        </div>
+
+        <div class="lista-contatos">
+          <li><i class='footerColetaHorario'></i></li>      
+        </div>
+
+        <div class="lista-contatos">
+          <li><i class='footerColetaHorarioFds'></i></li> 
+        </div>
+
+      </div>
+
+      <div class="footer-info2">
         <div class="contatos-title">
           <h5>Contatos:</h5>
         </div>
@@ -802,13 +850,12 @@
           <li><i class='bx bxs-phone-call'></i> (22)2762-5213</li> 
         </div>
         <div class="lista-contatos">
-          <li><i class='bx bxs-phone-call'></i>  (22)2772-0050 </li>
+          <li><i class='bx bxs-phone-call'></i> (22)2772-0050 </li>
         </div>
 
-        <div class="grid-wpp"><span><i class='bx bxl-whatsapp' ></i> (22) 98851-7091</span></div>
-        <div class="grid-site"><span><i class='bx bx-link'></i> www.hemolabes.com</span></div> 
-
-      </div>      
+        <div class="grid-wpp"><span><i class='bx bxl-whatsapp' ></i> (22) 98851-7091 </span></div>
+        <div class="grid-site"><span><i class='bx bx-link'></i> www.hemolabes.com </span></div> 
+      </div>  
     </footer>
 
     <script src="script.js">

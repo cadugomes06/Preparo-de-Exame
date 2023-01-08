@@ -15,6 +15,7 @@ const btn = document.querySelector(".btn-imprimir");
 const cort = document.querySelector(".cortisol");
 const resultadoCortisol = document.querySelector(".resultadoCortisol");
 const cortS = document.querySelector(".cortisolS");
+const tesls = document.querySelector(".tesls");
 const serotonina = document.querySelector(".serotonina");
 const psa = document.querySelector(".psa");
 const eas = document.querySelector(".eas");
@@ -22,6 +23,7 @@ const easInfantil = document.querySelector(".easInfantil");
 const easCultura = document.querySelector(".easCultura");
 const epf = document.querySelector(".epf");
 const mif = document.querySelector(".mif");
+const poxi = document.querySelector(".poxi");
 const escarro = document.querySelector(".escarro");
 const uri24 = document.querySelector(".uri24");
 const esp = document.querySelector(".esp");
@@ -279,7 +281,6 @@ function handleImprimir() {
      ao chegar no laboratório.</p>
     `
   } 
-
   if (cortS.checked) {
     const resultadoCortisolS = document.querySelector(".resultadoCortisolS");
     resultadoCortisolS.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol Salivar</strong> - A coleta
@@ -288,6 +289,13 @@ function handleImprimir() {
     <p>- Não pode fazer tratamento dentário nas 24 horas que antecedem ao exame.</p>
     <p>- Antes da coleta, é necessário ficar três horas sem escovar os dentes.</p>
     <p>- É necessário informar todos os medicamentos em uso.</p>
+    <p><strong>- Obs: Coletar na Matriz - Rua Conde de Araruama n°365 - Centro </strong>`;
+  }
+  if (tesls.checked) {
+    const resultadoTesls = document.querySelector(".resultadoTesls");
+    resultadoTesls.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong> Testosterona Salivar</strong>
+    <p>- Suspender medicamentos de uso oral, transdérmico ou injetável a critério clínico.</p>
+    <p>- Realizar a coleta antes de escovar os dentes, comer ou beber;.</p>
     <p><strong>- Obs: Coletar na Matriz - Rua Conde de Araruama n°365 - Centro </strong>`;
   }
 
@@ -423,14 +431,16 @@ function handleImprimir() {
     ou manter refrigerada e entregar em até 24 horas.<p/>`;
   }
 
-  if (mif.checked) {
-    const resultadoMif = document.querySelector(".resultadoMif");
-    resultadoMif.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>MIF</strong>- Colher 3 amostras de fezes, no prazo
-    máximo de 10 dias, alternando entre os dias.</p>
-    <p>- Coletar uma pequena quantidade de fezes a cada dia, colocando
-    3 amostras juntas num mesmo recipiente.<p/>
-    <p>- Evitar coletar em dias seguidos.</p>
-    <p>- Não é necessário refrigerar.<p/>`;
+  if (poxi.checked) {
+    const resultadoPoxi = document.querySelector(".resultadoPoxi");
+    resultadoPoxi.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong> Oxiúrus </strong>- Fazer coleta pela manhã antes 
+    do cliente defecar ou tomar banho (não fazer assepsia). Não usar nenhum
+    medicamento no local.</p>
+    <p>- Apoiar a tira de fita adesiva no fundo de um tubo de ensaio de vidro, com a parte adesiva para fora.<p/>
+    <p>- Encostar delicadamente na região anal, realizando um movimento lateral com o tubo, de modo a atingir toda a região do ânus.</p>
+    <p>- Colher 2 (duas) amostragens. Colar as fitas adesivas em lâminas e colocá-las em tubetes de transporte devidamente identificados.<p/>
+    <p>- - Enviar rapidamente ao laboratório. </p>`
+    ;
   }
   if (escarro.checked) {
     const resultadoEscarro = document.querySelector(".resultadoEscarro");
@@ -505,13 +515,14 @@ function setValueCurva() {
   <p><strong>Obs: </strong>O repouso entre as coletas deverá ser realizada no laboratório.</p>
   `;
   modal.classList.remove("ativo");
-  removeFromScreen();
-  showFromScreen();
-  window.print();
-  document.location.reload();
+   removeFromScreen();
+   showFromScreen();
+   window.print();
+   document.location.reload();
 }
 const btnConfirmar = document.querySelector(".modalConfirmar");
 btnConfirmar.addEventListener("click", setValueCurva);
+
 
 /* ---------- Adicionar na tela -------------- */
 const resultados = document.querySelectorAll(".lista-materiais");
@@ -519,12 +530,29 @@ function showFromScreen() {
   const footer = document.querySelector(".footer-container");
   footer.classList.add("printShow");
 
+  const horario = JSON.parse(localStorage.getItem("horarios"));
+  const footerHorarioColetaTxt = document.querySelector('.footerHorarioColetaTxt')
+  const footerColetaHorario = document.querySelector('.footerColetaHorario')
+  const footerColetaHorarioFds = document.querySelector('.footerColetaHorarioFds')
+  if (materialPD.checked || dna.checked || toxicologico.checked || esp.checked) {
+    footerHorarioColetaTxt.innerHTML = '';
+    footerColetaHorario.innerHTML = '';
+    footerColetaHorarioFds.innerHTML = '';
+  }
+  else if(horario) {
+    footerHorarioColetaTxt.innerHTML = `<h5>Horário de coleta <strong>(${horario.unidade})</strong></h5>`;
+    footerColetaHorario.innerHTML = `<h4>Segunda a Sexta de ${horario.horaEntrada}h as 
+    ${horario.horaSaida}h </h4>`
+    footerColetaHorarioFds.innerHTML = `<h4>Sábado de ${horario.horaEntradaFDS}h as 
+    ${horario.horaSaidaFDS}h </h4>`
+  }
+
   resultados.forEach((res) => {
     res.classList.toggle("SectionOn");
   });
 }
 
-/* removendo da tela ao imprimir */
+/* --------- removendo da tela ao imprimir ------------*/
 function removeFromScreen() {
   btnLogout.classList.add("printHide");
 
