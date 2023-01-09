@@ -426,9 +426,21 @@ function handleImprimir() {
 
   if (epf.checked) {
     const resultadoEpf = document.querySelector(".resultadoEpf");
-    resultadoEpf.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>Parasitológico(EPF)</strong> - Coletar uma pequena quantidade de fezes.<p/>
+    resultadoEpf.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>Parasitológico (EPF)</strong> - Coletar uma pequena quantidade de fezes.<p/>
     <p>- Entregar ao laboratório em até 3 horas em temperatura ambiente
     ou manter refrigerada e entregar em até 24 horas.<p/>`;
+  }
+
+  if (mif.checked) {
+    const resultadoMif = document.querySelector(".resultadoMif");
+    resultadoMif.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i><strong> Parasitológico (MIF) </strong>- Pegar recipiente
+    próprio no laboratório.</p>
+    <p>- Colher <strong>3 amostrar</strong> de fezes em dias alternados, no prazo máximo de 10 dias.<p/>
+    <p>- Coletar uma pequena quantidade a cada dias, colocando as 3 amostras
+    juntas num mesmo recipiente.</p>
+    <p>- <strong>Não coletar</strong> em dias seguidos.<p/>
+    <p>- Não é necessário refrigerar.</p>`
+    ;
   }
 
   if (poxi.checked) {
@@ -442,6 +454,7 @@ function handleImprimir() {
     <p>- Enviar rapidamente ao laboratório. </p>`
     ;
   }
+
   if (escarro.checked) {
     const resultadoEscarro = document.querySelector(".resultadoEscarro");
     resultadoEscarro.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong>Escarro</strong> - Pela manhã, imediatamente após acordar
