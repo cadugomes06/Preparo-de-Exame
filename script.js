@@ -31,6 +31,7 @@ const dna = document.querySelector(".dna");
 const toxicologico = document.querySelector(".toxicologico");
 const glipp = document.querySelector(".glipp");
 const curvaGlicemica = document.querySelector(".curvaGli");
+const exameSalivar = document.querySelector(".exameSalivar");
 const catec = document.querySelector(".catec");
 const btnShowSection = document.querySelectorAll(".btnShowSection");
 const sessaoJejum = document.querySelector(".sec-jejum");
@@ -281,23 +282,6 @@ function handleImprimir() {
      ao chegar no laboratório.</p>
     `
   } 
-  if (cortS.checked) {
-    const resultadoCortisolS = document.querySelector(".resultadoCortisolS");
-    resultadoCortisolS.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol Salivar</strong> - A coleta
-    deve ser feita até duas horas após o horário habitual do paciente acordar ou conforme solicitação médica.</p>
-    <p>- Não há necessidade de jejum após dieta leve.</p>
-    <p>- Não pode fazer tratamento dentário nas 24 horas que antecedem ao exame.</p>
-    <p>- Antes da coleta, é necessário ficar três horas sem escovar os dentes.</p>
-    <p>- É necessário informar todos os medicamentos em uso.</p>
-    <p><strong>- Obs: Coletar na Matriz - Rua Conde de Araruama n°365 - Centro </strong>`;
-  }
-  if (tesls.checked) {
-    const resultadoTesls = document.querySelector(".resultadoTesls");
-    resultadoTesls.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong> Testosterona Salivar</strong>
-    <p>- Suspender medicamentos de uso oral, transdérmico ou injetável a critério clínico.</p>
-    <p>- Realizar a coleta antes de escovar os dentes, comer ou beber;.</p>
-    <p><strong>- Obs: Coletar na Matriz - Rua Conde de Araruama n°365 - Centro </strong>`;
-  }
 
   if (serotonina.checked) {
     const resultadoSerotonina = document.querySelector(".resultadoSerotonina");
@@ -543,7 +527,16 @@ function handleImprimir() {
 
   if (curvaGlicemica.checked) {
     ativandoModal();
-  } else {
+  } else if(!exameSalivar.checked){
+    removeFromScreen();
+    showFromScreen();
+    window.print();
+    document.location.reload();
+  }
+
+  if(exameSalivar.checked) {
+    ativandoModalSalivares();
+  } else if(!curvaGlicemica.checked) {
     removeFromScreen();
     showFromScreen();
     window.print();
@@ -553,7 +546,7 @@ function handleImprimir() {
 
 //Modal
 function ativandoModal() {
-  const modal = document.querySelector(".modal");
+  const modal = document.querySelector(".modalCurvaGli");
   modal.classList.add("ativo");
 }
 function setValueCurva() {
@@ -564,7 +557,7 @@ function setValueCurva() {
   resultadoCurvaGli.innerHTML = `    
   <p><i class="fa-solid fa-vial"></i> <strong> Curva Glicêmica (${tempo.value} horas)</strong></p>
   <p><i class='bx bxs-time'></i> Será necessário <strong>permanecer ${tempo.value} horas no laboratório</strong> para a realização do exame. </p>
-  <p>- Após a primeira coleta, o paciente irá ingerir ${quantidade.value}mg de dextrosol e aguardar a próxima coleta no horário indicado pelo médico.</p>
+  <p>- Após a primeira coleta, o paciente irá ingerir <strong>${quantidade.value}mg</strong> de dextrosol e aguardar a próxima coleta no horário indicado pelo médico.</p>
   <p><strong>Obs: </strong>O repouso entre as coletas deverá ser realizada no laboratório.</p>
   `;
   modal.classList.remove("ativo");
@@ -575,6 +568,54 @@ function setValueCurva() {
 }
 const btnConfirmar = document.querySelector(".modalConfirmar");
 btnConfirmar.addEventListener("click", setValueCurva);
+
+
+// -------- Modal Exames salivares
+function ativandoModalSalivares() {
+  const modalSalivares = document.querySelector(".modalSalivares");
+  modalSalivares.classList.add("ativo");
+}
+function setValueExameSalivar() {
+  const cortisolSalivar = document.getElementById('cortisolSalivar')
+  const testosteronaSalivar = document.getElementById('testosteronaSalivar')
+  const igaSalivar = document.getElementById('igaSalivar')
+  const modalSalivares = document.querySelector(".modalSalivares");
+  const resultadoCortisolS = document.querySelector('.resultadoCortisolS')
+  const resultadoTesls = document.querySelector('.resultadoTesls')
+  const resultadoIgaSalivar = document.querySelector('.resultadoIgaSalivar')
+  if (cortisolSalivar.checked) {
+    resultadoCortisolS.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong>Cortisol Salivar</strong> - A coleta
+    deve ser feita até duas horas após o horário habitual do paciente acordar ou conforme solicitação médica.</p>
+    <p>- Não há necessidade de jejum após dieta leve.</p>
+    <p>- Não pode fazer tratamento dentário nas 24 horas que antecedem ao exame.</p>
+    <p>- Antes da coleta, é necessário ficar três horas sem escovar os dentes.</p>
+    <p>- É necessário informar todos os medicamentos em uso.</p>
+    <p><strong>- Obs: Coletar na Matriz - Rua Conde de Araruama n°365 - Centro </strong>`
+    modalSalivares.classList.remove('ativo');
+  } 
+  if (testosteronaSalivar.checked) {
+    console.log('testl')
+    resultadoTesls.innerHTML = `<p> <i class="fa-solid fa-vial"></i> <strong> Testosterona Salivar</strong>
+    <p>- Suspender medicamentos de uso oral, transdérmico ou injetável a critério clínico.</p>
+    <p>- Realizar a coleta antes de escovar os dentes, comer ou beber;.</p>
+    <p><strong>- Obs: Coletar na Matriz - Rua Conde de Araruama n°365 - Centro </strong>`
+    modalSalivares.classList.remove('ativo');
+  } 
+  if (igaSalivar.checked) {
+    resultadoIgaSalivar.innerHTML = ``
+    modalSalivares.classList.remove('ativo');
+  }
+   if (curvaGlicemica.checked) {
+    ativandoModal()
+  } else {
+   removeFromScreen();
+   showFromScreen();
+   window.print();
+   document.location.reload();
+  }
+}
+const btnConfirmarSalivar = document.querySelector(".modalConfirmarSalivares");
+btnConfirmarSalivar.addEventListener("click", setValueExameSalivar);
 
 
 /* ---------- Adicionar na tela -------------- */

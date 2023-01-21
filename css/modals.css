@@ -81,3 +81,57 @@
     box-shadow: 2px 2px 4px 0 rgba(0, 12, 15, 0.6);
     cursor: pointer;
 }
+
+
+
+.modalSalivares {
+    display: none;
+    position: fixed;
+    z-index: 500;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.96);
+    color: black;
+}
+.modalSalivares.ativo {
+    display: block;
+}
+
+.containerSalivares {
+    background: rgb(64, 209, 183);
+    margin: 15% auto; 
+    padding: 20px;   
+    border-radius: 6px;
+    width: 50%;
+}
+.containerSalivares h3 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.eachExameSalivar {
+    display: flex;
+}
+.eachExameSalivar label {
+    color: black;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.eachExameSalivar input{
+    position: relative;
+    top: -7px;
+}
+.modalConfirmarSalivares {
+    padding: 5px 10px;
+    margin: 20px 0 0 0;
+    color: white;
+    background: teal;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px 0 rgba(0, 12, 15, 0.6);
+    cursor: pointer;
+}

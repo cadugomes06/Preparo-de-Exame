@@ -89,8 +89,6 @@
           <li><a href="./termos/marcação-sus.pdf" target="_blank">Marcação do SUS</a></li>
           <li><a href="./termos/contatos-hemolabes.pdf" target="_blank">Contatos Hemolabes</a></li>
           <li><a href="./termos/termo-exame-particular.pdf" target="_blank">Exame particular</a></li>
-          <li><a href="./termos/cadastroManual.pdf" target="_blank">Cadastro Manual</a></li>
-          <li><a href="./termos/usarMascara.pdf" target="_blank"><span style="color: red;">(temporário) </span>Uso de Máscara</a></li>
         </ul>
         </div>
          
@@ -509,6 +507,17 @@
       </h4>
 
       <div class="preparos-adicionais sectionEspeciais">
+
+        <label for="exameSalivar">
+          <i class="fa-sharp fa-solid fa-flask-vial"></i> Exames salivares <input
+          type="checkbox"
+          id="exameSalivar"
+          name="preparoEsp"
+          value="examesSalivares"
+          class="exameSalivar especiais"
+          />
+        </label>      
+
         <label for="cort">
           <i class="fa-solid fa-vial"></i> Cort
           <input
@@ -517,28 +526,6 @@
             name="preparoEsp"
             class="cortisol especiais"
             value="cortisol"
-          />
-        </label>
-
-        <label for="cortS">
-          <i class="fa-solid fa-vial"></i> Corts
-          <input
-            type="checkbox"
-            id="cortS"
-            name="preparoEsp"
-            class="cortisolS especiais"
-            value="cortisolS"
-          />
-        </label>
-
-        <label for="tesls">
-          <i class="fa-solid fa-vial"></i> Tesls
-          <input
-            type="checkbox"
-            id="tesls"
-            name="preparoEsp"
-            class="tesls especiais"
-            value="tesls"
           />
         </label>
 
@@ -619,6 +606,7 @@
       <div class="resultadoCortisol res-02"></div>
       <div class="resultadoCortisolS res-02"></div>
       <div class="resultadoTesls res-02"></div>
+      <div class="resultadoIgaSalivar res-02"></div>
       <div class="resultadoSerotonina res-02"></div>
       <div class="resultadoPsa res-02"></div>
       <div class="resultadoEsp res-02"></div>
@@ -626,6 +614,7 @@
       <div class="resultadoToxicologico res-02"></div>
       <div class="resultadoGlipp res-02"></div>
       <div class="resultadoCurvaGli res-02"></div>
+      <div class="resultadoSalivares res-02"></div>
       <div class="resultadoCatec res-02"></div>
     </div>
 
@@ -806,8 +795,8 @@
     </div>
     </main>
 
-    <!-- Modal-->
-    <div class="modal">
+    <!-- Modal Curva glicêmica-->
+    <div class="modal modalCurvaGli">
       <div class="container">
       <h4>Marque as opções conforme o pedido médico ou orientação do sistema.</h4>
 
@@ -824,10 +813,34 @@
       <input type="radio" name="dextrosol" value="75"  id="dextrosol75" class="dextrosol7"/>
     </div>
 
-    <button class="modalConfirmar">Confirmar</button>
-    
-     </div>
+    <button class="modalConfirmar">Confirmar</button>    
+  </div>
+ </div>
+
+<!-- Modal Salivar  -->
+    <div class="modalSalivares">
+      <div class="containerSalivares">
+      <h3> Selecione o exame salivar desejado.</h3>
+
+      <div class="eachExameSalivar">
+        <label for="cortisolSalivar"> Cortisol Salivar </label>
+        <input type="checkbox" id="cortisolSalivar" class="checkCorts">
+      </div>
+
+    <div class="eachExameSalivar">
+      <label for="testosteronaSalivar"> Testosterona Salivar </label>
+      <input type="checkbox" id="testosteronaSalivar"  class="checkTesls">
     </div>
+
+    <div class="eachExameSalivar">
+      <label for="igaSalivar"> IGA Salivar </label>
+      <input type="checkbox" id="igaSalivar"  class="checkIgmSalivar" disabled>
+    </div>
+
+    <button class="modalConfirmarSalivares">Confirmar</button>  
+    </div>
+    </div>
+
 
     <!-- FOOTER -->
     <footer class="footer-container">      
