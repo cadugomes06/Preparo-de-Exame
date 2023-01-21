@@ -608,6 +608,7 @@ function setValueExameSalivar() {
    if (curvaGlicemica.checked) {
     ativandoModal()
   } else {
+   modalSalivares.classList.remove('ativo');
    removeFromScreen();
    showFromScreen();
    window.print();
@@ -628,7 +629,7 @@ function showFromScreen() {
   const footerHorarioColetaTxt = document.querySelector('.footerHorarioColetaTxt')
   const footerColetaHorario = document.querySelector('.footerColetaHorario')
   const footerColetaHorarioFds = document.querySelector('.footerColetaHorarioFds')
-  if (materialPD.checked || dna.checked || toxicologico.checked || esp.checked) {
+  if (materialPD.checked || dna.checked || toxicologico.checked || esp.checked || exameSalivar.checked) {
     footerHorarioColetaTxt.innerHTML = '';
     footerColetaHorario.innerHTML = '';
     footerColetaHorarioFds.innerHTML = '';
