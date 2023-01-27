@@ -602,7 +602,11 @@ function setValueExameSalivar() {
     modalSalivares.classList.remove('ativo');
   } 
   if (igaSalivar.checked) {
-    resultadoIgaSalivar.innerHTML = ``
+    resultadoIgaSalivar.innerHTML = `
+    <p> <i class="fa-solid fa-vial"></i> <strong> IGA Salivar</strong>
+    <p>- Suspender medicamentos de uso oral, transdérmico ou injetável a critério clínico.</p>
+    <p>- Realizar a coleta antes de escovar os dentes, comer ou beber;.</p>
+    <p><strong>- Obs: Coletar na Matriz - Rua Conde de Araruama n°365 - Centro </strong>`
     modalSalivares.classList.remove('ativo');
   }
    if (curvaGlicemica.checked) {
