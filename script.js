@@ -376,7 +376,7 @@ function handleImprimir() {
   if (eas.checked) {
     const resultadoEas = document.querySelector(".resultadoEas");
     resultadoEas.innerHTML = `<p><i class="fa-solid fa-vial-virus"></i> <strong> Rotina de Urina (EAS) </strong> - Coletar uma amostra de urina.</p>
-    <p> - Usar sempre o recipiente estéril fornecido pelo laboratório e abrir
+    <p> - Usar sempre o recipiente estéril (fornecido pelo laboratório ou comprado em farmácia) e abrir
      apenas na hora da coleta.<p/>
      <p> - Lavar as mãos e região genital com água e sabão.<p/>
      <p> - Iniciar a micção, desprezando o primeiro jato de urina.</p>
