@@ -5,17 +5,17 @@
   }
   
   .preparos-adicionais.SectionOn {
-    height: 80px;
+    height: 5rem;
     visibility: initial;
     transition: 1s;
   }
   .sec-materiais.SectionOn {
-    height: 80px;
+    height: 5rem;
     visibility: initial;
     transition: 1s;
   }
   .observacao.SectionOn {
-    height: 80px;
+    height: 5rem;
     visibility: initial;
     transition: 1s;
   }

@@ -1,5 +1,5 @@
 .wrapper-btn {
-    height: 80px;
+    height: 5rem;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -9,7 +9,7 @@
   }
   
   .btn-imprimir {
-    padding: 12px 60px;
+    padding: 12px 3.75rem;
     color: rgb(4, 59, 52);
     text-transform: uppercase;
     font-weight: bold;
@@ -24,10 +24,10 @@
   
   @media (min-width: 1400px) {
     .wrapper-btn {
-      height: 100px;
+      height: 6.25rem;
       bottom: 0;
     }
     .btn-imprimir {
-      padding: 16px 80px;
+      padding: 1rem 5rem;
     }
   }
